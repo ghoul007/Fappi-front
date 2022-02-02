@@ -1,0 +1,6 @@
+<div *ngIf="icon" class="icon-code">
+  <mat-icon *ngIf="icon.code" [svgIcon]="icon.code" matTooltip="{{label}}"></mat-icon>
+  <mat-icon *ngIf="icon.nativeCode" matTooltip="{{label}}">{{icon.nativeCode}}</mat-icon>
+</div>
+<span *ngIf="internalValue && !icon" [matTooltip]="tooltip">{{label}}</span>
+

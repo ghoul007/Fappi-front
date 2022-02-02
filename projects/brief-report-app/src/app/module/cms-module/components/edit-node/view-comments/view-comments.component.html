@@ -1,0 +1,36 @@
+<h4 style="font-size: 14px">Commentaires
+  <mat-icon (click)="close.emit()">close</mat-icon>
+</h4>
+<div style="max-height: 82%;    overflow-y: scroll; overflow-x: hidden ">
+  <div>
+    <div *ngFor="let comment of comments" class="comment-line">
+
+      {{comment.content}}
+
+      <span class="author-date">par {{comment.author}} le {{comment.lastModified | date :'short':null: 'fr'}}</span>
+      <div *ngIf="currentLogin==comment.author" class="comment-action"><a (click)="edit(comment)">
+        <mat-icon>edit</mat-icon>
+      </a><a (click)="delete(comment)">
+        <mat-icon>delete</mat-icon>
+      </a></div>
+      <div *ngIf="currentLogin!=comment.author" class="comment-action">
+        <ng-container *fappiHasGroup="{orgId: orgId, groups :['admin']}" class="comment-action"><a (click)="delete(comment)">
+        <mat-icon>delete</mat-icon>
+      </a></ng-container>
+      </div>
+
+
+    </div>
+  </div>
+
+  <form #f="ngForm" (ngSubmit)="onSubmitComment(f)" novalidate>
+    <mat-form-field class="example-full-width">
+      <textarea #content="ngModel" matInput name="content" ngModel placeholder="Votre commentaire" required></textarea>
+    </mat-form-field>
+    <div *ngIf="f.valid" class="action-button">
+      <a (click)="onCancel(f)" color="warn" mat-button>Fermer</a>
+      <button color="primary" mat-raised-button>Soumettre</button>
+    </div>
+  </form>
+  <div *ngIf="loading" class="loading"></div>
+</div>

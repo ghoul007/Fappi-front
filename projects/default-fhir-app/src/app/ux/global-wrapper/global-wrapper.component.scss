@@ -1,0 +1,208 @@
+/*
+.btn-nav {
+  background: transparent;
+  border: none;
+
+  & span.material-icons {
+    line-height: 2
+  }
+}
+
+.logo-mobile {
+  display: block;
+  text-align: center;
+  box-shadow: #dcdcdc 4px 3px 14px;
+  padding-bottom: 45px;
+
+  & img {
+    margin: 25px;
+
+    &.img-fluid {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.menu-left {
+  width: 70%;
+}
+
+.logged-part {
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  z-index: 99;
+  margin-top: -37px;
+  margin-bottom: 8px;
+}
+
+.mobile-menu {
+  padding: 0;
+  //  color:#626262;
+  .li-link.hidden-lg {
+    display: contents;
+
+    &:hover {
+      //     color: #2d72a9;
+    }
+
+    & a:hover {
+      //    background: #e2ebf2;
+    }
+
+    & .material-icons {
+      display: none;
+    }
+  }
+
+  & h3 {
+    padding: 21px 0 0;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  & .icons-apps {
+    & .mat-icon {
+      display: block;
+    }
+
+    & .mat-grid-tile {
+      height: 50px;
+      position: relative;
+    }
+
+    & .mat-figure {
+      position: relative;
+
+    }
+  }
+}
+
+.myprofil, .logoutbutton {
+  position: absolute;
+  bottom: 2%;
+  right: 4%;
+  width: 45%;
+  min-height: 25px;
+
+  & .mat-icon {
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 5px;
+  }
+}
+
+.logoutbutton {
+  left: 4%;
+  right: 0;
+  border-right: #ecf2f0 solid 1px;
+}
+
+@media(max-width: 1024px) {
+  .mobile-menu {
+    .li-link.hidden-lg {
+      display: block;
+      border-bottom: #eaf3f2 solid 2px;
+
+      & .change-label {
+        padding-left: 40px;
+        font-size: 17px;
+        line-height: 41px;
+        font-weight: 500;
+
+        &:before {
+          content: "settings";
+          font-family: "Material Icons";
+          font-size: 22px;
+          padding-right: 16px;
+          vertical-align: middle;
+        }
+      }
+
+    }
+
+    & a {
+      font-size: 19px;
+      padding-left: 40px;
+
+      & .material-icons {
+        float: left;
+        vertical-align: middle;
+        line-height: 2;
+      }
+
+      &:hover {
+        //      background: #e2ebf2;
+        //       color: #2d72a9;
+      }
+    }
+
+    & a.mat-focus-indicator.mat-menu-item {
+      padding-left: 90px;
+      font-size: 15px;
+      position: relative;
+
+      &:before {
+        content: "arrow_right_alt";
+        font-size: 20px;
+        left: 68px;
+        position: absolute;
+        top: -1px;
+        font-family: "Material Icons";
+      }
+    }
+  }
+}
+*/
+
+/*.mat-sidenav-content{display: inline-block}*/
+.blue-bloc{
+  background: #e2ebf2;
+  min-height: 45vh;
+  width: 100%;
+  border-top:#e6ebf1 solid 1px
+}
+.expandCollapse button{
+  background: transparent;
+  border: none;
+}
+.all-wrap {
+  min-height: 100vh; // same height as browser window height
+}
+
+.page-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // same height as browser window height
+}
+
+.content {
+  flex: 1; // child will set to an equal size inside the container
+}
+main {
+
+  display: flex;
+  flex-direction: column;
+
+  // Select all direct descendants only of the <main> element
+  // that are not <router-outlet> elements:
+  > *:not(router-outlet) {
+
+    flex: 1; // child will set to an equal size inside the container
+    display: block;
+
+  }
+
+}
+
+/*.log-mb.logged-part .badge-nav-mobile .badge-m.mobile-b {
+    background: url("./dist/fappi-theming/src/lib/assets/scss/themes/img/avatar/avatar-ombre.png") top center no-repeat;
+    min-height: 77px;
+    !* background-size: 27%;*!
+    display: block;
+    margin-top: -70px;
+    padding-top: 94px;
+    position: relative;
+  }*/
+

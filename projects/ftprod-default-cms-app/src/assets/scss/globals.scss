@@ -1,0 +1,39 @@
+/*$app-bg-color: #03318C;
+$app-bg-color-2: #055BA6;
+$app-bg-color-3: #ACD1F2;
+$app-bg-color-4: #049DD9;
+$app-bg-color-5: #F2C6A0;
+*/
+
+.container-spaced {
+  margin: 20px 0px;
+  padding-bottom: 20px;
+}
+
+.title-node-folder mat-icon{float: left}
+.label-in-table-cell {
+  font-weight: bold;
+}
+
+.mat-drawer-content{border:solid grey 2px; display: block;overflow:revert !important;}
+.title-node-folder {
+  padding-top: 4px;
+  display: flex;
+  position: relative;
+/*  &:before{
+    content: '';
+    position: absolute;
+    left: -15px;
+    width: 10px;
+    height: 100vh;
+    background: blue;
+  }*/
+}
+.node-edit-toolbar a{
+  line-height: 26px;
+}
+.custom-s.mat-form-field-appearance-fill .mat-form-field-infix {
+  border: none !important;
+  padding: 0 0 11px !important;
+}
+

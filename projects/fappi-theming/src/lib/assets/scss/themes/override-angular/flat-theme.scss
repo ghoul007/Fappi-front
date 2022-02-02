@@ -1,0 +1,48 @@
+@mixin createFlatTheme($palete,$name) {
+  // Menu:
+.main-toolbar {
+   // background: mat-color($palete, A400);
+  color: mat-contrast($palete, 300) !important;
+    &.mat-primary a, &.mat-primary .zone-loggedas, &.mat-primary .zone-inorg {
+      font-weight: normal;
+     //
+    }
+
+
+    .top-menus a {
+      color: mat-contrast($palete, 300);
+      height: 100%;
+      display: inline-block;
+      font-weight: normal;
+      font-size: 19px;
+     // opacity: .4;
+
+      &.active {
+        opacity: 1;
+        color: mat-color($palete, A100);
+        border-bottom: solid 5px  mat-color($palete, A100);
+      }
+    }
+  }
+  .username-placeholder, .org-placeholder {
+    color: mat-color($palete, 200);
+  }
+
+  @media(max-width: 1400px){
+     .top-menus .main-menu-items .li-link a{font-size: 16px;padding:0 10px}
+  }
+
+}
+@media (max-width: 768px){
+  .top-menus .main-menu-items .li-link a {
+    font-size: 12px !important;
+    padding: 0 4px !important;
+  }
+  .logo{
+    max-width: 79px !important;
+    margin: 0 !important;
+}
+  .content-wrapper form{
+    width: 100%;
+  }
+}

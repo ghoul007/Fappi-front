@@ -1,0 +1,47 @@
+@mixin createLayout($palete,$name) {
+  .content-wrapper {
+   // padding: 40px;
+  }
+
+  .content-wrapper-mobile {
+    margin: 0px;
+    min-height: 80%;
+  }
+
+  .container-spaced {
+   // margin: 20px 0px;
+    padding-bottom: 20px;
+  }
+  .container-spaced-inner {
+  //  padding: 20px;
+  }
+
+
+  .label-in-table-cell {
+    font-weight: bold;
+  }
+
+
+  .breadcrumb {
+    cursor: pointer;
+    margin-top: 9px;
+    // padding-left: 27px;
+    & mat-icon {
+      vertical-align: bottom;
+      font-size: 23px;
+    }
+  }
+
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-container > * {
+    width: 100%;
+    //max-width: 500px;
+    align-self: center;
+  }
+
+}

@@ -1,0 +1,22 @@
+.badge {
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 2.3em;
+  text-align: center;
+  width: 2.3em;
+  font-size: 0.9em;
+}
+
+.badge.medium {
+  line-height: 2em;
+  width: 2em;
+}
+
+.badge.big {
+  line-height: 3em;
+  width: 3em;
+}

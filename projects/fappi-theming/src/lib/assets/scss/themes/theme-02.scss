@@ -1,0 +1,145 @@
+
+@import 'theme-creator';
+
+// material
+$md-mcgpalette-theme-02: (
+  50 : #ebf0f3,
+  100 : #ebf0f3,
+  200 : #00a1be,
+  300 : #2E3338,
+  400 : #2E3338, // toolbar and
+  500 : #2E3338,
+  600 : #2E3338,
+  700 : #ffffff,
+  800 : #00a1be,
+  900 : #2E3338,
+  A100 : #2e3339,
+  A200 : #00a1be,
+  A400 : #2e3339,
+  A700 : #0088ac,
+  contrast: (
+    50 : #717679,
+    100 : #717679,
+    200 : #767B7E,
+    300 : #767B7E,
+    400 : #767B7E,
+    500 : #767B7E,
+    600 : #767B7E,
+    700 : #767B7E,
+    800 : #767B7E,
+    900 : #767B7E,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+/// only fo buttons:
+$md-mcgpalette-theme-02-buttons: (
+  50 : #2E3338,
+  100 : #ebf0f3,
+  200 : #2E3337,
+  300 : #2E3336,
+  400 : #2E3335, // toolbar and
+  500 : #ff564f, // warn bg color
+  600 : #2E3333,
+  700 : #2E3332,
+  800 : #2E3331,
+  900 : #2E3330,
+  A100 : #2E3338,
+  A200 : #2E3338,
+  A400 : #2E3338,
+  A700 : #2E3338,
+  contrast: (
+    50 : #767B7E,
+    100 : #767B7E,
+    200 : #767B7E,
+    300 : #767B7E,
+    400 : #767B7E,
+    500 : #ffffff,
+    600 : #767B7E,
+    700 : #767B7E,
+    800 : #767B7E,
+    900 : #767B7E,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+
+$themeName: 'theme-02';
+@include createTheme($md-mcgpalette-theme-02, $themeName);
+
+body.theme-02 {
+
+  // variables (we have to rewrite the palete because sass doesnt replace values in css vars):
+  --color-50: #ebf0f3;
+  --color-100: #ebf0f3;
+  --color-200: #00a1be;
+  --color-300: #2E3338;
+  --color-400: #2E3338;
+  --color-500: #2E3338;
+  --color-600: #2E3338;
+  --color-700: #ffffff;
+  --color-800: #00a1be;
+  --color-900: #2E3338;
+  --color-A100: #2e3339;
+  --color-A200: #00a1be;
+  --color-A400: #2e3339;
+  --color-A700: #0088ac;
+  --contrast-50 : #717679,;
+  --contrast-100 : #717679,;
+  --contrast-200 : #767B7E,;
+  --contrast-300 : #767B7E,;
+  --contrast-400 : #767B7E,;
+  --contrast-500 : #767B7E,;
+  --contrast-600 : #767B7E,;
+  --contrast-700 : #767B7E,;
+  --contrast-800 : #767B7E,;
+  --contrast-900 : #767B7E,;
+  --contrast-A100 : #ffffff;
+  --contrast-A200 : #ffffff;
+  --contrast-A400 : #ffffff;
+  --contrast-A700 : #ffffff;
+
+  background: #eaf1f2   url("/front/assets/theme/scss/themes/img/fond.png") top center no-repeat;
+  & .mat-drawer-container {
+    background: transparent;
+    position: relative;
+  }
+  .content-wrapper {
+    background: white;
+  }
+
+  mat-toolbar {
+    --default-height: 100px;
+  }
+
+  mat-toolbar {
+    //    top: 0;
+    position: sticky;
+    height: var(--default-height);
+  }
+
+  h1 {
+    color: mat-color($md-mcgpalette-theme-02, A200);
+
+    & span {
+      color: mat-contrast($md-mcgpalette-theme-02, 200);
+    }
+  }
+
+
+  // in this theme, buttons accent are not in the original color. So we use a second palette :
+  $default-app-primary: mat-palette($md-mcgpalette-theme-02-buttons);
+  $default-app-accent: mat-palette($md-mcgpalette-theme-02-buttons, A200, A100, A400);
+  $default-app-warn: mat-palette($md-mcgpalette-theme-02-buttons);
+  $default-app-theme: mat-light-theme($default-app-primary, $default-app-accent, $default-app-warn);
+  @include mat-button-theme($default-app-theme);
+
+
+}
+

@@ -1,0 +1,35 @@
+<app-content-wrapper
+  [fullWidth]="false"
+  i18n-title="@@module.admin.process.add-title"
+  title="Add process" withIcon="true">
+  <form (ngSubmit)="onSubmitForm()" [formGroup]="createProcessForm">
+
+    <div class="main-form-container container-spaced">
+      <mat-form-field class="app-bg-primary-color-100 col-lg-12">
+        <input #name formControlName="name" i18n-placeholder="@@module.admin.process.field.name.placeholder" matInput
+               placeholder="Name"
+               required>
+      </mat-form-field>
+
+      <mat-form-field class="app-bg-primary-color-100  col-lg-12">
+        <input [slugOf]="name" formControlName="id" i18n-placeholder="@@module.admin.process.field.id.placeholder"
+               matInput placeholder="Id"
+               required>
+      </mat-form-field>
+
+      <mat-form-field class="app-bg-primary-color-100  col-lg-12">
+        <textarea formControlName="contentXml" i18n-placeholder="@@module.admin.process.field.name.contentXml" matInput
+                  placeholder="Bpmn xml"
+                  required></textarea>
+      </mat-form-field>
+
+
+      <div class="action-button">
+        <button (click)="back()" class="mat-stroked-button" i18n="@@module.admin.process.cancel" mat-button>Cancel</button>
+        <button color="accent" i18n="@@module.admin.process.add" mat-raised-button type="submit">Add</button>
+      </div>
+
+    </div>
+  </form>
+
+</app-content-wrapper>

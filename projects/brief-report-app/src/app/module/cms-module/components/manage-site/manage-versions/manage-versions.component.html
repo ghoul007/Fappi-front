@@ -1,0 +1,39 @@
+<div class="content-wrapper">
+<ng-container *ngIf="slug && orgId">
+<h2>Versions :</h2>
+<div role="actions">
+
+</div>
+
+<div >
+  <div class="action-button-bar topbar">
+    <button (click)="openCreateVersion()" color="accent"  i18n="@@ux.fappi-ng-cms.ux.action.createVersion" mat-button>Create a version</button>
+  </div>
+  <table [dataSource]="dataSource" mat-table matSort>
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell> Name</th>
+      <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.id">{{element.label}}</a></td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th *matHeaderCellDef class="table-action-col" i18n="@@ux.fappi-ng-cms.ux.action.title" mat-header-cell>
+        Actions
+      </th>
+      <td *matCellDef="let element" mat-cell>
+        <div class="action-button-bar">
+          <a (click)="delete(element)" color="accent" i18n="@@ux.fappi-ng-cms.ux.action.delete"
+             mat-flat-button>Delete</a>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+  </table>
+  <mat-paginator #paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+</ng-container>
+
+
+</div>
+

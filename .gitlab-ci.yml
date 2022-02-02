@@ -1,0 +1,110 @@
+image: node:13
+
+services:
+  - docker:18.09-dind
+
+stages:
+  - build
+  - dockerBuild
+  - deployStaging
+  - deployProd
+
+variables:
+  DOCKER_HOST: tcp://localhost:2375
+  VARIABLES_FILE: ./variables.txt
+
+cache:
+  key: npm-cache
+  paths:
+    - node_modules/
+    - $VARIABLES_FILE
+
+build:
+  stage: build
+  script:
+    - export VERSION=$(node -p "require('./package.json').version")
+    - find ./projects -type f -name *.html -exec sed -i "s/__FABER_APP_FRONT_VERSION__/$VERSION/g" {} +
+    - npm install -g @angular/cli
+    - npm install --save-dev @angular-devkit/build-angular
+    - npm i
+    - node patch-webpack.js
+    - ng build fappi-common-model
+    - ng build fappi-ng-material-kit
+    - ng build fappi-ng-media
+    - ng build fappi-ng-utils-components
+    - ng build fappi-ng-cms
+    - ng build fappi-theming
+    - ng build ftprod-default-manager-app --prod --base-href=/front/  --localize
+    - ng build ftprod-default-cms-app --prod --base-href=/content/  --localize
+    - ng build default-fhir-app --prod --base-href=/fhir-app/  --localize
+    - ng build brief-report-app --prod --base-href=/brief-report-app/ --localize
+#    - ng build ftprod-crm-app --prod --base-href=/crm-app/  --localize
+    - ng build ftprod-media-app --prod --base-href=/media-app/  --localize
+    - ng build smart-brain-admin --prod --base-href=/smart-brain-admin/  --localize
+    - export VERSION=$(node -p "require('./package.json').version")
+    - echo "export VERSION=$VERSION" > $VARIABLES_FILE
+    - tar -czvf dist.gz ./dist
+  artifacts:
+    paths:
+      - $VARIABLES_FILE
+      - ./dist/ftprod-default-manager-app
+      - ./dist/ftprod-default-cms-app
+      - ./dist/brief-report-app
+#      - ./dist/ftprod-crm-app
+      - ./dist/ftprod-media-app
+      - ./dist/smart-brain-admin
+      - ./dist/default-fhir-app
+      - dist.gz
+
+dockerBuild:
+  image: maven:latest
+  stage: dockerBuild
+  before_script:
+    - tar -xzvf dist.gz
+    - curl -fsSL https://download.docker.com/linux/static/stable/x86_64/docker-19.03.5.tgz -o /tmp/docker.tgz && tar --strip-components=1 -xvzf /tmp/docker.tgz -C /usr/local/bin && rm /tmp/docker.tgz
+    - echo $CONTAINER_REGISTRY_PASSWORD | docker login docker.io --username $CONTAINER_REGISTRY_USER --password-stdin
+    - source $VARIABLES_FILE
+  script:
+    - source $VARIABLES_FILE
+    - cp -R ./dist/ftprod-default-manager-app ./k8s/
+    - cp -R ./dist/ftprod-default-cms-app ./k8s/
+    - cp -R ./dist/brief-report-app ./k8s/
+#    - cp -R ./dist/ftprod-crm-app ./k8s/
+    - cp -R ./dist/ftprod-media-app ./k8s/
+    - cp -R ./dist/smart-brain-admin ./k8s/
+    - cp -R ./dist/default-fhir-app ./k8s/
+    - cd ./k8s/
+    - docker build -t ui-board:$VERSION .
+    - docker tag ui-board:$VERSION docker.io/ftprod/ui-board:$VERSION
+    - docker push docker.io/ftprod/ui-board:$VERSION
+
+
+.deploy-template: &deployTemplate
+  image: dtzar/helm-kubectl:3.0.1
+  before_script:
+    - mkdir /root/.kube/
+    - cp $KUBECONFIG_FILE ~/.kube/config
+    - kubectl config --kubeconfig=$KUBECONFIG use-context kubernetes-admin@kubernetes
+    - source $VARIABLES_FILE
+  script:
+    - cat k8s/all-backend-ui.yml | sed "s/{{VERSION}}/$VERSION/g" | kubectl apply -n fappi-$ENV -f -
+  dependencies: [build]
+
+
+deployStagingBack:
+  <<: *deployTemplate
+  stage: deployStaging
+  variables:
+    ENV: preprod
+  only:
+    - master
+    - front
+
+deployProdBack:
+  <<: *deployTemplate
+  stage: deployProd
+  variables:
+    ENV: prod
+  when: manual
+  only:
+    - master

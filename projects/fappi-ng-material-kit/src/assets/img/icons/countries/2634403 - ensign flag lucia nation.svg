@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve"
+     xmlns="http://www.w3.org/2000/svg"><style type="text/css">
+	.st0 {
+    fill: #86CAEF;
+  }
+
+  .st1 {
+    fill: #FFFFFF;
+  }
+
+  .st2 {
+    fill: #010101;
+  }
+
+  .st3 {
+    fill: #F4D130;
+  }
+</style>
+  <g><rect class="st0" height="298.7" width="512" y="106.7"/>
+    <polygon class="st1" points="156.4,379.1 355.6,379.1 256,132.9  "/>
+    <polygon class="st2" points="169.9,379.1 342.1,379.1 256,166.1  "/>
+    <polygon class="st3" points="156.4,379.6 355.6,379.6 256,256.5  "/></g></svg>

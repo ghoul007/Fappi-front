@@ -1,0 +1,31 @@
+<div *ngIf="initialized?.init" class="tree-wrapper">
+  <mat-tree class="app-primary-color-50"  [dataSource]="dataSource"
+            [treeControl]="treeControl"
+  >
+    <mat-tree-node (click)="nodeSelected(node)" *matTreeNodeDef="let node"
+                   matTreeNodePadding
+                   matTreeNodePaddingIndent="10"
+    >
+      <button disabled mat-icon-button></button>
+      <span class="node-text">{{node.nodeResource.name}}</span>
+    </mat-tree-node>
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" [cdkDragData]="node" cdkDrag
+                   matTreeNodePadding
+                   matTreeNodePaddingIndent="10">
+      <button mat-icon-button matTreeNodeToggle>
+        <mat-icon class="mat-icon-rtl-mirror">
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+      <span (click)="nodeSelected(node)" class="node-text">{{node.nodeResource.name}}</span>
+      <mat-progress-bar *ngIf="node.isLoading"
+                        class="example-tree-progress-bar"
+                        mode="indeterminate"></mat-progress-bar>
+      <button color="accent" (click)="addNewItem(node)" *ngIf="viewControls" mat-icon-button>
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-tree-node>
+  </mat-tree>
+
+  <div *ngIf="loading" class="loading-tree"></div>
+</div>

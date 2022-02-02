@@ -1,0 +1,19 @@
+<div class="inner-bloc-items app-primary-color-50">
+  <h2 class="title-item">
+    <mat-icon color="accent">history</mat-icon>
+    Medical history (antecedents) :
+
+    <a *ngIf="false" class="icon-search">
+      <mat-icon color="accent">search</mat-icon>
+    </a>
+
+  </h2>
+  <div class="list-group">
+    <div *ngFor="let encounter of encounters" class="list-group-item app-primary-color-50">
+      <app-episode-detail (episodeClicked)="onEpisodeClicked(encounter)"
+                          (organizationDetailClicked)="onOrganizationDetailClicked($event)"
+                          (paticipantDetailClicked)="onPaticipantDetailClicked($event)"
+                          [encounter]="encounter"></app-episode-detail>
+    </div>
+  </div>
+</div>

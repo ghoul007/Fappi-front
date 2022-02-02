@@ -1,0 +1,12 @@
+<app-content-wrapper [fullWidth]="false"
+                     [subTitle]="'Edit your profil'"
+                     [title]="'My profil'" [withIcon]="true">
+  <mat-tab-group color="accent">
+    <mat-icon color="accent">settings</mat-icon>
+  <mat-tab label="Informations">
+      <div class="main-container container-spaced content-wrapper">
+        <app-edit-user [username]="username" (langSaved)="onLangChanged($event)" ></app-edit-user>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</app-content-wrapper>

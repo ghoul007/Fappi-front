@@ -1,0 +1,45 @@
+footer {
+  padding: 24px 12px;
+  font-size: 12px;
+/*  margin-top: 80px;*/
+
+}
+
+footer > div {
+  align-items: center;
+  display: flex;
+
+  > div {
+    flex: 1;
+  }
+}
+
+
+
+.logo-image {
+  height: 30px;
+}
+
+.copy {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  flex-direction: column;
+  min-width: 225px;
+  text-align: right;
+}
+
+.version {
+  text-align: center;
+}
+
+
+@media(max-width: 992px) {
+  footer > div {
+    flex-direction: column;
+  }
+  .copy {
+    text-align: center;
+  }
+}
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve"
+     xmlns="http://www.w3.org/2000/svg"><style type="text/css">
+	.st0 {
+    fill: #224084;
+  }
+
+  .st1 {
+    fill: #F4D85C;
+  }
+
+  .st2 {
+    fill: #C42034;
+  }
+
+  .st3 {
+    fill: #FFFFFF;
+  }
+
+  .st4 {
+    fill: #347C41;
+  }
+</style>
+  <g><polygon class="st0" points="0,106.7 0,405.4 184.1,106.7  "/>
+    <polygon class="st1" points="184.1,106.7 0,405.4 368.1,106.7  "/>
+    <polygon class="st2" points="368.1,106.7 0,405.4 512,220.7 512,106.7  "/>
+    <polygon class="st3" points="0,405.4 512,313 512,220.7  "/>
+    <polygon class="st4" points="0,405.4 512,405.4 512,313  "/></g></svg>

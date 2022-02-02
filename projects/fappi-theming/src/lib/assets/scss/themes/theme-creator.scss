@@ -1,0 +1,163 @@
+@import "override-angular/tabs";
+@import "override-angular/forms";
+@import "override-angular/flat-theme";
+@import "override-angular/flat-menu";
+@import "override-angular/layout";
+@import "override-angular/tree";
+
+@mixin createTheme($palete,$name) {
+
+  .#{$name} {
+
+
+
+    $default-app-primary: mat-palette($palete);
+    $default-app-accent: mat-palette($palete, A200, A100, A400);
+    $default-app-warn: mat-palette($mat-red);
+    $default-app-theme: mat-light-theme($default-app-primary, $default-app-accent, $default-app-warn);
+    @include angular-material-theme($default-app-theme);
+
+
+    //default color classes:
+    .app-bg-primary-color-100 {
+      background: mat-color($palete, 100);
+    }
+
+    .app-bg-primary-color-200 {
+      background: mat-color($palete, 200);
+    }
+
+    .app-bg-primary-color-400 {
+      background: mat-color($palete, 400);
+    }
+
+    .app-bg-primary-color-700 {
+      background: mat-color($palete, 700);
+    }
+
+    .app-fg-primary-color-100 {
+      color: mat-contrast($palete, 100);
+    }
+
+    .app-fg-primary-color-200 {
+      color: mat-contrast($palete, 200);
+    }
+
+    .app-fg-primary-color-400 {
+      color: mat-contrast($palete, 400);
+    }
+
+    .app-fg-primary-color-700 {
+      color: mat-contrast($palete, 700);
+    }
+
+    .app-fg-primary-color2-100 {
+      color: mat-color($palete, 100);
+    }
+
+    .app-fg-primary-color2-200 {
+      color: mat-color($palete, 200);
+    }
+
+    .app-fg-primary-color2-400 {
+      color: mat-color($palete, 400);
+    }
+
+    .app-fg-primary-color2-700 {
+      color: mat-color($palete, 700);
+    }
+
+    .app-fg-primary-color-inverted-A100 {
+      color: mat-color($palete, A100);
+    }
+
+    .app-fg-primary-color-inverted-A200 {
+      color: mat-color($palete, A200);
+    }
+
+    .app-fg-primary-color-inverted-A400 {
+      color: mat-color($palete, A400);
+    }
+
+    .app-fg-primary-color-inverted-A700 {
+      color: mat-color($palete, A700);
+    }
+
+    .app-primary-color-50 {
+      background: mat-color($palete, 50);
+      color: mat-contrast($palete, 50);
+    }
+
+    .app-primary-color-100 {
+      background: mat-color($palete, 100);
+      color: mat-contrast($palete, 100);
+    }
+
+    .app-primary-color-200 {
+      background: mat-color($palete, 200);
+      color: mat-contrast($palete, 200);
+    }
+
+    .app-primary-color-400 {
+      background: mat-color($palete, 400);
+      color: mat-contrast($palete, 400);
+    }
+
+    .app-primary-color-500 {
+      background: mat-color($palete, 500);
+      color: mat-contrast($palete, 500);
+    }
+
+    .app-primary-color-700 {
+      background: mat-color($palete, 700) !important;
+      color: mat-contrast($palete, 700) !important;
+    }
+
+    .app-primary-color-A100 {
+      background: mat-color($palete, A100);
+      color: mat-contrast($palete, A100);
+    }
+
+
+    //general styles:
+    .link-color {
+      color: mat-color($palete, 700);
+    }
+
+
+    .mat-button, .mat-flat-button {
+      font-weight: normal;
+    }
+
+
+    //colorised borders:
+    .border-primary-color-100 {
+      border-color: mat-color($palete, 100);
+    }
+
+    .border-primary-color-200 {
+      border-color: mat-color($palete, 200);
+    }
+
+    .border-primary-color-400 {
+      border-color: mat-color($palete, 400);
+    }
+
+    .border-primary-color-700 {
+      border-color: mat-color($palete, 700) !important;
+    }
+
+
+
+
+
+
+    @include createTabs($palete, $name);
+    @include createForms($palete, $name);
+    @include createFlatTheme($palete, $themeName);
+    @include createFlatMenu($palete, $themeName);
+    @include createLayout($palete, $themeName);
+    @include createTree($palete, $themeName);
+
+  }
+}

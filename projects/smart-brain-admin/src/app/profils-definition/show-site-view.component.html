@@ -1,0 +1,44 @@
+<app-content-wrapper [fullWidth]="true" [withIcon]="true"
+                       i18n-subTitle="@@ux.easybrain.editprofils.subtitle"
+                       i18n-title="@@ux.easybrain.editprofils.title"
+                     subTitle="All your easy brain profils"
+                       title="Edit easy brain profils"
+                     iconUrl="assets/theme/scss/themes/img/avatar/img_avatar-orga01.jpg"
+>
+
+  <div class="content-wrapper">
+    <div class="action-toogle">
+      <mat-icon (click)="sidenav.toggle()">more_vert</mat-icon>
+    </div>
+    <mat-toolbar color="primary" style="height: 60px">
+      <mat-form-field  >
+        <mat-label i18n="@@ux.smartbrain.profils.language">Languages</mat-label>
+        <mat-select [(ngModel)]="toolbarModel.selectedChannel" [ngModelOptions]="{standalone: true}">
+          <mat-option [value]="null" i18n="@@ux.smartbrain.profils.defaultLanguage">Default language</mat-option>
+          <mat-option *ngFor="let channel of channels" [value]="channel">
+            {{channel.id}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-toolbar>
+    <mat-sidenav-container style="    min-height: 900px;">
+      <mat-sidenav #sidenav [(opened)]="treeSelectorOpenned" class="left-side-nav" mode="side">
+
+        <app-cms-tree #tree (onNodeSelected)="onNodeSelected($event)" [rootNodeName]="name"
+                      [selectedOrganizationId]="orgId"
+                      [selectedSiteId]="slug" ></app-cms-tree>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div style="padding: 4px">
+
+          <app-cms-edit-node (nodeDeleted)="tree.refresh()" (nodeEditEnd)="tree.refresh()" [selectedNode]="selectedNode" [selectedChannel]="toolbarModel.selectedChannel"
+                             [selectedVersion]="toolbarModel.selectedVersion"
+          ></app-cms-edit-node>
+        </div>
+      </mat-sidenav-content>
+
+    </mat-sidenav-container>
+  </div>
+
+
+</app-content-wrapper>

@@ -1,0 +1,59 @@
+{
+  "name": "Activiti",
+  "uri": "http://activiti.org/bpmn",
+  "prefix": "activiti",
+  "xml": {
+    "tagAlias": "lowerCase"
+  },
+  "associations": [],
+  "types": [
+    {
+      "name": "FormalExpression",
+      "isAbstract": true,
+      "extends": [
+        "bpmn:FormalExpression"
+      ],
+      "properties": [
+        {
+          "name": "resource",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "Field",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:ServiceTask",
+          "bpmn:BusinessRuleTask",
+          "bpmn:SendTask"
+        ]
+      },
+      "properties": [
+        {
+          "name": "name",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "expression",
+          "type": "String"
+        },
+        {
+          "name": "stringValue",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "string",
+          "type": "String"
+        }
+      ]
+    }
+  ],
+  "emumerations": []
+}

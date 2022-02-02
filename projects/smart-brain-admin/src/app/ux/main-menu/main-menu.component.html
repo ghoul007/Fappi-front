@@ -1,0 +1,11 @@
+<div class="main-menu-items">
+  <a *fappiHasGroup="{orgId: selectedOrg?.id.id, groups: ['admin']}" class="mat-menu-item" i18n="@@ux.smart-brain.main-menu.menu-name.admin.clients" mat-menu-item routerLink="clients"
+     routerLinkActive="active border-primary-color-400">Clients</a>
+    <a *fappiHasGroup="{orgId: selectedOrg?.id.id, groups: ['admin', 'admin_users']}" class="mat-menu-item" i18n="@@ux.smartbrain.menu-name.admin.user" mat-menu-item routerLink="admin/users"
+       routerLinkActive="active border-primary-color-400">Users</a>
+    <a *fappiHasGroup="{orgId: selectedOrg?.id.id, groups: ['admin']}"  class="mat-menu-item" i18n="@@ux.smartbrain.menu-name.admin.group" mat-menu-item routerLink="admin/groups"
+    routerLinkActive="active border-primary-color-400">Groups</a>
+  <a *fappiHasGroup="{orgId: selectedOrg?.id.id, groups: ['admin']}" i18n="@@ux.smartbrain.menu-name.admin.profil-definition" class="mat-menu-item" mat-menu-item routerLink="admin/profils-definition"
+     routerLinkActive="active border-primary-color-400">Profils</a>
+  <a *ngIf="selectedOrg && selectedOrg.id.id != 'default'" i18n="@@ux.smartbrain.menu-name.admin.client-app" class="mat-menu-item" mat-menu-item (click)="showConnectionsInformation()"
+     >Client app</a>

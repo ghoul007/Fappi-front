@@ -1,0 +1,13 @@
+<div class="content-wrapper">
+  <app-custom-fields-editor (onSaved)="onSaved()"
+                            [attachedElementId]="attachedElementId"
+                            [customFieldService]="siteService"
+                            [nodeTypeSlug]="nodeTypeSlug"
+                            [orgId]="orgId"></app-custom-fields-editor>
+
+
+    <div *ngIf="attachedElementId == '0'" class="scope-message col-md-8">
+      NB: This type of content apply to all your organization's books
+    </div>
+</div>
+

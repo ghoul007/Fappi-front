@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve"
+     xmlns="http://www.w3.org/2000/svg"><style type="text/css">
+	.st0 {
+    fill: #BD1F34;
+  }
+
+  .st1 {
+    fill: #F4D130;
+  }
+
+  .st2 {
+    fill: #439E4A;
+  }
+
+  .st3 {
+    fill: #010101;
+  }
+</style>
+  <g><rect class="st0" height="298.7" width="177.4" y="106.7"/>
+    <rect class="st1" height="149.3" width="334.6" x="177.4" y="106.7"/>
+    <rect class="st2" height="149.4" width="334.6" x="177.4" y="256"/>
+    <polygon class="st3" points="88.7,211.6 75,253.8 96.1,260.7  "/>
+    <polygon class="st3" points="88.7,211.6 102.4,253.8 81.3,260.7  "/>
+    <polygon class="st3" points="130.9,242.3 86.5,242.3 86.5,264.5  "/>
+    <polygon class="st3" points="130.9,242.3 95,268.4 82,250.4  "/>
+    <polygon class="st3" points="46.5,242.3 82.4,268.4 95.4,250.4  "/>
+    <polygon class="st3" points="46.5,242.3 90.9,242.3 90.9,264.5  "/>
+    <polygon class="st3" points="114.8,291.9 101.1,249.7 80,256.6  "/>
+    <polygon class="st3" points="114.8,291.9 78.9,265.8 91.9,247.9  "/>
+    <polygon class="st3" points="62.6,291.9 98.5,265.8 85.5,247.9  "/>
+    <polygon class="st3" points="62.6,291.9 76.3,249.7 97.4,256.6  "/></g></svg>

@@ -1,0 +1,49 @@
+{
+  "name": "BpmnActiviti",
+  "uri": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+  "prefix": "activiti",
+  "xml": {
+    "tagAlias": "lowerCase"
+  },
+  "associations": [],
+  "types": [
+    {
+      "name": "Assignable",
+      "extends": [
+        "bpmn:UserTask"
+      ],
+      "properties": [
+        {
+          "name": "assignee",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "candidateUsers",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "candidateGroups",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "dueDate",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "followUpDate",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "priority",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}

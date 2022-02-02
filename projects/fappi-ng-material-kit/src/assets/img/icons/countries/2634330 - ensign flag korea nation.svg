@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve"
+     xmlns="http://www.w3.org/2000/svg"><style type="text/css">
+	.st0 {
+    fill: #2D4D9D;
+  }
+
+  .st1 {
+    fill: #D91E35;
+  }
+
+  .st2 {
+    fill: #FFFFFF;
+  }
+</style>
+  <g><rect class="st0" height="49.8" width="512" y="106.7"/>
+    <rect class="st0" height="49.8" width="512" y="355.6"/>
+    <rect class="st1" height="182.5" width="512" y="164.7"/>
+    <rect class="st2" height="8.3" width="512" y="156.4"/>
+    <rect class="st2" height="8.3" width="512" y="347.3"/>
+    <path class="st2"
+          d="M199.1,189.6c36.7,0,66.4,29.7,66.4,66.4s-29.7,66.4-66.4,66.4s-66.4-29.7-66.4-66.4S162.5,189.6,199.1,189.6"/>
+    <polygon class="st1"
+             points="199.1,191.7 213.6,236.1 260.3,236.1 222.5,263.6 236.9,308 199.1,280.6 161.3,308 175.8,263.6    138,236.1 184.7,236.1  "/></g></svg>

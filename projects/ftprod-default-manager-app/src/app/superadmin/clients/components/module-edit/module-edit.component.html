@@ -1,0 +1,77 @@
+<div *ngIf="rendered">
+  <div class="wrapper wrap-form-platef">
+    <h4>Add subscriptions:</h4>
+    <div class="main-container">
+      <form (ngSubmit)="onSubmitForm()" [formGroup]="addSubscriptionForm">
+        <div class="main-form-container">
+          <mat-form-field  class="app-bg-primary-color-100 col-lg-12 col">
+            <mat-label>Module:</mat-label>
+            <select formControlName="subscriptionId" matNativeControl required>
+              <option value="CMS">Cms Module</option>
+              <option value="CRM">Crm Module</option>
+              <option value="FHIR">Fhir Module</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field  class="app-bg-primary-color-100 champ-f col-lg-12 col">
+            <input [matDatepicker]="picker" formControlName="startDate" matInput placeholder="startDate" required>
+            <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-checkbox formControlName="autoRenew">Auto renew</mat-checkbox>
+          <mat-form-field  class="app-bg-primary-color-100 col-lg-12 col">
+            <mat-label>Renewal period:</mat-label>
+            <select formControlName="period" matNativeControl required>
+              <option value="MONTHLY">MONTHLY</option>
+              <option value="ANNUAL">ANNUAL</option>
+            </select>
+          </mat-form-field>
+          <div class="action-button">
+            <button (click)="back()" class="mat-stroked-button" mat-button>Cancel</button>
+            <button color="accent" mat-raised-button type="submit">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <h4>Current subscriptions:</h4>
+    <table [dataSource]="dataSource" mat-table matSort>
+      <ng-container matColumnDef="id">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Id</th>
+        <td *matCellDef="let element" mat-cell>{{element.id.subscriptionId}}
+      </ng-container>
+      <ng-container matColumnDef="startDate">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Start date</th>
+        <td *matCellDef="let element" mat-cell>{{element.startDate | date}}</td>
+      </ng-container>
+      <ng-container matColumnDef="endDate">
+        <th *matHeaderCellDef mat-header-cell> End date</th>
+        <td *matCellDef="let element" mat-cell> {{element.endDate | date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Status</th>
+        <td *matCellDef="let element" mat-cell> {{element.status}} </td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Actions</th>
+        <td *matCellDef="let element" mat-cell>
+        <span *ngIf="element.status=='PENDING_ACTIVATION'">
+          <button (click)="activate(element.id)" color="accent" mat-raised-button type="button">Activate</button>
+          <button (click)="delete(element.id)" color="accent" mat-raised-button type="button">Delete</button>
+
+        </span>
+          <span *ngIf="element.status=='PENDING_DELETION'">
+          <button (click)="forceDelete(element.id)" color="accent" mat-raised-button
+                  type="button">Force delete</button>
+        </span>
+          <span *ngIf="element.status=='ACTIVATED'">
+          <button (click)="cancel(element.id)" class="mat-stroked-button" mat-raised-button type="button">Cancel</button>
+        </span>
+
+        </td>
+      </ng-container>
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+  </div>
+
+</div>

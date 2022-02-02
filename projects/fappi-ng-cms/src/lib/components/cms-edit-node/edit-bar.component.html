@@ -1,0 +1,19 @@
+<span class="node-edit-toolbar" >
+        <a [matMenuTriggerFor]="editNode" mat-button><mat-icon aria-hidden="false" aria-label="Edit"  >edit</mat-icon></a>
+        <mat-menu #editNode="matMenu" yPosition="below">
+          <a (click)="_edit()" mat-menu-item><mat-icon aria-hidden="false" aria-label="Edit">edit</mat-icon> <span
+            i18n="@@ux.fappi-ng-cms.cms-edit-nodetb.edit">Edit</span></a>
+          <a (click)="_delete()" mat-menu-item><mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon> <span
+            i18n="@@ux.fappi-ng-cms.cms-edit-nodetb.delete">Delete</span></a>
+          <a (click)="_editTitle()" mat-menu-item><mat-icon aria-hidden="false"
+                                                            aria-label="Rename">edit</mat-icon> <span
+            i18n="@@ux.fappi-ng-cms.cms-edit-nodetb.rename">Rename</span></a>
+          <a (click)="_move()" mat-menu-item><mat-icon aria-hidden="false" aria-label="Reorder">reorder</mat-icon> <span
+            i18n="@@ux.fappi-ng-cms.cms-edit-nodetb.move">Move</span></a>
+          <hr/>
+          <a (click)="_moveUp()" mat-menu-item><mat-icon aria-hidden="false" aria-label="Move up">arrow_upward</mat-icon> <span
+            i18n="@@ux.fappi-ng-cms.cms-edit-nodetb.moveup">Move up</span></a>
+          <a (click)="_moveDown()" mat-menu-item><mat-icon aria-hidden="false" aria-label="Move down">arrow_downward</mat-icon> <span
+            i18n="@@ux.fappi-ng-cms.cms-edit-nodetb.movedown">Move down</span></a>
+        </mat-menu>
+      </span>

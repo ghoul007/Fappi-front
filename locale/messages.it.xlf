@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="fr" datatype="plaintext" original="ng2.template">
+    <body>
+      <!-- ux -->
+      <trans-unit id="ux.superadmin.menu-name" datatype="html">
+        <source>Super Admin</source>
+        <target>Super Admin</target>
+      </trans-unit>
+      <trans-unit id="ux.superadmin.menu-name.client" datatype="html">
+        <source>Clients</source>
+        <target>Clients</target>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.dashboard" datatype="html">
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.content" datatype="html">
+        <source>Content</source>
+        <target>Contenu</target>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.my-tasks" datatype="html">
+        <source>My tasks</source>
+        <target>Mes tâches</target>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.crm" datatype="html">
+        <source>CRM</source>
+        <target>CRM</target>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.organization" datatype="html">
+        <source>Organizations</source>
+        <target>Organisations</target>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.user" datatype="html">
+        <source>Users</source>
+        <target>Utilisateursen</target>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.group" datatype="html">
+        <source>Groups</source>
+        <target>Groupes</target>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.audit" datatype="html">
+        <source>Audit</source>
+        <target>Audit</target>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.process" datatype="html">
+        <source>Process</source>
+        <target>Process</target>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin" datatype="html">
+        <source>Admin</source>
+        <target>Admin</target>
+      </trans-unit>
+      <!-- end ux -->
+      <-- right menu logged -->
+      <trans-unit id="ux.right-menu.loggedin.log" datatype="html">
+        <source>Logged as</source>
+        <target>Connecté en tant que</target>
+      </trans-unit>
+      <trans-unit id="ux.right-menu.loggedin.in" datatype="html">
+        <source>in</source>
+        <target>dans</target>
+      </trans-unit>
+      <trans-unit id="ux.right-menu.changeorg.title" datatype="html">
+        <source>Change organization:</source>
+        <target>Changer d'organization :</target>
+      </trans-unit>
+      <trans-unit id="ux.right-menu.logout" datatype="html">
+        <source>Logout</source>
+        <target>Déconnexion</target>
+      </trans-unit>
+      <trans-unit id="ux.no-org" datatype="html">
+        <source>Your don't have any organization. Ask the administrator</source>
+        <target>Vous n'avez pas d'organisation. Demandez à votre administrateur.</target>
+      </trans-unit>
+      <!-- end right menu logged -->
+      <!-- footer -->
+      <trans-unit id="ux.footer.version" datatype="html">
+        <source>Current Version:</source>
+        <target>Version courante :</target>
+      </trans-unit>
+      <!-- end footer -->
+
+
+      <!-- MODULE  -->
+      <!--- ADMIN USERS ---->
+      <trans-unit id="module.admin.user.search-title" datatype="html">
+        <source>Search users</source>
+        <target>Rechercher des utilisateurs</target>
+      </trans-unit>
+      <trans-unit id="module.admin.user.add-member" datatype="html">
+        <source>Add Member to this organization</source>
+        <target>Ajouter un membre à l'organisation courante</target>
+      </trans-unit>
+      <trans-unit id="module.admin.user.create-button" datatype="html">
+        <source>Create User</source>
+        <target>Créer un utilisateur</target>
+      </trans-unit>
+      <trans-unit id="module.main-component.list-users.username" datatype="html">
+        <source>Username</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="module.main-component.list-users.actions" datatype="html">
+        <source>Actions</source>
+        <target>Actions</target>
+      </trans-unit>
+
+      <!--- END ADMIN USERS ---->
+
+
+
+
+    </body>
+  </file>
+</xliff>

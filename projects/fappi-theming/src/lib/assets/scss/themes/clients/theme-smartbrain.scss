@@ -1,0 +1,72 @@
+@import '../theme-creator';
+
+
+// material
+$md-mcgpalette-theme-smart-brain: (
+  50 : #f1f5f9,
+  100 : #e2ebf3,
+  200 : #f85f2d,
+  300 : #ffffff,
+  400 : #ffffff, // toolbar and
+  500 : #ffffff,
+  600 : #ffffff,
+  700 : #ffffff,
+  800 : #f85f2d,
+  900 : #818181,
+  A100 : #f85f2d,
+  A200 : #f85f2d,
+  A400 : #ffffff,
+  A700 : #f85f2d,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #929292,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+$themeName: 'theme-smart-brain';
+@include createTheme($md-mcgpalette-theme-smart-brain, $themeName);
+body.theme-smart-brain {
+  background: #eaf1f2 url("/smart-brain-admin/assets/theme/scss/themes/img/fond.png") top center no-repeat;
+
+  & .mat-drawer-container {
+    background: transparent;
+    position: relative;
+  }
+  & .mat-form-field-appearance-fill .mat-form-field-flex{
+    //background: transparent;
+    color: #000;
+  }
+  & .mat-input-element{
+    caret-color: #000
+  }
+
+
+
+  $custom-typography: mat-typography-config(
+    $font-family: 'Montserrat, monospace',
+    $headline: mat-typography-level(32px, 48px, 700),
+    $body-1: mat-typography-level(14px, 24px, 500),
+    $input: mat-typography-level(14px, 1, 500)
+  );
+  @include mat-base-typography($custom-typography);
+  // Override typography for a specific Angular Material components.
+  @include mat-checkbox-typography($custom-typography);
+  // Override typography for all Angular Material, including mat-base-typography and all components.
+  @include angular-material-typography($custom-typography);
+  //end fonts
+  font-family: "Montserrat", sans-serif;
+
+}

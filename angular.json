@@ -1,0 +1,1729 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ftprod-default-manager-app": {
+      "i18n": {
+        "locales": {
+          "fr": {
+            "translation": "./locale/messages.fr.xlf",
+            "baseHref": ""
+          },
+          "en": {
+            "translation": "./locale/messages.en.xlf",
+            "baseHref": ""
+          },
+          "it": {
+            "translation": "./locale/messages.it.xlf",
+            "baseHref": ""
+          },
+          "de": {
+            "translation": "./locale/messages.de.xlf",
+            "baseHref": ""
+          },
+          "ar": {
+            "translation": "./locale/messages.ar.xlf",
+            "baseHref": ""
+          },
+          "zh": {
+            "translation": "./locale/messages.zh.xlf",
+            "baseHref": ""
+          }
+        }
+      },
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ftprod-default-manager-app",
+      "sourceRoot": "projects/ftprod-default-manager-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ftprod-default-manager-app",
+            "index": "projects/ftprod-default-manager-app/src/index.html",
+            "main": "projects/ftprod-default-manager-app/src/main.ts",
+            "polyfills": "projects/ftprod-default-manager-app/src/polyfills.ts",
+            "tsConfig": "projects/ftprod-default-manager-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ftprod-default-manager-app/src/favicon.ico",
+              "projects/ftprod-default-manager-app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-ng-material-kit/src/assets",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-theming/src/lib/assets",
+                "output": "./assets/theme"
+              }
+            ],
+            "styles": [
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/fappi-theming/src/lib/styles.scss",
+              "projects/ftprod-default-manager-app/src/styles.scss",
+              "node_modules/shepherd.js/dist/css/shepherd.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ftprod-default-manager-app/src/environments/environment.ts",
+                  "with": "projects/ftprod-default-manager-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "50kb"
+                }
+              ]
+            },
+            "fr": {
+              "outputPath": "dist/ftprod-default-manager-app/",
+              "localize": ["fr"]
+            },
+            "en": {
+              "outputPath": "dist/ftprod-default-manager-app/",
+              "localize": ["en"]
+            },
+            "es": {
+              "outputPath": "dist/ftprod-default-manager-app/",
+              "localize": ["es"]
+            },
+            "de": {
+              "outputPath": "dist/ftprod-default-manager-app/",
+              "localize": ["de"]
+            },
+            "it": {
+              "outputPath": "dist/ftprod-default-manager-app/",
+              "localize": ["it"]
+            },
+            "ar": {
+              "outputPath": "dist/ftprod-default-manager-app/",
+              "localize": ["ar"]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ftprod-default-manager-app:build",
+            "proxyConfig": "proxy.conf.local.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ftprod-default-manager-app:build:production"
+            },
+            "fr": {
+              "browserTarget": "ftprod-default-manager-app:build:fr"
+            },
+            "en": {
+              "browserTarget": "ftprod-default-manager-app:build:en"
+            },
+            "es": {
+              "browserTarget": "ftprod-default-manager-app:build:es"
+            },
+            "de": {
+              "browserTarget": "ftprod-default-manager-app:build:de"
+            },
+            "it": {
+              "browserTarget": "ftprod-default-manager-app:build:it"
+            },
+            "ar": {
+              "browserTarget": "ftprod-default-manager-app:build:ar"
+            },
+            "zh": {
+              "browserTarget": "ftprod-default-manager-app:build:zh"
+            }
+
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ftprod-default-manager-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ftprod-default-manager-app/src/test.ts",
+            "polyfills": "projects/ftprod-default-manager-app/src/polyfills.ts",
+            "tsConfig": "projects/ftprod-default-manager-app/tsconfig.spec.json",
+            "karmaConfig": "projects/ftprod-default-manager-app/karma.conf.js",
+            "assets": [
+              "projects/ftprod-default-manager-app/src/favicon.ico",
+              "projects/ftprod-default-manager-app/src/assets"
+            ],
+
+            "styles": [
+              "projects/ftprod-default-manager-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ftprod-default-manager-app/tsconfig.app.json",
+              "projects/ftprod-default-manager-app/tsconfig.spec.json",
+              "projects/ftprod-default-manager-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ftprod-default-manager-app/e2e/protractor.conf.js",
+            "devServerTarget": "ftprod-default-manager-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ftprod-default-manager-app:serve:production"
+            }
+          }
+        }
+      }
+
+    },
+    "fappi-theming": {
+      "projectType": "library",
+      "root": "projects/fappi-theming",
+      "sourceRoot": "projects/fappi-theming/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/fappi-theming/tsconfig.lib.json",
+            "project": "projects/fappi-theming/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/fappi-theming/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fappi-theming/src/test.ts",
+            "tsConfig": "projects/fappi-theming/tsconfig.spec.json",
+            "karmaConfig": "projects/fappi-theming/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/fappi-theming/tsconfig.lib.json",
+              "projects/fappi-theming/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "fappi-common-model": {
+      "projectType": "library",
+      "root": "projects/fappi-common-model",
+      "sourceRoot": "projects/fappi-common-model/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/fappi-common-model/tsconfig.lib.json",
+            "project": "projects/fappi-common-model/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/fappi-common-model/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fappi-common-model/src/test.ts",
+            "tsConfig": "projects/fappi-common-model/tsconfig.spec.json",
+            "karmaConfig": "projects/fappi-common-model/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/fappi-common-model/tsconfig.lib.json",
+              "projects/fappi-common-model/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "fappi-ng-material-kit": {
+      "projectType": "library",
+      "root": "projects/fappi-ng-material-kit",
+      "sourceRoot": "projects/fappi-ng-material-kit/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/fappi-ng-material-kit/tsconfig.lib.json",
+            "project": "projects/fappi-ng-material-kit/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/fappi-ng-material-kit/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fappi-ng-material-kit/src/test.ts",
+            "tsConfig": "projects/fappi-ng-material-kit/tsconfig.spec.json",
+            "karmaConfig": "projects/fappi-ng-material-kit/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/fappi-ng-material-kit/tsconfig.lib.json",
+              "projects/fappi-ng-material-kit/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "brief-report-app": {
+      "i18n": {
+        "locales": {
+          "fr": {
+            "translation": "./locale/messages.fr.xlf",
+            "baseHref": ""
+          },
+          "en": {
+            "translation": "./locale/messages.en.xlf",
+            "baseHref": ""
+          },
+          "it": {
+            "translation": "./locale/messages.it.xlf",
+            "baseHref": ""
+          },
+          "de": {
+            "translation": "./locale/messages.de.xlf",
+            "baseHref": ""
+          },
+          "ar": {
+            "translation": "./locale/messages.ar.xlf",
+            "baseHref": ""
+          },
+          "zh": {
+            "translation": "./locale/messages.zh.xlf",
+            "baseHref": ""
+          }
+
+        }
+      },
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/brief-report-app",
+      "sourceRoot": "projects/brief-report-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/brief-report-app",
+            "index": "projects/brief-report-app/src/index.html",
+            "main": "projects/brief-report-app/src/main.ts",
+            "polyfills": "projects/brief-report-app/src/polyfills.ts",
+            "tsConfig": "projects/brief-report-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/brief-report-app/src/favicon.ico",
+              "projects/brief-report-app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-ng-material-kit/src/assets",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-theming/src/lib/assets",
+                "output": "./assets/theme"
+              }
+            ],
+            "styles": [
+              "projects/brief-report-app/src/styles.scss",
+              "./node_modules/quill/dist/quill.core.css",
+              "./node_modules/quill/dist/quill.snow.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "dev": {},
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/brief-report-app/src/environments/environment.ts",
+                  "with": "projects/brief-report-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
+              "outputPath": "dist/brief-report-app/",
+            },
+            "fr": {
+              "outputPath": "dist/brief-report-app/",
+              "localize": ["fr"]
+            },
+            "en": {
+              "outputPath": "dist/brief-report-app/",
+              "localize": ["en"]
+            },
+            "es": {
+              "outputPath": "dist/brief-report-app/",
+              "localize": ["es"]
+            },
+            "de": {
+              "outputPath": "dist/brief-report-app/",
+              "localize": ["de"]
+            },
+            "it": {
+              "outputPath": "dist/brief-report-app/",
+              "localize": ["it"]
+            },
+            "ar": {
+              "outputPath": "dist/brief-report-app/",
+              "localize": ["ar"]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "brief-report-app:build",
+            "proxyConfig": "proxy.conf.local.json"
+          },
+          "configurations": {
+            "dev": {
+              "browserTarget": "brief-report-app:build:dev"
+            },
+            "production": {
+              "browserTarget": "brief-report-app:build:production"
+            },
+            "fr": {
+              "browserTarget": "brief-report-app:build:fr"
+            },
+            "en": {
+              "browserTarget": "brief-report-app:build:en"
+            },
+            "es": {
+              "browserTarget": "brief-report-app:build:es"
+            },
+            "de": {
+              "browserTarget": "brief-report-app:build:de"
+            },
+            "it": {
+              "browserTarget": "brief-report-app:build:it"
+            },
+            "ar": {
+              "browserTarget": "brief-report-app:build:ar"
+            },
+            "zh": {
+              "browserTarget": "brief-report-app:build:zh"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "brief-report-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/brief-report-app/src/test.ts",
+            "polyfills": "projects/brief-report-app/src/polyfills.ts",
+            "tsConfig": "projects/brief-report-app/tsconfig.spec.json",
+            "karmaConfig": "projects/brief-report-app/karma.conf.js",
+            "assets": [
+              "projects/brief-report-app/src/favicon.ico",
+              "projects/brief-report-app/src/assets"
+            ],
+            "styles": [
+              "projects/brief-report-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/brief-report-app/tsconfig.app.json",
+              "projects/brief-report-app/tsconfig.spec.json",
+              "projects/brief-report-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/brief-report-app/e2e/protractor.conf.js",
+            "devServerTarget": "brief-report-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "brief-report-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "fappi-ng-utils-components": {
+      "projectType": "library",
+      "root": "projects/fappi-ng-utils-components",
+      "sourceRoot": "projects/fappi-ng-utils-components/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/fappi-ng-utils-components/tsconfig.lib.json",
+            "project": "projects/fappi-ng-utils-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/fappi-ng-utils-components/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fappi-ng-utils-components/src/test.ts",
+            "tsConfig": "projects/fappi-ng-utils-components/tsconfig.spec.json",
+            "karmaConfig": "projects/fappi-ng-utils-components/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/fappi-ng-utils-components/tsconfig.lib.json",
+              "projects/fappi-ng-utils-components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ftprod-crm-app:build"
+          }
+        }
+      }
+    },
+    "ftprod-crm-app": {
+      "i18n": {
+        "locales": {
+          "fr": {
+            "translation": "./locale/messages.fr.xlf",
+            "baseHref": ""
+          },
+          "en": {
+            "translation": "./locale/messages.en.xlf",
+            "baseHref": ""
+          },
+          "it": {
+            "translation": "./locale/messages.it.xlf",
+            "baseHref": ""
+          },
+          "de": {
+            "translation": "./locale/messages.de.xlf",
+            "baseHref": ""
+          },
+          "ar": {
+            "translation": "./locale/messages.ar.xlf",
+            "baseHref": ""
+          },
+          "zh": {
+            "translation": "./locale/messages.zh.xlf",
+            "baseHref": ""
+          }
+
+        }
+      },
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ftprod-crm-app",
+      "sourceRoot": "projects/ftprod-crm-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ftprod-crm-app",
+            "index": "projects/ftprod-crm-app/src/index.html",
+            "main": "projects/ftprod-crm-app/src/main.ts",
+            "polyfills": "projects/ftprod-crm-app/src/polyfills.ts",
+            "tsConfig": "projects/ftprod-crm-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ftprod-crm-app/src/favicon.ico",
+              "projects/ftprod-crm-app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-ng-material-kit/src/assets",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-theming/src/lib/assets",
+                "output": "./assets/theme"
+              }
+            ],
+            "styles": [
+              "projects/fappi-theming/src/lib/styles.scss",
+              "projects/ftprod-crm-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ftprod-crm-app/src/environments/environment.ts",
+                  "with": "projects/ftprod-crm-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "fr": {
+              "outputPath": "dist/ftprod-crm-app/",
+              "localize": ["fr"]
+            },
+            "en": {
+              "outputPath": "dist/ftprod-crm-app/",
+              "localize": ["en"]
+            },
+            "es": {
+              "outputPath": "dist/ftprod-crm-app/",
+              "localize": ["es"]
+            },
+            "de": {
+              "outputPath": "dist/ftprod-crm-app/",
+              "localize": ["de"]
+            },
+            "it": {
+              "outputPath": "dist/ftprod-crm-app/",
+              "localize": ["it"]
+            },
+            "ar": {
+              "outputPath": "dist/ftprod-crm-app/",
+              "localize": ["ar"]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ftprod-crm-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ftprod-crm-app:build:production"
+            },
+            "fr": {
+              "browserTarget": "ftprod-crm-app:build:fr"
+            },
+            "en": {
+              "browserTarget": "ftprod-crm-app:build:en"
+            },
+            "es": {
+              "browserTarget": "ftprod-crm-app:build:es"
+            },
+            "de": {
+              "browserTarget": "ftprod-crm-app:build:de"
+            },
+            "it": {
+              "browserTarget": "ftprod-crm-app:build:it"
+            },
+            "ar": {
+              "browserTarget": "ftprod-crm-app:build:ar"
+            },
+            "zh": {
+              "browserTarget": "ftprod-crm-app:build:zh"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ftprod-crm-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ftprod-crm-app/src/test.ts",
+            "polyfills": "projects/ftprod-crm-app/src/polyfills.ts",
+            "tsConfig": "projects/ftprod-crm-app/tsconfig.spec.json",
+            "karmaConfig": "projects/ftprod-crm-app/karma.conf.js",
+            "assets": [
+              "projects/ftprod-crm-app/src/favicon.ico",
+              "projects/ftprod-crm-app/src/assets"
+            ],
+            "styles": [
+              "projects/ftprod-crm-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ftprod-crm-app/tsconfig.app.json",
+              "projects/ftprod-crm-app/tsconfig.spec.json",
+              "projects/ftprod-crm-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ftprod-crm-app/e2e/protractor.conf.js",
+            "devServerTarget": "ftprod-crm-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ftprod-crm-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "fappi-ng-cms": {
+      "projectType": "library",
+      "root": "projects/fappi-ng-cms",
+      "sourceRoot": "projects/fappi-ng-cms/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/fappi-ng-cms/tsconfig.lib.json",
+            "project": "projects/fappi-ng-cms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/fappi-ng-cms/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fappi-ng-cms/src/test.ts",
+            "tsConfig": "projects/fappi-ng-cms/tsconfig.spec.json",
+            "karmaConfig": "projects/fappi-ng-cms/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/fappi-ng-cms/tsconfig.lib.json",
+              "projects/fappi-ng-cms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ftprod-media-app": {
+      "i18n": {
+        "locales": {
+          "fr": {
+            "translation": "./locale/messages.fr.xlf",
+            "baseHref": ""
+          },
+          "en": {
+            "translation": "./locale/messages.en.xlf",
+            "baseHref": ""
+          },
+          "it": {
+            "translation": "./locale/messages.it.xlf",
+            "baseHref": ""
+          },
+          "de": {
+            "translation": "./locale/messages.de.xlf",
+            "baseHref": ""
+          },
+          "ar": {
+            "translation": "./locale/messages.ar.xlf",
+            "baseHref": ""
+          },
+          "zh": {
+            "translation": "./locale/messages.zh.xlf",
+            "baseHref": ""
+          }
+
+        }
+      },
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ftprod-media-app",
+      "sourceRoot": "projects/ftprod-media-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ftprod-media-app",
+            "index": "projects/ftprod-media-app/src/index.html",
+            "main": "projects/ftprod-media-app/src/main.ts",
+            "polyfills": "projects/ftprod-media-app/src/polyfills.ts",
+            "tsConfig": "projects/ftprod-media-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ftprod-media-app/src/favicon.ico",
+              "projects/ftprod-media-app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-ng-material-kit/src/assets",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-theming/src/lib/assets",
+                "output": "./assets/theme"
+              }
+            ],
+            "styles": [
+              "projects/ftprod-media-app/src/styles.scss",
+              "projects/fappi-theming/src/lib/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ftprod-media-app/src/environments/environment.ts",
+                  "with": "projects/ftprod-media-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "fr": {
+              "outputPath": "dist/ftprod-media-app/",
+              "localize": ["fr"]
+            },
+            "en": {
+              "outputPath": "dist/ftprod-media-app/",
+              "localize": ["en"]
+            },
+            "es": {
+              "outputPath": "dist/ftprod-media-app/",
+              "localize": ["es"]
+            },
+            "de": {
+              "outputPath": "dist/ftprod-media-app/",
+              "localize": ["de"]
+            },
+            "it": {
+              "outputPath": "dist/ftprod-media-app/",
+              "localize": ["it"]
+            },
+            "ar": {
+              "outputPath": "dist/ftprod-media-app/",
+              "localize": ["ar"]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ftprod-media-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ftprod-media-app:build:production"
+            },
+            "fr": {
+              "browserTarget": "ftprod-media-app:build:fr"
+            },
+            "en": {
+              "browserTarget": "ftprod-media-app:build:en"
+            },
+            "es": {
+              "browserTarget": "ftprod-media-app:build:es"
+            },
+            "de": {
+              "browserTarget": "ftprod-media-app:build:de"
+            },
+            "it": {
+              "browserTarget": "ftprod-media-app:build:it"
+            },
+            "ar": {
+              "browserTarget": "ftprod-media-app:build:ar"
+            },
+            "zh": {
+              "browserTarget": "ftprod-media-app:build:zh"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ftprod-media-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ftprod-media-app/src/test.ts",
+            "polyfills": "projects/ftprod-media-app/src/polyfills.ts",
+            "tsConfig": "projects/ftprod-media-app/tsconfig.spec.json",
+            "karmaConfig": "projects/ftprod-media-app/karma.conf.js",
+            "assets": [
+              "projects/ftprod-media-app/src/favicon.ico",
+              "projects/ftprod-media-app/src/assets"
+            ],
+            "styles": [
+              "projects/ftprod-media-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ftprod-media-app/tsconfig.app.json",
+              "projects/ftprod-media-app/tsconfig.spec.json",
+              "projects/ftprod-media-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ftprod-media-app/e2e/protractor.conf.js",
+            "devServerTarget": "ftprod-media-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ftprod-media-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "fappi-ng-media": {
+      "projectType": "library",
+      "root": "projects/fappi-ng-media",
+      "sourceRoot": "projects/fappi-ng-media/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/fappi-ng-media/tsconfig.lib.json",
+            "project": "projects/fappi-ng-media/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/fappi-ng-media/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fappi-ng-media/src/test.ts",
+            "tsConfig": "projects/fappi-ng-media/tsconfig.spec.json",
+            "karmaConfig": "projects/fappi-ng-media/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/fappi-ng-media/tsconfig.lib.json",
+              "projects/fappi-ng-media/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "smart-brain-admin": {
+      "i18n": {
+        "locales": {
+          "fr": {
+            "translation": "./locale-clients/smart-brain/messages.fr.xlf",
+            "baseHref": ""
+          },
+          "en": {
+            "translation": "./locale-clients/smart-brain/messages.en.xlf",
+            "baseHref": ""
+          },
+          "de": {
+            "translation": "./locale-clients/smart-brain/messages.de.xlf",
+            "baseHref": ""
+          }
+        }
+      },
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/smart-brain-admin",
+      "sourceRoot": "projects/smart-brain-admin/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/smart-brain-admin",
+            "index": "projects/smart-brain-admin/src/index.html",
+            "main": "projects/smart-brain-admin/src/main.ts",
+            "polyfills": "projects/smart-brain-admin/src/polyfills.ts",
+            "tsConfig": "projects/smart-brain-admin/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/smart-brain-admin/src/favicon.ico",
+              "projects/smart-brain-admin/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-ng-material-kit/src/assets",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-theming/src/lib/assets",
+                "output": "./assets/theme"
+              }
+            ],
+            "styles": [
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/fappi-theming/src/lib/styles.scss",
+              "projects/smart-brain-admin/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/smart-brain-admin/src/environments/environment.ts",
+                  "with": "projects/smart-brain-admin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "fr": {
+              "outputPath": "dist/smart-brain-admin/",
+              "localize": ["fr"]
+            },
+            "en": {
+              "outputPath": "dist/smart-brain-admin/",
+              "localize": ["en"]
+            },
+            "de": {
+              "outputPath": "dist/smart-brain-admin/",
+              "localize": ["de"]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "smart-brain-admin:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "smart-brain-admin:build:production"
+            },
+            "fr": {
+              "browserTarget": "smart-brain-admin:build:fr"
+            },
+            "en": {
+              "browserTarget": "smart-brain-admin:build:en"
+            },
+            "de": {
+              "browserTarget": "smart-brain-admin:build:de"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "smart-brain-admin:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/smart-brain-admin/src/test.ts",
+            "polyfills": "projects/smart-brain-admin/src/polyfills.ts",
+            "tsConfig": "projects/smart-brain-admin/tsconfig.spec.json",
+            "karmaConfig": "projects/smart-brain-admin/karma.conf.js",
+            "assets": [
+              "projects/smart-brain-admin/src/favicon.ico",
+              "projects/smart-brain-admin/src/assets"
+            ],
+            "styles": [
+              "projects/smart-brain-admin/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/smart-brain-admin/tsconfig.app.json",
+              "projects/smart-brain-admin/tsconfig.spec.json",
+              "projects/smart-brain-admin/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/smart-brain-admin/e2e/protractor.conf.js",
+            "devServerTarget": "smart-brain-admin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "smart-brain-admin:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "ftprod-default-cms-app": {
+      "i18n": {
+        "locales": {
+          "fr": {
+            "translation": "./locale/messages.fr.xlf",
+            "baseHref": ""
+          },
+          "en": {
+            "translation": "./locale/messages.en.xlf",
+            "baseHref": ""
+          },
+          "it": {
+            "translation": "./locale/messages.it.xlf",
+            "baseHref": ""
+          },
+          "de": {
+            "translation": "./locale/messages.de.xlf",
+            "baseHref": ""
+          },
+          "ar": {
+            "translation": "./locale/messages.ar.xlf",
+            "baseHref": ""
+          },
+          "zh": {
+            "translation": "./locale/messages.zh.xlf",
+            "baseHref": ""
+          }
+
+        }
+      },
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ftprod-default-cms-app",
+      "sourceRoot": "projects/ftprod-default-cms-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ftprod-default-cms-app",
+            "index": "projects/ftprod-default-cms-app/src/index.html",
+            "main": "projects/ftprod-default-cms-app/src/main.ts",
+            "polyfills": "projects/ftprod-default-cms-app/src/polyfills.ts",
+            "tsConfig": "projects/ftprod-default-cms-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ftprod-default-cms-app/src/favicon.ico",
+              "projects/ftprod-default-cms-app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-ng-material-kit/src/assets",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-theming/src/lib/assets",
+                "output": "./assets/theme"
+              }
+            ],
+            "styles": [
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/fappi-theming/src/lib/styles.scss",
+              "projects/ftprod-default-cms-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ftprod-default-cms-app/src/environments/environment.ts",
+                  "with": "projects/ftprod-default-cms-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "fr": {
+              "outputPath": "dist/ftprod-default-cms-app/",
+              "localize": ["fr"]
+            },
+            "en": {
+              "outputPath": "dist/ftprod-default-cms-app/",
+              "localize": ["en"]
+            },
+            "es": {
+              "outputPath": "dist/ftprod-default-cms-app/",
+              "localize": ["es"]
+            },
+            "de": {
+              "outputPath": "dist/ftprod-default-cms-app/",
+              "localize": ["de"]
+            },
+            "it": {
+              "outputPath": "dist/ftprod-default-cms-app/",
+              "localize": ["it"]
+            },
+            "ar": {
+              "outputPath": "dist/ftprod-default-cms-app/",
+              "localize": ["ar"]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ftprod-default-cms-app:build",
+            "proxyConfig": "./proxy.conf.local.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ftprod-default-cms-app:build:production"
+            },
+            "fr": {
+              "browserTarget": "ftprod-default-cms-app:build:fr"
+            },
+            "en": {
+              "browserTarget": "ftprod-default-cms-app:build:en"
+            },
+            "es": {
+              "browserTarget": "ftprod-default-cms-app:build:es"
+            },
+            "de": {
+              "browserTarget": "ftprod-default-cms-app:build:de"
+            },
+            "it": {
+              "browserTarget": "ftprod-default-cms-app:build:it"
+            },
+            "ar": {
+              "browserTarget": "ftprod-default-cms-app:build:ar"
+            },
+            "zh": {
+              "browserTarget": "ftprod-default-cms-app:build:zh"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ftprod-default-cms-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ftprod-default-cms-app/src/test.ts",
+            "polyfills": "projects/ftprod-default-cms-app/src/polyfills.ts",
+            "tsConfig": "projects/ftprod-default-cms-app/tsconfig.spec.json",
+            "karmaConfig": "projects/ftprod-default-cms-app/karma.conf.js",
+            "assets": [
+              "projects/ftprod-default-cms-app/src/favicon.ico",
+              "projects/ftprod-default-cms-app/src/assets"
+            ],
+            "styles": [
+              "projects/ftprod-default-cms-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ftprod-default-cms-app/tsconfig.app.json",
+              "projects/ftprod-default-cms-app/tsconfig.spec.json",
+              "projects/ftprod-default-cms-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ftprod-default-cms-app/e2e/protractor.conf.js",
+            "devServerTarget": "ftprod-default-cms-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ftprod-default-cms-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "default-fhir-app": {
+      "i18n": {
+        "locales": {
+          "fr": {
+            "translation": "./locale/messages.fr.xlf",
+            "baseHref": ""
+          },
+          "en": {
+            "translation": "./locale/messages.en.xlf",
+            "baseHref": ""
+          },
+          "it": {
+            "translation": "./locale/messages.it.xlf",
+            "baseHref": ""
+          },
+          "de": {
+            "translation": "./locale/messages.de.xlf",
+            "baseHref": ""
+          },
+          "ar": {
+            "translation": "./locale/messages.ar.xlf",
+            "baseHref": ""
+          },
+          "zh": {
+            "translation": "./locale/messages.zh.xlf",
+            "baseHref": ""
+          }
+
+        }
+      },
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/default-fhir-app",
+      "sourceRoot": "projects/default-fhir-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/default-fhir-app",
+            "index": "projects/default-fhir-app/src/index.html",
+            "main": "projects/default-fhir-app/src/main.ts",
+            "polyfills": "projects/default-fhir-app/src/polyfills.ts",
+            "tsConfig": "projects/default-fhir-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/default-fhir-app/src/favicon.ico",
+              "projects/default-fhir-app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-ng-material-kit/src/assets",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-theming/src/lib/assets",
+                "output": "./assets/theme"
+              }
+            ],
+            "styles": [
+              "projects/default-fhir-app/src/styles.scss",
+              "projects/fappi-theming/src/lib/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/default-fhir-app/src/environments/environment.ts",
+                  "with": "projects/default-fhir-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "fr": {
+              "outputPath": "dist/default-fhir-app/",
+              "localize": ["fr"]
+            },
+            "en": {
+              "outputPath": "dist/default-fhir-app/",
+              "localize": ["en"]
+            },
+            "es": {
+              "outputPath": "dist/default-fhir-app/",
+              "localize": ["es"]
+            },
+            "de": {
+              "outputPath": "dist/default-fhir-app/",
+              "localize": ["de"]
+            },
+            "it": {
+              "outputPath": "dist/default-fhir-app/",
+              "localize": ["it"]
+            },
+            "ar": {
+              "outputPath": "dist/default-fhir-app/",
+              "localize": ["ar"]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "default-fhir-app:build",
+            "proxyConfig": "proxy.conf.local.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "default-fhir-app:build:production"
+            },
+            "fr": {
+              "browserTarget": "default-fhir-app:build:fr"
+            },
+            "en": {
+              "browserTarget": "default-fhir-app:build:en"
+            },
+            "es": {
+              "browserTarget": "default-fhir-app:build:es"
+            },
+            "de": {
+              "browserTarget": "default-fhir-app:build:de"
+            },
+            "it": {
+              "browserTarget": "default-fhir-app:build:it"
+            },
+            "ar": {
+              "browserTarget": "default-fhir-app:build:ar"
+            },
+            "zh": {
+              "browserTarget": "default-fhir-app:build:zh"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "default-fhir-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/default-fhir-app/src/test.ts",
+            "polyfills": "projects/default-fhir-app/src/polyfills.ts",
+            "tsConfig": "projects/default-fhir-app/tsconfig.spec.json",
+            "karmaConfig": "projects/default-fhir-app/karma.conf.js",
+            "assets": [
+              "projects/default-fhir-app/src/favicon.ico",
+              "projects/default-fhir-app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-ng-material-kit/src/assets",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "./dist/fappi-theming/src/lib/assets",
+                "output": "./assets/theme"
+              }
+            ],
+            "styles": [
+              "projects/default-fhir-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/default-fhir-app/tsconfig.app.json",
+              "projects/default-fhir-app/tsconfig.spec.json",
+              "projects/default-fhir-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/default-fhir-app/e2e/protractor.conf.js",
+            "devServerTarget": "default-fhir-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "default-fhir-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "ng-fhirjs": {
+      "projectType": "library",
+      "root": "projects/ng-fhirjs",
+      "sourceRoot": "projects/ng-fhirjs/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-fhirjs/tsconfig.lib.json",
+            "project": "projects/ng-fhirjs/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-fhirjs/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-fhirjs/src/test.ts",
+            "tsConfig": "projects/ng-fhirjs/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-fhirjs/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-fhirjs/tsconfig.lib.json",
+              "projects/ng-fhirjs/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ftprod-default-manager-app",
+  "cli": {
+    "analytics": false
+  }
+}

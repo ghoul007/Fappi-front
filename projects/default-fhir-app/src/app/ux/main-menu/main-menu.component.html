@@ -1,0 +1,43 @@
+<div class="main-menu-items">
+  <div class="li-link hidden-lg"><span class="material-icons">settings</span><a (click)="onClick()"
+                      *ngIf="selectedOrg"
+                      [routerLink]="'/org/'+selectedOrg.id.id+'/dashboard'"
+                      class="mat-menu-item"
+                      i18n="@@ux.main-menu.fhir.menu-name.dashboard"
+                      routerLinkActive="active border-primary-color-400">Dashboard</a></div>
+  <div class="li-link hidden-lg"><span class="material-icons">people_alt</span> <a (click)="onClick()"
+                                                                                 *ngIf="selectedOrg" [routerLinkActiveOptions]="{exact:
+false}" [routerLink]="'/org/'+selectedOrg.id.id+'/clinical/patient'"
+                                                                                 class="mat-menu-item"
+                                                                                 i18n="@@ux.main-menu.fhir.menu-name.list-patients"
+                                                                                 routerLinkActive="active">Patients</a>
+  </div>
+  <div class="li-link hidden-lg"><span class="material-icons">assignment</span> <a (click)="onClick()"
+                                                                                   *ngIf="selectedOrg" [routerLinkActiveOptions]="{exact:
+false}" [routerLink]="'/org/'+selectedOrg.id.id+'/clinical/encounter'"
+                                                                                   class="mat-menu-item"
+                                                                                   i18n="@@ux.main-menu.fhir.menu-name.list-encounters"
+                                                                                   routerLinkActive="active">Episodes</a>
+  </div>
+  <div class="li-link hidden-lg"><span class="material-icons">group_work</span> <a (click)="onClick()"
+                                                                                   *ngIf="selectedOrg" [routerLinkActiveOptions]="{exact:
+false}" [routerLink]="'/org/'+selectedOrg.id.id+'/clinical/organization'"
+                                                                                   class="mat-menu-item"
+                                                                                   i18n="@@ux.main-menu.fhir.menu-name.list-organizations"
+                                                                                   routerLinkActive="active">Organizations</a>
+  </div>
+  <div class="li-link hidden-lg"><span class="material-icons">assignment_ind</span> <a (click)="onClick()"
+                                                                                       *ngIf="selectedOrg" [routerLinkActiveOptions]="{exact:
+false}" [routerLink]="'/org/'+selectedOrg.id.id+'/clinical/practitioner'"
+                                                                                       class="mat-menu-item"
+                                                                                       i18n="@@ux.main-menu.fhir.menu-name.list-practitioners"
+                                                                                       routerLinkActive="active">Practitioners</a>
+  </div>
+  <div class="li-link hidden-lg"><span class="material-icons">admin_panel_settings</span><a (click)="onClick()"
+                                                                                            *fappiHasGroup="{orgId: selectedOrg?.id.id, groups: ['admin']}"
+                                                                                            [routerLink]="'/org/'+selectedOrg.id.id+'/clinical/admin'"
+                                                                                            class="mat-menu-item"
+                                                                                            i18n="@@ux.main-menu.fhir.menu-name.admin"
+                                                                                            routerLinkActive="active border-primary-color-400">Admin</a>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "name": "fappi-ng-utils-components",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.2.9",
+    "@angular/core": "^8.2.9",
+    "@angular/cdk": "~8.2.0",
+    "@angular/material": "^8.2.1"
+  }
+}

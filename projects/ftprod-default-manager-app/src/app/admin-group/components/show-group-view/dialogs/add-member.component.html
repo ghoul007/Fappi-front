@@ -1,0 +1,15 @@
+<h1 mat-dialog-title i18n="@@ux.group.dialog.addmember.title">Add member</h1>
+<div *ngIf="members" mat-dialog-content>
+  <mat-form-field>
+    <mat-label i18n="@@ux.group.dialog.addmember.field.members.label">Members</mat-label>
+    <mat-select [(ngModel)]="data.member">
+      <mat-option *ngFor="let member of members" [value]="member.username">
+        {{member.username}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button (click)="onNoClick()" class="mat-stroked-button" mat-button i18n="@@ux.group.dialog.addmember.actions.cancel">Cancel</button>
+  <button class="mat-accent" [mat-dialog-close]="data"   color="accent"  cdkFocusInitial mat-button i18n="@@ux.group.dialog.addmember.actions.ok">Ok</button>
+</div>

@@ -1,0 +1,23 @@
+<div class="main-menu-items">
+  <div class="li-link hidden-lg tour-user-menu"><span class="material-icons">settings</span> <a *fappiHasGroup="{orgId: selectedOrg?.id.id, groups: ['admin', 'admin_users']}" i18n="@@ux.main-menu.menu-name.admin.user" mat-menu-item routerLink="admin/users" class="mat-menu-item"
+                                                                                 routerLinkActive="active border-primary-color-400">Users</a></div>
+  <div class="li-link hidden-lg tour-group-menu"><span class="material-icons">settings</span><a *fappiHasGroup="{orgId: selectedOrg?.id.id, groups: ['admin', 'admin_users']}" i18n="@@ux.main-menu.menu-name.admin.group" mat-menu-item routerLink="admin/groups" class="mat-menu-item"
+                                                                                routerLinkActive="active border-primary-color-400">Groups</a></div>
+  <div class="li-link hidden-lg tour-audit-menu"><span class="material-icons">settings</span> <a *fappiHasGroup="{orgId: selectedOrg?.id.id, groups: ['admin']}" i18n="@@ux.main-menu.menu-name.admin.audit" mat-menu-item routerLink="admin/audit" class="mat-menu-item"
+                                                                                 routerLinkActive="active border-primary-color-400">Audit</a></div>
+  <div class="li-link hidden-lg tour-process-menu"><span class="material-icons">settings</span><a *fappiHasGroup="{orgId: selectedOrg?.id.id, groups: ['admin', 'admin_processes']}" i18n="@@ux.main-menu.menu-name.admin.process" mat-menu-item routerLink="admin/process/process" class="mat-menu-item"
+                                                                                routerLinkActive="active border-primary-color-400">Process</a></div>
+  <div class="li-link hidden-lg tour-org-menu"><span class="material-icons">settings</span><a *fappiHasGroup="{orgId: selectedOrg?.id.id, groups: ['admin']}" class="mat-menu-item" i18n="@@ux.main-menu.menu-name.admin.organization" mat-menu-item
+                                                                                              routerLink="admin/organizations"
+                                                                                              routerLinkActive="active border-primary-color-400" >Organizations</a></div>
+  <div class="li-link hidden-lg tour-look-menu"><span class="material-icons">settings</span><a *fappiHasGroup="{orgId: selectedOrg?.id.id, groups: ['admin']}" i18n="@@ux.main-menu.menu-name.admin.lookAndFeel" mat-menu-item routerLink="admin/custom" class="mat-menu-item"
+                                                                                routerLinkActive="active border-primary-color-400">Look and Feel</a></div>
+  <div class="li-link hidden-lg"><span class="material-icons">settings</span><a *ngIf="selectedOrg"  routerLink="tasks" routerLinkActive="active border-primary-color-400" i18n="@@ux.main-menu.menu-name.my-tasks" mat-menu-item class="mat-menu-item">My tasks</a></div>
+</div>
+
+
+
+
+
+
+  <!--  -->

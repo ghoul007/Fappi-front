@@ -1,0 +1,44 @@
+<app-content-wrapper [fullWidth]="true" [title]="'Search databases'">
+  <div class="content-wrapper">
+    <div class="action-button-bar topbar" role="actions">
+      <button [routerLink]="'add'" color="accent"  mat-button>Add</button>
+    </div>
+    <table [dataSource]="dataSource" mat-table matSort>
+      <ng-container matColumnDef="id">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Id</th>
+        <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.databaseId">{{element.databaseId}}</a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Name</th>
+        <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.databaseId">{{element.name}}</a></td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Description</th>
+        <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.databaseId">{{element.description}}</a></td>
+      </ng-container>
+      <ng-container matColumnDef="databaseHost">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Host</th>
+        <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.databaseId">{{element.databaseHost}}</a></td>
+      </ng-container>
+      <ng-container matColumnDef="databaseDriver">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Driver</th>
+        <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.databaseId">{{element.driverClassName}}</a></td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Actions</th>
+        <td *matCellDef="let element" mat-cell>
+          <button (click)="show(element)" *ngIf="element.domain" mat-raised-button>
+            <mat-icon>input</mat-icon>
+            Show
+          </button>
+        </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+    </table>
+    <mat-paginator #paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</app-content-wrapper>

@@ -1,0 +1,8 @@
+<div class="main-menu-items">
+  <a *ngIf="selectedOrg" [routerLinkActiveOptions]="{exact:
+true}" i18n="@@ux.main-menu.menu-name.dashboard" mat-menu-item routerLink="./"
+     routerLinkActive="active">Dashboard</a>
+  <a *ngIf="selectedOrg && cmsActivated" i18n="@@ux.main-menu.menu-name.content" mat-menu-item routerLink="cms/sites"
+     routerLinkActive="active border-primary-color-400">Content</a>
+</div>
+

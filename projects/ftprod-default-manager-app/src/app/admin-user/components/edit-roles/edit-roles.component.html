@@ -1,0 +1,16 @@
+<div *ngIf="roleForm && roleForm.get('roles')" class="role-content">
+  <form (ngSubmit)="onSubmitForm()" [formGroup]="roleForm">
+
+    <div *ngFor="let item of getRoleFormArray(); let i = index;"
+         formArrayName="roles">
+      <div [formGroupName]="''+i">
+        <mat-checkbox formControlName="selected">{{getRoleFormArray()[i].controls.name.value}}</mat-checkbox>
+      </div>
+    </div>
+
+    <div class="action-button">
+      <button color="accent" i18n="@@module.admin.user.save" mat-raised-button type="submit">Save</button>
+    </div>
+
+  </form>
+</div>

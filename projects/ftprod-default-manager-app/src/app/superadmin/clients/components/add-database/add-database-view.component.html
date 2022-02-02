@@ -1,0 +1,79 @@
+<app-content-wrapper  [fullWidth]="false"
+                     [title]="'Register a database'" subTitle="Settings of your database">
+  <mat-tab-group color="accent">
+    <mat-tab label="Informations">
+      <div class="main-container">
+        <form (ngSubmit)="onSubmitForm()" [formGroup]="databaseForm">
+          <div class="main-form-container">
+            <mat-form-field class="app-primary-color-100 col-lg-12 col">
+              <mat-label mat-lab>Id</mat-label>
+              <input class="app-bg-primary-color-100" #id formControlName="databaseId" matInput placeholder="id-of-database" required>
+            </mat-form-field>
+
+            <mat-form-field class="app-primary-color-100 col-lg-12 col">
+              <mat-label mat-lab>Name</mat-label>
+              <input class="app-bg-primary-color-100" #name formControlName="name" matInput placeholder="Name" required>
+            </mat-form-field>
+
+            <mat-form-field class="app-primary-color-100 col-lg-12 col">
+              <mat-label mat-lab>Description</mat-label>
+              <input class="app-bg-primary-color-100" formControlName="description" matInput placeholder="Description">
+            </mat-form-field>
+
+            <mat-form-field class="app-primary-color-100 col-lg-12 col">
+              <mat-label mat-lab>Username</mat-label>
+              <input class="app-bg-primary-color-100" formControlName="databaseUsername" matInput
+                     placeholder="username to connect to the database">
+            </mat-form-field>
+
+            <mat-form-field class="app-primary-color-100 col-lg-12 col">
+              <mat-label mat-lab>Password</mat-label>
+              <input class="app-bg-primary-color-100" formControlName="encryptedPassword" matInput type="password"
+                     placeholder="password to connect to the database">
+            </mat-form-field>
+
+            <mat-form-field class="app-primary-color-100 col-lg-12 col">
+              <mat-label mat-lab>Host</mat-label>
+              <input class="app-bg-primary-color-100" formControlName="databaseHost" matInput
+                     placeholder="hostname of the database">
+            </mat-form-field>
+
+            <mat-form-field class="app-primary-color-100 col-lg-12 col">
+              <mat-label mat-lab>Base de données</mat-label>
+                <select class="app-bg-primary-color-100"  required formControlName="driverClassName" matNativeControl>
+                  <option value="com.mysql.jdbc.Driver">Mysql/MariaDB</option>
+                  <option value="org.postgresql.Driver">Postgresql</option>
+                  <option value="mongodb">Mongodb</option>
+                  <option value="com.intersystems.jdbc.IRISDriver">IRIS</option>
+                </select>
+            </mat-form-field>
+
+            <mat-form-field class="app-primary-color-100 col-lg-12 col">
+              <mat-label mat-lab>Port</mat-label>
+              <input class="app-bg-primary-color-100" formControlName="databasePort" matInput
+                     placeholder="port of the database">
+            </mat-form-field>
+
+
+            <div class="action-button" *ngIf="!validated">
+              <button (click)="back()" class="mat-stroked-button" mat-button type="button" i18n="@@ux.platform.adddb.action.cancel">Cancel</button>
+              <a color="accent" mat-raised-button (click)="testConnection()" i18n="@@ux.platform.adddb.action.testconnection">Test connection</a>
+            </div>
+
+            <div *ngIf="!processing && validated" class="action-button">
+              <button (click)="back()" class="cancel-button" mat-button type="button" i18n="@@ux.platform.adddb.action.cancel">Cancel</button>
+              <button color="accent" mat-raised-button type="submit" i18n="@@ux.platform.adddb.action.save">Save</button>
+            </div>
+            <div *ngIf="processing" class="action-button">
+              <app-loading-zone></app-loading-zone>
+            </div>
+
+
+          </div>
+        </form>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+
+</app-content-wrapper>

@@ -1,0 +1,45 @@
+<app-content-wrapper [fullWidth]="false"
+                     [withIcon]="false"
+                     i18n-subTitle="@@ux.fhir-broker.organization.subtitle"
+                     i18n-title="@@ux.fhir-broker.organization.title" subTitle="Showing the organization" title="{{name}}"
+>
+  <div (click)="back()" breadcrumb>
+    <mat-icon>arrow_back</mat-icon>
+    <span i18n="@@ux.fhir-broker.breadcrumb.back">Back</span>
+  </div>
+  <mat-tab-group color="accent">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon color="accent">settings</mat-icon>
+        <span i18n-title="@@ux.fhir-broker.configServer.tabtitle.information">Informations</span>
+      </ng-template>
+      <div class="main-form-container ">
+
+        <ng-container *ngIf="practitioner.telecom">
+          <div *ngFor="let telecom of practitioner.telecom">
+            <div class="inner-bloc">
+              <h2>Telecom :</h2>
+              <p>Value: {{telecom.value}}</p>
+              <p *ngIf="telecom.system">Type: {{telecom.system}}</p>
+              <p *ngIf="telecom.use">Use: {{telecom.use}}</p>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="practitioner.address">
+          <div *ngFor="let address of practitioner.address">
+            <div class="inner-bloc ">
+              <h2 class="title-champ-p">Adresse :</h2>
+              <p>{{address.line}}</p>
+              <p>{{address.city}}</p>
+              <p>{{address.postalCode}}</p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+    </mat-tab>
+
+  </mat-tab-group>
+
+</app-content-wrapper>

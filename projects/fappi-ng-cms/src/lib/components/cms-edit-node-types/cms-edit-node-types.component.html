@@ -1,0 +1,25 @@
+<div *ngIf="dataSource"><!-- FIXME NOT USED ??? -->
+  <ng-content select="div[role=actions]"></ng-content>
+  <table [dataSource]="dataSource" mat-table matSort>
+    <ng-container matColumnDef="slug">
+      <th *matHeaderCellDef i18n="@@ux.fappi-ng-cms.cms-edit-nt.type" mat-header-cell mat-sort-header> Type</th>
+      <td *matCellDef="let element" mat-cell><a (click)="lineClicked(element)">{{element.id.slug}}</a></td>
+    </ng-container>
+    <ng-container matColumnDef="scope">
+      <th *matHeaderCellDef i18n="@@ux.fappi-ng-cms.cms-edit-nt.scope" mat-header-cell mat-sort-header> Scope</th>
+      <td *matCellDef="let element" mat-cell>
+        <a (click)="lineClicked(element)" *ngIf="element.id.id.elementId == '0'"
+           i18n="@@ux.fappi-ng-cms.cms-edit-nt.global">Global</a>
+      </td>
+      <td *matCellDef="let element" mat-cell>
+        <a (click)="lineClicked(element)" *ngIf="element.id.id.elementId != '0'"
+           i18n="@@ux.fappi-ng-cms.cms-edit-nt.thisbook">This book</a>
+      </td>
+    </ng-container>
+
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+  </table>
+</div>

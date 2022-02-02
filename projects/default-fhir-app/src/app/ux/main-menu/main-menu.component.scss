@@ -1,0 +1,84 @@
+/*.main-menu-items {
+  padding: 0;
+  color: #626262;
+
+  .li-link.hidden-lg {
+    display: contents;
+
+    &:hover {
+      color: #2d72a9;
+    }
+
+    & a:hover {
+      background: #e2ebf2;
+    }
+
+    & .material-icons {
+      display: none;
+    }
+  }
+}*/
+/*
+@media(max-width: 1024px) {
+  .main-menu-items {
+    .li-link.hidden-lg {
+      display: block;
+      border-bottom: #eaf3f2 solid 2px;
+
+      :before {
+        // content: "settings";
+        font-family: "Material Icons";
+        font-size: 22px;
+        padding-right: 16px;
+        vertical-align: middle;
+      }
+
+      &:first-child a:before {
+        content: "settings";
+        font-family: "Material Icons";
+      }
+
+      &:nth-child(2) a:before {
+        content: "people_alt";
+        font-family: "Material Icons";
+      }
+
+      &:nth-child(3) a:before {
+        content: "assignment";
+        font-family: "Material Icons";
+      }
+
+      &:nth-child(4) a:before {
+        content: "group_work";
+        font-family: "Material Icons";
+      }
+
+      &:nth-child(5) a:before {
+        content: "assignment_ind";
+        font-family: "Material Icons";
+      }
+
+      &:nth-child(6) a:before {
+        content: "admin_panel_settings";
+        font-family: "Material Icons";
+      }
+    }
+
+    & a {
+      font-size: 17px;
+      padding-left: 40px;
+
+      & .material-icons {
+        float: left;
+        vertical-align: middle;
+        line-height: 2;
+      }
+
+      &:hover {
+        background: #e2ebf2;
+        color: #2d72a9;
+      }
+    }
+  }
+}*/
+

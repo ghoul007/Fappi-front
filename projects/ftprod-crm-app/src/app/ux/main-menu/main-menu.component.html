@@ -1,0 +1,9 @@
+<div *ngIf="large" class="main-menu-items">
+  <a i18n="@@ux.main-menu.menu-name.crm" mat-button routerLink="crm/contact" routerLinkActive="active">CRM</a>
+</div>
+<div *ngIf="!large" class="main-menu-items-small">
+  <ul>
+    <li><a i18n="@@ux.main-menu.menu-name.crm" mat-button routerLink="cms/sites" routerLinkActive="active">CRM</a>
+    </li>
+  </ul>
+</div>

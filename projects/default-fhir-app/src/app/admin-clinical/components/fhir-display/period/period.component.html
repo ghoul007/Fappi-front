@@ -1,0 +1,10 @@
+<span *ngIf="mode == 'full' && internalValue">
+   <span class="label-in-row">From: </span>
+   <span class="value-in-row">{{internalValue.start|date}}</span>
+   <span class="label-in-row">To: </span>
+   <span class="value-in-row">{{internalValue.end|date}}</span>
+</span>
+<span *ngIf="mode == 'small' && internalValue">
+  <span class="value-in-row">{{internalValue.start|date:'short'}}</span> to <span
+  class="value-in-row">{{internalValue.end|date:'short'}}</span>
+</span>

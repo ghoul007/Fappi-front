@@ -1,0 +1,81 @@
+{
+  "/cms/": {
+    "target": "https://clinique-a.cloud.ftprod.fr",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "experimentation_subject_id=IjcyNjAxZDA1LTcxMTktNDVlMC04ZjQ5LTljMDlkOWVhYTU5OSI%3D--95be8e0dbe15b1fec8885b791aa984957184bee4; _ga=GA1.2.1538960939.1582758116; _fbp=fb.1.1584087288153.1173018703; SESSION=f0a2cae2-ed8c-4847-9c56-795dddcb1f81",
+      "Content-Type":"application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/api/": {
+    "target": "https://clinique-a.cloud.ftprod.fr",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "experimentation_subject_id=IjcyNjAxZDA1LTcxMTktNDVlMC04ZjQ5LTljMDlkOWVhYTU5OSI%3D--95be8e0dbe15b1fec8885b791aa984957184bee4; _ga=GA1.2.1538960939.1582758116; _fbp=fb.1.1584087288153.1173018703; SESSION=f0a2cae2-ed8c-4847-9c56-795dddcb1f81",
+      "Content-Type":"application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/user-info": {
+    "target": "https://clinique-a.cloud.ftprod.fr",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "experimentation_subject_id=IjcyNjAxZDA1LTcxMTktNDVlMC04ZjQ5LTljMDlkOWVhYTU5OSI%3D--95be8e0dbe15b1fec8885b791aa984957184bee4; _ga=GA1.2.1538960939.1582758116; _fbp=fb.1.1584087288153.1173018703; SESSION=f0a2cae2-ed8c-4847-9c56-795dddcb1f81",
+      "Content-Type":"application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/organization/": {
+    "target": "https://clinique-a.cloud.ftprod.fr",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "experimentation_subject_id=IjcyNjAxZDA1LTcxMTktNDVlMC04ZjQ5LTljMDlkOWVhYTU5OSI%3D--95be8e0dbe15b1fec8885b791aa984957184bee4; _ga=GA1.2.1538960939.1582758116; _fbp=fb.1.1584087288153.1173018703; SESSION=f0a2cae2-ed8c-4847-9c56-795dddcb1f81",
+      "Content-Type":"application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/media/": {
+    "target": "https://clinique-a.cloud.ftprod.fr",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "experimentation_subject_id=IjcyNjAxZDA1LTcxMTktNDVlMC04ZjQ5LTljMDlkOWVhYTU5OSI%3D--95be8e0dbe15b1fec8885b791aa984957184bee4; _ga=GA1.2.1538960939.1582758116; _fbp=fb.1.1584087288153.1173018703; SESSION=f0a2cae2-ed8c-4847-9c56-795dddcb1f81",
+      "Content-Type":"application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/activiti/": {
+    "target": "https://clinique-a.cloud.ftprod.fr",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "experimentation_subject_id=IjcyNjAxZDA1LTcxMTktNDVlMC04ZjQ5LTljMDlkOWVhYTU5OSI%3D--95be8e0dbe15b1fec8885b791aa984957184bee4; _ga=GA1.2.1538960939.1582758116; _fbp=fb.1.1584087288153.1173018703; SESSION=f0a2cae2-ed8c-4847-9c56-795dddcb1f81",
+      "Content-Type":"application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  }
+
+}

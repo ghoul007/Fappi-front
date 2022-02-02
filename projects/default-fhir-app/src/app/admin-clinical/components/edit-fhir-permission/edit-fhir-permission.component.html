@@ -1,0 +1,25 @@
+<div style="width: 100%;overflow-x: auto">
+  <table class="mat-table">
+    <thead>
+    <tr>
+      <td class="mat-cell" style="padding: 0 4px"></td>
+      <td *ngFor="let scope of scopes" style="width: 70px; text-align: center" class="mat-cell">{{scope.name}}</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let group of groups" class="mat-row">
+      <td class="mat-cell" style="padding: 0 4px">{{group.name}}</td>
+      <td *ngFor="let scope of scopes" class="mat-cell" style="width: 70px; text-align: center">
+        <mat-checkbox [(ngModel)]="model[group.groupId.id][scope.id]"></mat-checkbox>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="!processing" class="action-button">
+<button (click)="cancel()"  mat-raised-button i18n="@@ux.fappi-ng-cms.right.cancelButton">Cancel</button>
+<button (click)="saveSecurityMatrix()" color="accent" mat-raised-button i18n="@@ux.fappi-ng-cms.right.saveButton">Save</button>
+</div>
+<div *ngIf="processing" class="action-button">
+  <app-loading-zone></app-loading-zone>
+</div>

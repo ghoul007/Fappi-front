@@ -1,0 +1,70 @@
+.inner-text-item {
+  // padding-left: 40px;
+
+  & h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #3f3f3f;
+    cursor: pointer;
+  }
+
+  & p, & .date-item {
+    color: #656565;
+    font-size: 14px;
+  }
+}
+
+.date-item {
+  float: right;
+  text-align: right;
+  color: #656565;
+  font-size: 12px;
+}
+
+.tag {
+  margin-right: 4px;
+}
+
+.icon-wrapper {
+  width: 40px;
+  display: inline-block;
+  vertical-align: top;
+
+  & mat-icon {
+    margin-top: 31px;
+  }
+}
+
+.condensed {
+  .inner-text-item {
+    & h3 {
+      margin-bottom: 0;
+    }
+  }
+
+  .date-item {
+    display: block;
+    float: unset;
+    font-size: 12px;
+    text-align: left;
+    line-height: 25px;
+  }
+
+  & p {
+    display: inline-block;
+  }
+
+  app-fhir-organization {
+    display: inline-block;
+    margin: 0 4px;
+  }
+}
+
+
+/* ------------------------------ Responsive Media Styles ---------------------------- */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .date-item {
+    font-size: 12px;
+  }
+}
+

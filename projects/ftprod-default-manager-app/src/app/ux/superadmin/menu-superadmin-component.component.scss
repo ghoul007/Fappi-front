@@ -1,0 +1,46 @@
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  color: #8e8e8e;
+}
+
+.navbar > div {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.menu-left {
+  padding: 25px;
+  width: 300px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 27px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  margin-right: 10px;
+
+  .part1 {
+    color: #8e8e8e;
+
+  }
+
+  .part2 {
+    color: #ffffff;
+  }
+}
+
+
+.footer {
+  height: 52px;
+
+}

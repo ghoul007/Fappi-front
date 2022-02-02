@@ -1,0 +1,45 @@
+<section class="header-ch">
+  <div class="container">
+    <div class="top-header-ch">
+      <div class="row">
+        <div class="col-md-6 col-6">
+          <div class="onglet-h text-center">
+            <h2><span class="material-icons">
+                  menu_book
+            </span><ng-container i18n="@@ux.cms.nodetype.edit.addTitle">Ajout d'un type de contenu</ng-container></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+      <form (ngSubmit)="onSubmitForm()" [formGroup]="createNodeTypeForm">
+
+        <div class="main-container container-spaced">
+          <mat-form-field>
+            <input #name formControlName="name" matInput placeholder="Name" required i18n-placeholder="@@ux.cms.nodetype.field.name">
+          </mat-form-field>
+
+          <mat-form-field style="display: none">
+            <input [slugOf]="name" formControlName="slug" matInput placeholder="id" required i18n-placeholder="@@ux.cms.nodetype.field.id">
+          </mat-form-field>
+
+          <div>
+            <mat-checkbox formControlName="scopeGlobal" i18n="@@ux.cms.nodetype.informationGlobal">Global (disponible dans tous les chapitres)</mat-checkbox>
+          </div>
+
+          <div class="action-button">
+            <button (click)="back()" class="cancel-button" mat-button i18n="@@ux.cms.nodetype.action.cancel">Annuler</button>
+            <button color="accent" mat-raised-button type="submit" i18n="@@ux.cms.nodetype.action.add">Ajouter</button>
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

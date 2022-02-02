@@ -1,0 +1,25 @@
+<div class="main-container">
+
+  <form (ngSubmit)="onSubmitForm()" *ngIf="addContactForm" [formGroup]="addContactForm">
+    <div class="main-form-container container-spaced">
+      <h3>Add a new contact</h3>
+
+      <mat-form-field>
+        <input formControlName="firstname" matInput placeholder="First name" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input #lastName formControlName="lastname" matInput placeholder="Last name" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [slugOf]="lastName" formControlName="id" matInput placeholder="Uniq identifier" required>
+      </mat-form-field>
+
+      <div class="action-button">
+        <button (click)="close()" class="cancel-button" mat-button>Cancel</button>
+        <button color="accent" mat-raised-button type="submit">Save</button>
+      </div>
+    </div>
+  </form>
+</div>

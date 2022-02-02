@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve"
+     xmlns="http://www.w3.org/2000/svg"><style type="text/css">
+	.st0 {
+    fill: #2D52A1;
+  }
+
+  .st1 {
+    fill: #F6CD2A;
+  }
+
+  .st2 {
+    fill: #C01F3F;
+  }
+</style>
+  <g id="XMLID_1_"><rect class="st0" height="105.4" id="XMLID_10_" width="140.5" y="299.9"/>
+    <rect class="st0" height="105.4" id="XMLID_9_" width="283.6" x="228.4" y="299.9"/>
+    <rect class="st0" height="105.4" id="XMLID_8_" width="140.5" y="106.7"/>
+    <rect class="st0" height="105.4" id="XMLID_7_" width="283.6" x="228.4" y="106.7"/>
+    <polygon class="st1" id="XMLID_6_" points="140.5,106.7 140.5,212.1 0,212.1 0,238.4 166.9,238.4 166.9,106.7  "/>
+    <polygon class="st1" id="XMLID_5_" points="228.4,212.1 228.4,106.7 202,106.7 202,238.4 512,238.4 512,212.1  "/>
+    <polygon class="st1" id="XMLID_4_" points="0,273.6 0,299.9 140.5,299.9 140.5,405.3 166.9,405.3 166.9,273.6  "/>
+    <polygon class="st1" id="XMLID_3_" points="202,273.6 202,405.3 228.4,405.3 228.4,299.9 512,299.9 512,273.6  "/>
+    <polygon class="st2" id="XMLID_2_"
+             points="166.9,106.7 166.9,238.4 0,238.4 0,273.6 166.9,273.6 166.9,405.3 202,405.3 202,273.6    512,273.6 512,238.4 202,238.4 202,106.7  "/></g></svg>

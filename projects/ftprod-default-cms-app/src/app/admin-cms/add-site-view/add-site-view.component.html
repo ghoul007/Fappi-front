@@ -1,0 +1,37 @@
+<app-content-wrapper [fullWidth]="false" withIcon="true"
+                     title="Add site" subTitle="Create a new site"
+                     i18n-title="@@ux.cms.site.addTitle"
+                     i18n-subTitle="@@ux.cms.site.addSubTitle"
+>
+  <div>
+    <form (ngSubmit)="onSubmitForm()" [formGroup]="createSiteForm">
+
+      <div class="main-container content-wrapper wrapper">
+        <mat-form-field class="app-bg-primary-color-100">
+          <input #name formControlName="name" matInput placeholder="Name" required  i18n-placeholder="@@ux.cms.site.field.name.placeholder">
+        </mat-form-field>
+
+        <mat-form-field class="app-bg-primary-color-100">
+          <input [slugOf]="name" formControlName="slug" matInput placeholder="id" required i18n-placeholder="@@ux.cms.site.field.id.placeholder">
+        </mat-form-field>
+
+
+        <mat-form-field class="app-bg-primary-color-100">
+          <mat-label i18n="@@ux.cms.site.field.engine.label">Engine</mat-label>
+          <select formControlName="engine" matNativeControl required>
+            <option value="oak">Oak (default)</option>
+          </select>
+        </mat-form-field>
+
+        <div *ngIf="!processing" class="action-button">
+          <button (click)="back()" class="mat-stroked-button" mat-button type="button"  i18n="@@ux.cms.site.action.cancel">Cancel</button>
+          <button color="accent" mat-raised-button type="submit" i18n="@@ux.cms.site.action.add">Add</button>
+        </div>
+        <div *ngIf="processing" class="action-button">
+          <app-loading-zone></app-loading-zone>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</app-content-wrapper>

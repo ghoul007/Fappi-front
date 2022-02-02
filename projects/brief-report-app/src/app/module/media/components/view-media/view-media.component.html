@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 col-lg-2 offset-lg-3 col-3">
+      <!-- <label for="fileUpload" class="label-file">Importer</label>
+      <input type="file" id="fileUpload" name="fileUpload" multiple="multiple"
+
+      accept="{{accept}}"/> -->
+      <button (click)="addFile()" class="add-file-button" color="primary" mat-button>Importer</button>
+    </div>
+    <!--
+    <div class="col-md-2">
+          <select class='form-control' id='list' type='text'>
+              <option value='1'>exemple1 </option>
+              <option value='2'>exemple2</option>
+              <option value='3'>exemple3</option>
+              <option value='4'>exemple4</option>
+              <option value='5'>exemple5 </option>
+              <option value='6'>exemple6 </option>
+          </select>
+    </div>-->
+    <div class="col-md-9 col-lg-7 col-9 text-right">
+      <mat-paginator #paginator [pageSizeOptions]="[1, 2, 3, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3" style="display: none">
+      <ul class="left-menu nav d-block">
+        <li><a href="">Image</a></li>
+        <li><a href="">Vidéo</a></li>
+        <li><a href="">Audio</a></li>
+        <li><a href="">Tous les fichiers</a></li>
+      </ul>
+
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+
+        <div *ngFor="let media of medias?.page | async" class="col-md-3 text-center img-media">
+
+          <mat-icon class="material-icons">add_photo_alternate</mat-icon>
+          <div class="nom-img">{{media.name}}</div>
+          <!-- {{media.path}}
+          {{media.id}} -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

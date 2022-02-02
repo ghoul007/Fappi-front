@@ -1,0 +1,63 @@
+<app-content-wrapper class="content-infos" [fullWidth]="false"
+                     [withIcon]="true"
+                     i18n-subTitle="@@ux.fhir-broker.configServer.subtitle"
+                     i18n-title="@@ux.fhir-broker.configServer.title" subTitle="Currently editing configuration for organization: {{name}}" title="Edit fhir configuration"
+>
+  <mat-tab-group color="accent">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon color="accent">settings</mat-icon>
+        <span class="app-fg-primary-color-inverted-A200" i18n-title="@@ux.fhir-broker.configServer.tabtitle.information">Informations</span>
+      </ng-template>
+      <div class="main-container wrapper">
+      <form (ngSubmit)="onSubmitForm()" [formGroup]="fhirOrgForm">
+        <div class="main-form-container">
+          <mat-form-field class="col">
+            <input  class="app-bg-primary-color-100" formControlName="name" i18n-label="@@ux.fhir-broker.configServer.name.label" matInput
+                   placeholder="Name">
+          </mat-form-field>
+          <mat-form-field>
+            <input  class="col app-bg-primary-color-100" formControlName="fhirServerBaseUrl"
+                   i18n-label="@@ux.fhir-broker.configServer.fhirServerBaseUrl.label" matInput
+                   placeholder="Fhir base server url">
+            <mat-hint i18n="@@ux.fhir-broker.configServer.fhirServerBaseUrl.hint">The base url of the fhir server
+              (http://fhir-server/fhir/)
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field>
+            <input  class="col app-bg-primary-color-100" formControlName="username" i18n-label="@@ux.fhir-broker.configServer.username.label" matInput
+                   placeholder="Username">
+            <mat-hint i18n="@@ux.fhir-broker.configServer.username.hint">Username if the auth is of type HTTP Basic
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field class="col">
+            <input  class="app-bg-primary-color-100" formControlName="password" i18n-label="@@ux.fhir-broker.configServer.password.label" matInput
+                   placeholder="Password">
+            <mat-hint i18n="@@ux.fhir-broker.configServer.password.hint">Password if the auth is of type HTTP Basic
+            </mat-hint>
+          </mat-form-field>
+
+          <br/>
+          <br/>
+
+          <div *ngIf="!processing" class="action-button">
+            <button (click)="back()" class="cancel-button app-primary-color-A100" i18n="@@ux.fhir-broker.configServer.cancel" mat-button
+                    type="button">Cancel
+            </button>
+            <button class="app-primary-color-A100" [disabled]="!fhirOrgForm.valid" color="accent" i18n="@@ux.fhir-broker.configServer.save"
+                    mat-raised-button
+                    type="submit">Save
+            </button>
+          </div>
+          <div *ngIf="processing" class="action-button">
+            <app-loading-zone></app-loading-zone>
+          </div>
+
+        </div>
+      </form>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+
+</app-content-wrapper>

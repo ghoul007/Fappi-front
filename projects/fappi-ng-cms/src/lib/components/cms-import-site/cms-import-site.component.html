@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Chose your import options:</h1>
+
+<div mat-dialog-mediascontent>
+  <div class="row">
+    <div class="col-12">
+      <mat-slide-toggle [(ngModel)]="mergeNodes">
+        Merge nodes (in this case, if a node exist, it will be overrided).
+      </mat-slide-toggle>
+    </div>
+    <div class="col-12">
+      <mat-slide-toggle [(ngModel)]="mergeNodeTypes">
+        Merge nodes (in this case, if a node type exist, it will be overrided).
+      </mat-slide-toggle>
+    </div>
+    <div class="col-12">
+      <mat-slide-toggle [(ngModel)]="importNodeTypes">
+        Import node types
+      </mat-slide-toggle>
+    </div>
+
+
+    <div class="col-12 import-file-zone">
+      <span class="label-preview">Import file:</span>
+      <div class="node-preview">
+        {{importFile?.url}}
+      </div>
+      <a (click)="chooseFile('/')">Choose the import file</a>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="footer" mat-dialog-actions>
+  <div class="row">
+    <div class="col-12">
+      <button (click)="startImport()" color="accent" mat-raised-button type="submit">Import</button>
+    </div>
+  </div>
+</div>

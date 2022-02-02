@@ -1,0 +1,25 @@
+table {
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.warning-zone{
+  mat-icon{
+    color: #00b1cb;
+    vertical-align: bottom;
+    margin-right: 4px;
+  }
+
+  border: 1px solid var(--color-200);
+  border-radius: 4px;
+  padding: 8px;
+  margin: 24px;
+  font-size: 14px;
+  .warning{
+    color: black;
+  }
+}

@@ -1,0 +1,47 @@
+<app-content-wrapper [fullWidth]="true" title="Edit {{name}}"
+                     subTitle="Book settings">
+  <left-zone>
+    <mat-list>
+      <h3 matSubheader>Administration</h3>
+      <mat-list-item [routerLink]="'content-types'" [routerLinkActive]="'active'">
+        <mat-icon matListIcon>table_rows</mat-icon>
+        <h4 matLine>Content types</h4>
+        <p matLine class="demo-2"> Manage fields of yours contents </p>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'rights'" [routerLinkActive]="'active'">
+        <mat-icon matListIcon>admin_panel_settings</mat-icon>
+        <h4 matLine>Rights</h4>
+        <p matLine class="demo-2"> Manage rights </p>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'channels'" [routerLinkActive]="'active'">
+        <mat-icon matListIcon>call_split</mat-icon>
+        <h4 matLine>Channels</h4>
+        <p matLine class="demo-2"> Manage channels </p>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'versions'" [routerLinkActive]="'active'">
+        <mat-icon matListIcon>list</mat-icon>
+        <h4 matLine>Versions</h4>
+        <p matLine class="demo-2"> Manage versions </p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [routerLink]="'actions'" [routerLinkActive]="'active'">
+        <mat-icon matListIcon>build</mat-icon>
+        <h4 matLine>Actions</h4>
+        <p matLine class="demo-2"> Other actions </p>
+      </mat-list-item>
+
+
+
+
+
+
+    </mat-list>
+  </left-zone>
+  <main-zone>
+    <router-outlet></router-outlet>
+  </main-zone>
+
+
+</app-content-wrapper>

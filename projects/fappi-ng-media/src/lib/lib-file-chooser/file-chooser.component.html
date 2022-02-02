@@ -1,0 +1,12 @@
+<h2 i18n="@@ux.media.text.chooseFile" mat-dialog-title>Choose a file</h2>
+<mat-dialog-content *ngIf="orgId" class="container-spaced">
+  <lib-media-browser (selectedFileChoose)="fileChoose($event)" [orgId]="orgId"
+                     [showDeleteButton]="false"></lib-media-browser>
+</mat-dialog-content>
+<div class="container-spaced">
+  <mat-dialog-actions align="end">
+    <button i18n="@@ux.media.action.cancel" mat-button mat-dialog-close>Cancel</button>
+    <button *ngIf="data.media" [mat-dialog-close]="data" cdkFocusInitial mat-button mat-raised-button><span
+      i18n="@@ux.media.action.select">Select</span> {{data.media.name}}</button>
+  </mat-dialog-actions>
+</div>

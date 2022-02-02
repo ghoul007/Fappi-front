@@ -1,0 +1,80 @@
+<app-content-wrapper
+  *ngIf="clientPersonalizationForm && clientId"
+  [fullWidth]="false"
+  i18n-subTitle="@@module.admin.personalization.search-subTitle"
+  i18n-title="@@module.admin.personalization.search-title"
+
+  subTitle="Customize your interface look"
+  title="Edit look & feel"
+  withIcon="true"
+>
+  <mat-tab-group color="accent">
+    <mat-tab *ngIf="created">
+      <ng-template mat-tab-label>
+        <mat-icon color="accent">settings</mat-icon>
+        <span i18n-title="@@module.admin.personalization.tabtitle.personalization">Personalization</span>
+      </ng-template>
+      <div class="wrapper">
+       <form (ngSubmit)="onSubmitFormPersonalization()" [formGroup]="clientPersonalizationForm">
+          <mat-form-field class="col app-bg-primary-color-100">
+            <mat-label  i18n="@@module.admin.personalization.field.poweredBy">Powered By</mat-label>
+            <input formControlName="poweredByText" i18n-placeholder="@@module.admin.personalization.field.poweredBy"
+                   matInput placeholder="Powered By"
+                   required>
+          </mat-form-field>
+
+          <mat-form-field class="col app-bg-primary-color-100">
+            <mat-label i18n="@@module.admin.personalization.field.color">Color:</mat-label>
+            <select formControlName="colorScheme" matNativeControl required>
+              <option value="theme-00">Dark blue</option>
+              <option value="theme-01">Black</option>
+              <option value="theme-02">Soft yellow</option>
+              <option value="theme-03">Orange</option>
+              <option value="theme-04">Light blue</option>
+              <option value="theme-ftprod">FTPROD</option>
+              <option value="theme-smart-brain">Smart Brain Colors</option>
+            </select>
+          </mat-form-field>
+
+          <div>
+            <span class="label-preview" i18n="@@module.admin.personalization.field.logo">Logo</span>
+            <div>
+            <div class="node-preview">
+              <img class="preview-logo"
+                   src="/media/public/files/{{clientPersonalizationForm.controls.logo.value}}"/>
+            </div>
+            <div class="changelogo">
+              <a mat-flat-button color="accent" (click)="chooseFile()" i18n="@@module.admin.personalization.action.chooseALogo">Choose a logo</a>
+            </div>
+            </div>
+          </div>
+
+          <br/>
+
+         <mat-form-field class="col app-bg-primary-color-100">
+           <mat-label  i18n="@@module.admin.personalizationjuu.field.customCss">Custom css</mat-label>
+           <input formControlName="customCss" i18n-placeholder="@@module.admin.personalizationjuu.field.customCss"
+                  matInput placeholder="Custom CSS"
+                  >
+
+         </mat-form-field>
+
+          <div *ngIf="!processing" class="action-button">
+            <button (click)="cancel()" class="mat-stroked-button" i18n="@@module.admin.personalization.action.cancel"
+                    mat-button
+                    type="button">Cancel
+            </button>
+            <button [disabled]="!clientPersonalizationForm.valid" color="accent"
+                    i18n="@@module.admin.personalization.action.save" mat-raised-button
+                    type="submit">Save
+            </button>
+          </div>
+          <div *ngIf="processing" class="action-button">
+            <app-loading-zone></app-loading-zone>
+          </div>
+      </form>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</app-content-wrapper>

@@ -1,0 +1,51 @@
+<app-content-wrapper
+  [fullWidth]="false"
+  [subTitle]="'Add a group in this organization'"
+  [title]="'Add group'"
+  i18n-subTitle="@@module.admin.group.add-subTitle"
+  i18n-title="@@module.admin.group.add-title" iconUrl="assets/theme/scss/themes/img/avatar/img_avatar-group01.jpg"
+  withIcon="true">
+  <div class="content-wrapper wrapper">
+    <form (ngSubmit)="onSubmitForm()" *ngIf="addGroupForm" [formGroup]="addGroupForm">
+      <span *ngIf="errorMessage" class="app-form-error">
+       {{errorMessage}}
+      </span>
+
+        <mat-form-field class="app-bg-primary-color-100 col-lg-12">
+          <input #name formControlName="name" i18n-placeholder="@@module.admin.group.field.name" matInput
+                 placeholder="Name"
+                 required>
+        </mat-form-field>
+
+        <section>
+          <mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="showManualId" i18n="@@module.admin.group.entercustomid">Enter a custom id</mat-checkbox>
+        </section>
+
+        <mat-form-field *ngIf="showManualId" class="col app-bg-primary-color-100">
+          <input #name formControlName="id" i18n-placeholder="@@module.admin.group.field.id" matInput
+                 placeholder="Id"
+                 required>
+        </mat-form-field>
+
+
+        <section>
+          <mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="createProtected" i18n="@@module.admin.group.createProtected">Create a protected group</mat-checkbox>
+        </section>
+
+
+        <div *ngIf="!processing" class="action-button">
+          <button (click)="back()" class="mat-stroked-button" i18n="@@module.admin.group.cancel" mat-button type="button">
+            Cancel
+          </button>
+          <button [disabled]="!addGroupForm.valid" color="accent" i18n="@@module.admin.group.save" mat-raised-button
+                  type="submit">Save
+          </button>
+        </div>
+        <div *ngIf="processing" class="action-button">
+          <app-loading-zone></app-loading-zone>
+        </div>
+
+    </form>
+  </div>
+
+</app-content-wrapper>

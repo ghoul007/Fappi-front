@@ -1,0 +1,1128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="ux.superadmin.menu-name" datatype="html">
+        <source>Super Admin</source>
+        <target>Super Admin</target>
+        <note priority="1" from="meaning">Super Admin</note>
+      </trans-unit>
+      <trans-unit id="ux.superadmin.menu-name.client" datatype="html">
+        <source>Clients</source>
+        <target>Clients</target>
+        <note priority="1" from="meaning">Clients</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.dashboard" datatype="html">
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+        <note priority="1" from="meaning">Dashboard</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.content" datatype="html">
+        <source>Content</source>
+        <target>Content</target>
+        <note priority="1" from="meaning">Content</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.my-tasks" datatype="html">
+        <source>My tasks</source>
+        <target>My tasks</target>
+        <note priority="1" from="meaning">My tasks</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.crm" datatype="html">
+        <source>CRM</source>
+        <target>CRM</target>
+        <note priority="1" from="meaning">CRM</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.organization" datatype="html">
+        <source>Organizations</source>
+        <target>Organizations</target>
+        <note priority="1" from="meaning">Organizations</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.user" datatype="html">
+        <source>Users</source>
+        <target>Users</target>
+        <note priority="1" from="meaning">Users</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.group" datatype="html">
+        <source>Groups</source>
+        <target>Groups</target>
+        <note priority="1" from="meaning">Groups</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.audit" datatype="html">
+        <source>Audit</source>
+        <target>Audit</target>
+        <note priority="1" from="meaning">Audit</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.process" datatype="html">
+        <source>Process</source>
+        <target>Process</target>
+        <note priority="1" from="meaning">Process</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin" datatype="html">
+        <source>Admin</source>
+        <target>Admin</target>
+        <note priority="1" from="meaning">Admin</note>
+      </trans-unit>
+      <trans-unit id="ux.right-menu.loggedin.log" datatype="html">
+        <source>Connected as</source>
+        <target>Connected as</target>
+      </trans-unit>
+      <trans-unit id="ux.right-menu.loggedin.in" datatype="html">
+        <source>in</source>
+        <target>in</target>
+      </trans-unit>
+      <trans-unit id="ux.right-menu.changeorg.title" datatype="html">
+        <source>Change organization</source>
+        <target>Change organization</target>
+      </trans-unit>
+      <trans-unit id="ux.right-menu.logout" datatype="html">
+        <source>Log out</source>
+        <target>Log out</target>
+      </trans-unit>
+      <trans-unit id="ux.no-org" datatype="html">
+        <source>You don&apos;t have organization. Please create one. </source>
+        <target>You don&apos;t have organization. Please create one. </target>
+      </trans-unit>
+      <trans-unit id="ux.footer.version" datatype="html">
+        <source>Current version: </source>
+        <target>Current version: </target>
+      </trans-unit>
+      <trans-unit id="module.admin.user.search-title" datatype="html">
+        <source>Search users</source>
+        <target>Search users</target>
+      </trans-unit>
+      <trans-unit id="module.admin.user.add-member" datatype="html">
+        <source>Add a member to the current organization</source>
+        <target>Add a member to the current organization</target>
+      </trans-unit>
+      <trans-unit id="module.admin.user.create-button" datatype="html">
+        <source>Create a user</source>
+        <target>Create a user</target>
+      </trans-unit>
+      <trans-unit id="module.main-component.list-users.username" datatype="html">
+        <source>Login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="module.main-component.list-users.actions" datatype="html">
+        <source>Actions</source>
+        <target>Actions</target>
+      </trans-unit>
+      <trans-unit id="ux.right-menu.profil" datatype="html">
+        <source>My profil</source>
+        <target>My profil</target>
+        <note priority="1" from="meaning">My profil</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.lookAndFeel" datatype="html">
+        <source>Look and Feel</source>
+        <target>Look and Feel</target>
+        <note priority="1" from="meaning">Look and Feel</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-material-kit.ux.dialog.confirm.subtitle" datatype="html">
+        <source>Are you sure ?</source>
+        <target>Are you sure ?</target>
+        <note priority="1" from="meaning">Are you sure ?</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-tree.addnode" datatype="html">
+        <source>Add a node</source>
+        <target>Add a node</target>
+        <note priority="1" from="meaning">Add a node</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-tree.cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note priority="1" from="meaning">Cancel</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-tree.ok" datatype="html">
+        <source>Ok</source>
+        <target>Ok</target>
+        <note priority="1" from="meaning">Ok</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-tree.name" datatype="html">
+        <source>Name</source>
+        <target>Name</target>
+        <note priority="1" from="meaning">Name</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-tree.createfolder" datatype="html">
+        <source>Create a folder</source>
+        <target>Create a folder</target>
+        <note priority="1" from="meaning">Create a folder</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-tree.createfile" datatype="html">
+        <source>Create a file</source>
+        <target>Create a file</target>
+        <note priority="1" from="meaning">Create a file</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-tree.slug" datatype="html">
+        <source>Slug</source>
+        <target>Slug</target>
+        <note priority="1" from="meaning">Slug</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-tree.type" datatype="html">
+        <source>Type</source>
+        <target>Type</target>
+        <note priority="1" from="meaning">Type</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-nodeselect.title" datatype="html">
+        <source>Select where to move the node</source>
+        <target>Select where to move the node</target>
+        <note priority="1" from="meaning"> Select where to move the node</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-nodeselect.cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note priority="1" from="meaning">Cancel</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-nodeselect.to" datatype="html">
+        <source>Move your node to:</source>
+        <target>Move your node to:</target>
+        <note priority="1" from="meaning">Move your node to:</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-nodeselect.move" datatype="html">
+        <source>Move your node to:</source>
+        <target>Move your node to:</target>
+        <note priority="1" from="meaning">Move your node to:</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-edit-nodetb.edit" datatype="html">
+        <source>Edit</source>
+        <target>Edit</target>
+        <note priority="1" from="meaning">Edit</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-edit-nodetb.delete" datatype="html">
+        <source>Delete</source>
+        <target>Delete</target>
+        <note priority="1" from="meaning">Delete</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-edit-nodetb.rename" datatype="html">
+        <source>Rename</source>
+        <target>Rename</target>
+        <note priority="1" from="meaning">Rename</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-edit-nodetb.move" datatype="html">
+        <source>Move</source>
+        <target>Move</target>
+        <note priority="1" from="meaning">Move</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.fhir.menu-name.list-encounters" datatype="html">
+        <source>Episodes</source>
+        <target>Episodes</target>
+        <note priority="1" from="meaning">Episodes</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-edit-node.cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note priority="1" from="meaning">Cancel</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-edit-node.save" datatype="html">
+        <source>Save</source>
+        <target>Save</target>
+        <note priority="1" from="meaning">Save</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-edit-node.nameofnode" datatype="html">
+        <source>Name of the node</source>
+        <target>Name of the node</target>
+        <note priority="1" from="meaning">Name of the node</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-edit-node.close" datatype="html">
+        <source>Close</source>
+        <target>Close</target>
+        <note priority="1" from="meaning">Close</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-edit-nt.type" datatype="html">
+        <source>Type</source>
+        <target>Type</target>
+        <note priority="1" from="meaning">Type</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-edit-nt.scope" datatype="html">
+        <source>Scope</source>
+        <target>Scope</target>
+        <note priority="1" from="meaning">Scope</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-edit-nt.global" datatype="html">
+        <source>Global</source>
+        <target>Global</target>
+        <note priority="1" from="meaning">Global</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.cms-edit-nt.thisbook" datatype="html">
+        <source>This book</source>
+        <target>This book</target>
+        <note priority="1" from="meaning">This book</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.right.managementTitle" datatype="html">
+        <source>Right management</source>
+        <target>Right management</target>
+        <note priority="1" from="meaning">Right management</note>
+      </trans-unit>
+      <trans-unit id="ux.media.action.addFile" datatype="html">
+        <source>Add file</source>
+        <target>Add file</target>
+        <note priority="1" from="meaning">Add file</note>
+      </trans-unit>
+      <trans-unit id="ux.media.action.fileName" datatype="html">
+        <source>Name.</source>
+        <target>Name.</target>
+        <note priority="1" from="meaning"> Name. </note>
+      </trans-unit>
+      <trans-unit id="ux.media.action.fileSize" datatype="html">
+        <source> Size </source>
+        <target> Size </target>
+        <note priority="1" from="meaning"> Size </note>
+      </trans-unit>
+      <trans-unit id="ux.media.text.chooseFile" datatype="html">
+        <source>Choose a file</source>
+        <target>Choose a file</target>
+        <note priority="1" from="meaning">Choose a file</note>
+      </trans-unit>
+      <trans-unit id="ux.media.action.cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note priority="1" from="meaning">Cancel</note>
+      </trans-unit>
+      <trans-unit id="ux.media.action.select" datatype="html">
+        <source>Select</source>
+        <target>Select</target>
+        <note priority="1" from="meaning">Select</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.fhir.menu-name.list-patients" datatype="html">
+        <source>Patients</source>
+        <target>Patients</target>
+        <note priority="1" from="meaning">Patients</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.fhir.menu-name.admin" datatype="html">
+        <source>Admin</source>
+        <target>Admin</target>
+        <note priority="1" from="meaning">Admin</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.encounters.title" datatype="html">
+        <source>Search encounters</source>
+        <target>Search encounters</target>
+        <note priority="1" from="meaning">Search encounters</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.encounters.subtitle" datatype="html">
+        <source>Find encounters in <x id="INTERPOLATION" equiv-text="{{orgName}}"/></source>
+        <target>Find encounters in <x id="INTERPOLATION" equiv-text="{{orgName}}"/></target>
+        <note priority="1" from="meaning">Find encounters in orgname</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.detailEncounter.titleLocation" datatype="html">
+        <source>Location</source>
+        <target>Location</target>
+        <note priority="1" from="meaning">Location</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.detailEncounter.titleAttachements" datatype="html">
+        <source>Attachments</source>
+        <target>Attachments</target>
+        <note priority="1" from="meaning">Attachments</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.detailEncounter.titleObservations" datatype="html">
+        <source>Observations</source>
+        <target>Observations</target>
+        <note priority="1" from="meaning">Observations</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.encounter.subtitle" datatype="html">
+        <source>Your encounter</source>
+        <target>Your encounter</target>
+        <note priority="1" from="meaning">Your encounter</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.encounter.title" datatype="html">
+        <source>Encounter</source>
+        <target>Encounter</target>
+        <note priority="1" from="meaning">Encounter</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.configServer.subtitle" datatype="html">
+        <source>Your encounter</source>
+        <target>Your encounter</target>
+        <note priority="1" from="meaning">Your encounter</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.configServer.cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note priority="1" from="meaning">Cancel</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.configServer.password.hint" datatype="html">
+        <source>Password if the auth is of type HTTP Basic</source>
+        <target>Password if the auth is of type HTTP Basic</target>
+        <note priority="1" from="meaning">Password if the auth is of type HTTP Basic</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.configServer.username.hint" datatype="html">
+        <source>Username if the auth is of type HTTP Basic</source>
+        <target>Username if the auth is of type HTTP Basic</target>
+        <note priority="1" from="meaning">Username if the auth is of type HTTP Basic</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.configServer.fhirServerBaseUrl.hint" datatype="html">
+        <source>The base url of the fhir server (http://fhir-server/fhir/)</source>
+        <target>The base url of the fhir server (http://fhir-server/fhir/)</target>
+        <note priority="1" from="meaning">The base url of the fhir server (http://fhir-server/fhir/)</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.configServer.title" datatype="html">
+        <source>Edit fhir configuration</source>
+        <target>Edit fhir configuration</target>
+        <note priority="1" from="meaning">Edit fhir configuration</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.configServer.save" datatype="html">
+        <source>Save</source>
+        <target>Save</target>
+        <note priority="1" from="meaning">Save</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchPatient.table.show" datatype="html">
+        <source>Show</source>
+        <target>Show</target>
+        <note priority="1" from="meaning">Show</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchPatient.table.actions" datatype="html">
+        <source>Actions</source>
+        <target>Actions</target>
+        <note priority="1" from="meaning">Actions</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchPatient.table.city" datatype="html">
+        <source>City</source>
+        <target>City</target>
+        <note priority="1" from="meaning">City</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchPatient.table.street" datatype="html">
+        <source>Street</source>
+        <target>Street</target>
+        <note priority="1" from="meaning">Street</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchPatient.table.birthdate" datatype="html">
+        <source>Birthdate</source>
+        <target>Birthdate</target>
+        <note priority="1" from="meaning">Birthdate</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchPatient.table.nir" datatype="html">
+        <source>Nir</source>
+        <target>Nir</target>
+        <note priority="1" from="meaning">Nir</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient.subtitle" datatype="html">
+        <source>Find patients in <x id="INTERPOLATION" equiv-text="{{orgName}}"/></source>
+        <target>Find patients in <x id="INTERPOLATION" equiv-text="{{orgName}}"/></target>
+        <note priority="1" from="meaning">Find patients in &lt;x id=&quot;INTERPOLATION&quot; equiv-text=&quot;{{orgName}}&quot;/&gt;</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchPatient.table.family" datatype="html">
+        <source>Family</source>
+        <target>Family</target>
+        <note priority="1" from="meaning">Family</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.filter.service" datatype="html">
+        <source>Service</source>
+        <target>Service</target>
+        <note priority="1" from="meaning">Service</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchPatient.table.given" datatype="html">
+        <source>Given</source>
+        <target>Given</target>
+        <note priority="1" from="meaning">Given</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient.title" datatype="html">
+        <source>Search patients</source>
+        <target>Search patients</target>
+        <note priority="1" from="meaning">Search patients</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.filter.ipp" datatype="html">
+        <source>IPP</source>
+        <target>IPP</target>
+        <note priority="1" from="meaning">IPP</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.filter.nir" datatype="html">
+        <source>NIR</source>
+        <target>NIR</target>
+        <note priority="1" from="meaning">NIR</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.filter.name" datatype="html">
+        <source>Name</source>
+        <target>Name</target>
+        <note priority="1" from="meaning">Name</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.table.episodeserviceprovider" datatype="html">
+        <source>Service Provider</source>
+        <target>Service Provider</target>
+        <note priority="1" from="meaning">Service Provider</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.filter.id" datatype="html">
+        <source>Id</source>
+        <target>Id</target>
+        <note priority="1" from="meaning">Id</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.filter.before" datatype="html">
+        <source>Before</source>
+        <target>Before</target>
+        <note priority="1" from="meaning">Before</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.table.episodeclass" datatype="html">
+        <source>Class</source>
+        <target>Class</target>
+        <note priority="1" from="meaning">Class</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.table.episodetype" datatype="html">
+        <source>Type</source>
+        <target>Type</target>
+        <note priority="1" from="meaning">Type</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.table.episodeparticipant" datatype="html">
+        <source>Participant</source>
+        <target>Participant</target>
+        <note priority="1" from="meaning">Participant</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.table.episodeperiod" datatype="html">
+        <source>Period</source>
+        <target>Period</target>
+        <note priority="1" from="meaning">Period</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.filter.after" datatype="html">
+        <source>After</source>
+        <target>After</target>
+        <note priority="1" from="meaning">After</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.table.episodeactions" datatype="html">
+        <source>Actions</source>
+        <target>Actions</target>
+        <note priority="1" from="meaning">Actions</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchEncounter.table.show" datatype="html">
+        <source>Show</source>
+        <target>Show</target>
+        <note priority="1" from="meaning">Show</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-task.validateresponse.validated" datatype="html">
+        <source>Validated</source>
+        <target>Validated</target>
+        <note priority="1" from="meaning">Validated</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-task.tabinfo" datatype="html">
+        <source>Informations</source>
+        <target>Informations</target>
+        <note priority="1" from="meaning">Informations</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-task.variables" datatype="html">
+        <source>Variables:</source>
+        <target>Variables:</target>
+        <note priority="1" from="meaning">Variables:</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-task.validateresponse.delete" datatype="html">
+        <source>Delete</source>
+        <target>Delete</target>
+        <note priority="1" from="meaning">Delete</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-task.validateresponse.save" datatype="html">
+        <source>Save</source>
+        <target>Save</target>
+        <note priority="1" from="meaning">Save</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-task.validateresponse" datatype="html">
+        <source>Validation response:</source>
+        <target>Validation response:</target>
+        <note priority="1" from="meaning">Validation response:</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-task.edittitle" datatype="html">
+        <source>Edit task:</source>
+        <target>Edit task:</target>
+        <note priority="1" from="meaning">Edit task:</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-task.validateresponse.notvalidated" datatype="html">
+        <source>Not Validated</source>
+        <target>Not Validated</target>
+        <note priority="1" from="meaning">Not Validated</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-task.validateresponse.moreinfo" datatype="html">
+        <source>More Informations needed</source>
+        <target>More Informations needed</target>
+        <note priority="1" from="meaning">More Informations needed</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-task.validateresponse.responsetitle" datatype="html">
+        <source>Your response:</source>
+        <target>Your response:</target>
+        <note priority="1" from="meaning">Your response:</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.search-subTitle" datatype="html">
+        <source>All users of the platform</source>
+        <target>All users of the platform</target>
+        <note priority="1" from="meaning">All users of the platform</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.ux.action.add" datatype="html">
+        <source>Add</source>
+        <target>Add</target>
+        <note priority="1" from="meaning">Add</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.ux.action.export" datatype="html">
+        <source>Export</source>
+        <target>Export</target>
+        <note priority="1" from="meaning">Export</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.ux.action.import" datatype="html">
+        <source>Import</source>
+        <target>Import</target>
+        <note priority="1" from="meaning">Import</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.ux.title.slug" datatype="html">
+        <source>Slug</source>
+        <target>Slug</target>
+        <note priority="1" from="meaning">Slug</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.ux.action.title" datatype="html">
+        <source>Actions</source>
+        <target>Actions</target>
+        <note priority="1" from="meaning">Actions</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.ux.action.delete" datatype="html">
+        <source>Delete</source>
+        <target>Delete</target>
+        <note priority="1" from="meaning">Delete</note>
+      </trans-unit>
+      <trans-unit id="ux.fappi-ng-cms.ux.action.contentTypes" datatype="html">
+        <source>Content types</source>
+        <target>Content types</target>
+        <note priority="1" from="meaning">Content types</note>
+      </trans-unit>
+      <trans-unit id="module.admin.personalization.search-title" datatype="html">
+        <source>Edit look &amp; feel</source>
+        <target>Edit look &amp; feel</target>
+        <note priority="1" from="meaning">Edit look &amp; feel</note>
+      </trans-unit>
+      <trans-unit id="module.admin.personalization.search-subTitle" datatype="html">
+        <source>Customize your interface</source>
+        <target>Customize your interface</target>
+        <note priority="1" from="meaning">Customize your interface look</note>
+      </trans-unit>
+      <trans-unit id="Powered By" datatype="html">
+        <source>Powered by</source>
+        <target>Powered by</target>
+        <note priority="1" from="meaning">module.admin.personalization.field.poweredBy</note>
+      </trans-unit>
+      <trans-unit id="module.admin.personalization.field.color" datatype="html">
+        <source>Color</source>
+        <target>Color</target>
+        <note priority="1" from="meaning">Color:</note>
+      </trans-unit>
+      <trans-unit id="module.admin.personalization.field.logo" datatype="html">
+        <source>Logo</source>
+        <target>Logo</target>
+        <note priority="1" from="meaning">Logo</note>
+      </trans-unit>
+      <trans-unit id="module.admin.personalization.action.chooseALogo" datatype="html">
+        <source>Choose a logo</source>
+        <target>Choose a logo</target>
+        <note priority="1" from="meaning">Choose a logo</note>
+      </trans-unit>
+      <trans-unit id="module.admin.personalization.field.customCss" datatype="html">
+        <source>Custom CSS</source>
+        <target>Custom CSS</target>
+        <note priority="1" from="meaning">Custom CSS</note>
+      </trans-unit>
+      <trans-unit id="module.admin.personalization.action.cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note priority="1" from="meaning">Cancel</note>
+      </trans-unit>
+      <trans-unit id="module.admin.personalization.action.save" datatype="html">
+        <source>Save</source>
+        <target>Save</target>
+        <note priority="1" from="meaning">Save</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.search-title" datatype="html">
+        <source>List process</source>
+        <target>List process</target>
+        <note priority="1" from="meaning">List process</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.description" datatype="html">
+        <source>Description</source>
+        <target>Description</target>
+        <note priority="1" from="meaning">Description</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.field.variables.hint" datatype="html">
+        <source>Put your properties here</source>
+        <target>Put your properties here</target>
+        <note priority="1" from="meaning">Put your properties like: {&quot;value&quot;:&quot;false&quot;}</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.field.firstName" datatype="html">
+        <source>Firstname</source>
+        <target>Firstname</target>
+        <note priority="1" from="meaning">Firstname</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.field.lastName" datatype="html">
+        <source>Lastname</source>
+        <target>Lastname</target>
+        <note priority="1" from="meaning">Lastname</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.field.preferedEmail" datatype="html">
+        <source>Preferedemail</source>
+        <target>Preferedemail</target>
+        <note priority="1" from="meaning">Preferedemail</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note priority="1" from="meaning">Cancel</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.save" datatype="html">
+        <source>Save</source>
+        <target>Save</target>
+        <note priority="1" from="meaning">Save</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.search-title" datatype="html">
+        <source>Search audit</source>
+        <target>Search audit</target>
+        <note priority="1" from="meaning">Searchaudit</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.search-subTitle" datatype="html">
+        <source>Search</source>
+        <target>Search</target>
+        <note priority="1" from="meaning">Allaudittrailinformationsofthisorganization</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.filter-title" datatype="html">
+        <source>Filters</source>
+        <target>Filters</target>
+        <note priority="1" from="meaning">Filters</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.field.username" datatype="html">
+        <source>Username</source>
+        <target>Username</target>
+        <note priority="1" from="meaning">Username</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.field.ip" datatype="html">
+        <source>Ip</source>
+        <target>Ip</target>
+        <note priority="1" from="meaning">Ip</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.field.service" datatype="html">
+        <source>Service</source>
+        <target>Service</target>
+        <note priority="1" from="meaning">Service</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.field.action" datatype="html">
+        <source>Action</source>
+        <target>Action</target>
+        <note priority="1" from="meaning">Action</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.field.elementType" datatype="html">
+        <source>ElementType</source>
+        <target>ElementType</target>
+        <note priority="1" from="meaning">ElementType</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.table.service" datatype="html">
+        <source>Service</source>
+        <target>Service</target>
+        <note priority="1" from="meaning">Service</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.table.ip" datatype="html">
+        <source>Ip</source>
+        <target>Ip</target>
+        <note priority="1" from="meaning">Ip</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.table.action" datatype="html">
+        <source>Action</source>
+        <target>Action</target>
+        <note priority="1" from="meaning">Action</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.table.actionDesc" datatype="html">
+        <source>Action description</source>
+        <target>Action description</target>
+        <note priority="1" from="meaning">ActionDesc</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.table.date" datatype="html">
+        <source>Date</source>
+        <target>Date</target>
+        <note priority="1" from="meaning">Date</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.table.elementType" datatype="html">
+        <source>Element type</source>
+        <target>Element type</target>
+        <note priority="1" from="meaning">ElementType</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.table.elementRef" datatype="html">
+        <source>Element ref</source>
+        <target>Element ref</target>
+        <note priority="1" from="meaning">ElementRef</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.table.traces" datatype="html">
+        <source>Traces</source>
+        <target>Traces</target>
+        <note priority="1" from="meaning">Traces</note>
+      </trans-unit>
+      <trans-unit id="module.admin.audit.table.username" datatype="html">
+        <source>Username</source>
+        <target>Username</target>
+        <note priority="1" from="meaning">Username:</note>
+      </trans-unit>
+      <trans-unit id="module.admin.group.field.name" datatype="html">
+        <source>Name groupe</source>
+        <target>Name groupe</target>
+        <note priority="1" from="meaning">Name</note>
+      </trans-unit>
+      <trans-unit id="module.admin.group.cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note priority="1" from="meaning">Cancel</note>
+      </trans-unit>
+      <trans-unit id="module.admin.group.save" datatype="html">
+        <source>Save</source>
+        <target>Save</target>
+        <note priority="1" from="meaning">Save</note>
+      </trans-unit>
+      <trans-unit id="module.admin.group.search-title" datatype="html">
+        <source>Search groupes</source>
+        <target>Search groupes</target>
+        <note priority="1" from="meaning">Searchgroups</note>
+      </trans-unit>
+      <trans-unit id="module.admin.group.search-subTitle" datatype="html">
+        <source>All group of this organization</source>
+        <target>All group of this organization</target>
+        <note priority="1" from="meaning">Allgroupsofthisorganization</note>
+      </trans-unit>
+      <trans-unit id="module.admin.group.add" datatype="html">
+        <source>Add</source>
+        <target>Add</target>
+        <note priority="1" from="meaning">Add</note>
+      </trans-unit>
+      <trans-unit id="module.admin.group.show-title" datatype="html">
+        <source>Edit group</source>
+        <target>Edit group</target>
+        <note priority="1" from="meaning">Editgroup</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.addMember" datatype="html">
+        <source>Add member</source>
+        <target>Add member</target>
+        <note priority="1" from="meaning">AddMember</note>
+      </trans-unit>
+      <trans-unit id="module.admin.group.field.id" datatype="html">
+        <source>Id</source>
+        <target>Id</target>
+        <note priority="1" from="meaning">Id</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.add-subTitle" datatype="html">
+        <source>Create an new user</source>
+        <target>Create an new user</target>
+        <note priority="1" from="meaning">Createanewuser</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.field.organization" datatype="html">
+        <source>Organization</source>
+        <target>Organization</target>
+        <note priority="1" from="meaning">Organization</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.field.organization.hint" datatype="html">
+        <source>Default organization of the user</source>
+        <target>Default organization of the user</target>
+        <note priority="1" from="meaning">Defaultorganizationoftheuser</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.field.username" datatype="html">
+        <source>Username</source>
+        <target>Username</target>
+        <note priority="1" from="meaning">Username</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.field.username.errors" datatype="html">
+        <source>Errors</source>
+        <target>Errors</target>
+        <note priority="1" from="meaning">Usernameisrequiredandmustbeatleast2characterslong</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.field.password.errors" datatype="html">
+        <source>Password error</source>
+        <target>Password error</target>
+        <note priority="1" from="meaning">Passwordisrequiredandmustbeatleast6characterslong</note>
+      </trans-unit>
+      <trans-unit id="module.admin.user.edit-title" datatype="html">
+        <source>Edit user</source>
+        <target>Edit user</target>
+        <note priority="1" from="meaning">Edituser</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.add-title" datatype="html">
+        <source>Add process</source>
+        <target>Add process</target>
+        <note priority="1" from="meaning">Addprocess</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.field.name.placeholder" datatype="html">
+        <source>Name</source>
+        <target>Name</target>
+        <note priority="1" from="meaning">Name</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.field.id.placeholder" datatype="html">
+        <source>Id</source>
+        <target>Id</target>
+        <note priority="1" from="meaning">Id</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.field.name.contentXml" datatype="html">
+        <source>Bpmnxml</source>
+        <target>Bpmnxml</target>
+        <note priority="1" from="meaning">Bpmnxml</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note priority="1" from="meaning">Cancel</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.add" datatype="html">
+        <source>Add process</source>
+        <target>Add process</target>
+        <note priority="1" from="meaning">Add</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.tab.definition" datatype="html">
+        <source>Definition</source>
+        <target>Definition</target>
+        <note priority="1" from="meaning">Definition</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.tab.update" datatype="html">
+        <source>Update</source>
+        <target>Update</target>
+        <note priority="1" from="meaning">Update</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.field.contentXml.placeholder" datatype="html">
+        <source>Bpmnxml</source>
+        <target>Bpmnxml</target>
+        <note priority="1" from="meaning">Bpmnxml</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.start" datatype="html">
+        <source>Add</source>
+        <target>Add</target>
+        <note priority="1" from="meaning">Add</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.tab.start" datatype="html">
+        <source>Start process</source>
+        <target>Start process</target>
+        <note priority="1" from="meaning">StartProcess</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.field.variables.placeholder" datatype="html">
+        <source>Variables</source>
+        <target>Variables</target>
+        <note priority="1" from="meaning">Variables</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.search-subTitle" datatype="html">
+        <source>All your process</source>
+        <target>All your process</target>
+        <note priority="1" from="meaning">Allyourprocess</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.name" datatype="html">
+        <source>Process name</source>
+        <target>Process name</target>
+        <note priority="1" from="meaning">Name</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.version" datatype="html">
+        <source>Version</source>
+        <target>Version</target>
+        <note priority="1" from="meaning">Version</note>
+      </trans-unit>
+      <trans-unit id="module.admin.process.key" datatype="html">
+        <source>Key</source>
+        <target>Key</target>
+        <note priority="1" from="meaning">Key</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.title.contact" datatype="html">
+        <source>Contact:
+</source>
+        <target>Contact:
+</target>
+        <note priority="1" from="meaning">Contact:</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.fhir.menu-name.dashboard" datatype="html">
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+        <note priority="1" from="meaning">Dashboard</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.fhir.menu-name.list-practitioners" datatype="html">
+        <source>Practitioners</source>
+        <target>Practitioners</target>
+        <note priority="1" from="meaning">Practitioners</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.fhir.menu-name.other-apps" datatype="html">
+        <source>Other Apps</source>
+        <target>Other Apps</target>
+        <note priority="1" from="meaning">Other Apps</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.encounter.breadcrumb.backtopatient" datatype="html">
+        <source>Back to patient</source>
+        <target>Back to patient</target>
+        <note priority="1" from="meaning">Back to patient</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.subtitle" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{subtitleName}}"/>, <x id="INTERPOLATION_1" equiv-text="{{subtitleAge}}"/> years</source>
+        <target><x id="INTERPOLATION" equiv-text="{{subtitleName}}"/>, <x id="INTERPOLATION_1" equiv-text="{{subtitleAge}}"/> years</target>
+        <note priority="1" from="meaning">{$INTERPOLATION}, {$INTERPOLATION_1} years</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.title.latest-analyses" datatype="html">
+        <source>Latest analyses</source>
+        <target>Latest analyses</target>
+        <note priority="1" from="meaning">Latest analyse</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.title.gender" datatype="html">
+        <source>Gender</source>
+        <target>Gender</target>
+        <note priority="1" from="meaning">Gender</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.title.latest-visits" datatype="html">
+        <source>Latest visits</source>
+        <target>Latest visits</target>
+        <note priority="1" from="meaning">Last visit</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.title.allergy" datatype="html">
+        <source>Allergy</source>
+        <target>Allergy</target>
+        <note priority="1" from="meaning">Allergy</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.tab-title.contact" datatype="html">
+        <source>Contact</source>
+        <target>Contact</target>
+        <note priority="1" from="meaning">Contact</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.tab-title.medication" datatype="html">
+        <source>Medications</source>
+        <target>Medications</target>
+        <note priority="1" from="meaning">Medications</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.tab-title.diagnosis" datatype="html">
+        <source>Diagnosis</source>
+        <target>Diagnosis</target>
+        <note priority="1" from="meaning">Diagnosis</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.tab-title.documents" datatype="html">
+        <source>Documents</source>
+        <target>Documents</target>
+        <note priority="1" from="meaning">Documents</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.tab-title.family-history" datatype="html">
+        <source>Family history</source>
+        <target>Family history</target>
+        <note priority="1" from="meaning">Family history</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.tab-title.notes" datatype="html">
+        <source>Note</source>
+        <target>Note</target>
+        <note priority="1" from="meaning">Note</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.gender.male" datatype="html">
+        <source>Male</source>
+        <target>Male</target>
+        <note priority="1" from="meaning">Male</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.gender.female" datatype="html">
+        <source>Female</source>
+        <target>Female</target>
+        <note priority="1" from="meaning">Female</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.title.identifiers" datatype="html">
+        <source>Identifiers:</source>
+        <target>Identifiers:</target>
+        <note priority="1" from="meaning"> Identifiers:</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.title.names" datatype="html">
+        <source>Names</source>
+        <target>Names</target>
+        <note priority="1" from="meaning">Names</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.field.name" datatype="html">
+        <source>Name:</source>
+        <target>Name:</target>
+        <note priority="1" from="meaning">Name:</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.field.given" datatype="html">
+        <source>Given:</source>
+        <target>Given:</target>
+        <note priority="1" from="meaning">Given:</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.field.birth-date" datatype="html">
+        <source>Date of birth</source>
+        <target>Date of birth</target>
+        <note priority="1" from="meaning">Date de naissance :</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.title.address" datatype="html">
+        <source>Adresse :</source>
+        <target>Adresse :</target>
+        <note priority="1" from="meaning">Adresse :</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.fhir.menu-name.list-organizations" datatype="html">
+        <source>Organizations</source>
+        <target>Organizations</target>
+        <note priority="1" from="meaning">Organizations</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.title.communication" datatype="html">
+        <source>Communication:</source>
+        <target>Communication:</target>
+        <note priority="1" from="meaning">Communication :</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.title.marital-status" datatype="html">
+        <source>Marital Status:</source>
+        <target>Marital Status:</target>
+        <note priority="1" from="meaning">MaritalStatus :</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.title.patientTelecom" datatype="html">
+        <source>Patient telecom:</source>
+        <target>Patient telecom:</target>
+        <note priority="1" from="meaning">Patient telecom :</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.patient-detail.title.notes" datatype="html">
+        <source>Sample notes:</source>
+        <target>Sample notes:</target>
+        <note priority="1" from="meaning">Sample notes:</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.participant.period.label" datatype="html">
+        <source>Periode:</source>
+        <target>Periode:</target>
+        <note priority="1" from="meaning">Periode:</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.participant.actionshow" datatype="html">
+        <source>Participant details</source>
+        <target>Participant details</target>
+        <note priority="1" from="meaning">Participant details</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.participant.type.label" datatype="html">
+        <source>Type:</source>
+        <target>Type:</target>
+        <note priority="1" from="meaning">Type:</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.organization.subtitle" datatype="html">
+        <source>Showing the organization</source>
+        <target>Showing the organization</target>
+        <note priority="1" from="meaning">Showing the organization</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.organization.title" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{name}}"/></source>
+        <target><x id="INTERPOLATION" equiv-text="{{name}}"/></target>
+        <note priority="1" from="meaning">{$INTERPOLATION}</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.breadcrumb.back" datatype="html">
+        <source>Back</source>
+        <target>Back</target>
+        <note priority="1" from="meaning">Back</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.practitioners.title" datatype="html">
+        <source>Search practitioners</source>
+        <target>Search practitioners</target>
+        <note priority="1" from="meaning">Search practitioners</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.practitioners.subtitle" datatype="html">
+        <source>Find practitioners in <x id="INTERPOLATION" equiv-text="{{orgName}}"/></source>
+        <target>Find practitioners in <x id="INTERPOLATION" equiv-text="{{orgName}}"/></target>
+        <note priority="1" from="meaning">Find practitioners in {$INTERPOLATION}</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchPractitioner.filter.name" datatype="html">
+        <source>Name</source>
+        <target>Name</target>
+        <note priority="1" from="meaning">Name</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchPractitioner.table.name" datatype="html">
+        <source>Name</source>
+        <target>Name</target>
+        <note priority="1" from="meaning">Name</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchPractitioner.table.actions" datatype="html">
+        <source>Actions</source>
+        <target>Actions</target>
+        <note priority="1" from="meaning">Actions</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchPractitioner.table.show" datatype="html">
+        <source>Show</source>
+        <target>Show</target>
+        <note priority="1" from="meaning">Show</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchOrganization.filter.name" datatype="html">
+        <source>Name</source>
+        <target>Name</target>
+        <note priority="1" from="meaning">Name</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchOrganization.table.type" datatype="html">
+        <source>Type</source>
+        <target>Type</target>
+        <note priority="1" from="meaning">Type</note>
+      </trans-unit>
+      <trans-unit id="ux.fhir-broker.searchOrganization.table.show" datatype="html">
+        <source>Show</source>
+        <target>Show</target>
+        <note priority="1" from="meaning">Show</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

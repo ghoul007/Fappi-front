@@ -1,0 +1,112 @@
+<app-content-wrapper fullWidth="true" i18n-subTitle="@@ux.fhir-broker.encounters.subtitle"
+                     i18n-title="@@ux.fhir-broker.encounters.title" subTitle="Find encounters in {{orgName}}"
+                     title="Search encounters">
+  <div class="content-wrapper">
+    <div class="action-button-bar topbar" role="actions">
+      <form [formGroup]="searchParams">
+        <mat-form-field class="app-primary-color-100">
+          <mat-label i18n="@@ux.fhir-broker.searchEncounter.filter.id">Id</mat-label>
+          <input formControlName="id" matInput placeholder="Id">
+        </mat-form-field>
+
+        <mat-form-field   class="app-primary-color-100">
+          <mat-label i18n="@@ux.fhir-broker.searchEncounter.filter.after">After</mat-label>
+          <input [matDatepicker]="pickerFrom" formControlName="dateStart" matInput>
+          <mat-datepicker-toggle [for]="pickerFrom" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #pickerFrom></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field   class="app-primary-color-100">
+          <mat-label i18n="@@ux.fhir-broker.searchEncounter.filter.before">Before</mat-label>
+          <input [matDatepicker]="pickerTo" formControlName="dateEnd" matInput>
+          <mat-datepicker-toggle [for]="pickerTo" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #pickerTo></mat-datepicker>
+        </mat-form-field>
+
+
+      </form>
+    </div>
+
+    <table [dataSource]="dataSource" mat-table matSort>
+      <ng-container matColumnDef="class">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchEncounter.table.episodeclass" style="flex: 1;">
+          Class
+        </mat-header-cell>
+        <mat-cell *matCellDef="let entry" style="flex: 1;">
+          <app-fhir-code [value]="entry.resource.class"></app-fhir-code>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchEncounter.table.episodetype" style="flex: 2">
+          Type
+        </mat-header-cell>
+        <mat-cell *matCellDef="let entry" style="flex: 2">
+          <span *ngFor="let type of entry.resource.type">
+            <app-fhir-codeable-concept [value]="type"></app-fhir-codeable-concept>
+           </span>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="participant">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchEncounter.table.episodeparticipant"
+                         style="flex: 2">Participant
+        </mat-header-cell>
+        <mat-cell *matCellDef="let entry" style="flex: 2">
+          <span *ngFor="let participant of entry.resource.participant">
+            <app-fhir-participant (paticipantDetailClicked)="gotToParticipant($event)" [condensed]="true"
+                                  [value]="participant"></app-fhir-participant>
+           </span>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="period">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchEncounter.table.episodeperiod" style="flex: 2;">
+          Period
+        </mat-header-cell>
+        <mat-cell *matCellDef="let entry" style="flex: 2;">
+          <app-fhir-period [value]="entry.resource.period"></app-fhir-period>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="serviceProvider">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchEncounter.table.episodeserviceprovider"
+                         style="flex: 2;">Service Provider
+        </mat-header-cell>
+        <mat-cell *matCellDef="let entry" style="flex: 2;">
+          <app-fhir-organization (organizationDetailClicked)="gotToOrganization($event)" [condensed]="true"
+                                 [value]="entry.resource.serviceProvider"></app-fhir-organization>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actionsCol">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchEncounter.table.episodeactions" mat-header-cell
+                         style="flex: 1;">Actions
+        </mat-header-cell>
+        <mat-cell *matCellDef="let entry" style="flex: 1;">
+          <div role="actions">
+            <button (click)="viewEncounter(entry)" color="accent" i18n="@@ux.fhir-broker.searchEncounter.table.show"
+                    mat-raised-button>Show
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row
+        *matHeaderRowDef="displayedColumns"
+      ></mat-header-row>
+      <mat-row
+        (click)="selectRow(row)"
+        *matRowDef="
+          let row;
+          columns: displayedColumns
+        "
+      ></mat-row>
+    </table>
+    <mat-paginator #paginator
+                   (page)="goToPage($event)"
+                   [length]="length"
+                   [pageIndex]="pageIndex"
+                   [pageSizeOptions]="pageSizeOptions"
+                   [pageSize]="pageSize"
+    ></mat-paginator>
+
+  </div>
+
+
+</app-content-wrapper>

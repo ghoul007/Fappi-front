@@ -1,0 +1,59 @@
+<app-content-wrapper *ngIf="databaseForm && databaseId" [fullWidth]="false"
+                     [title]="'Edit database: '+databaseName" subTitle="Settings of your database {{databaseId}}" withIcon="true">
+  <mat-tab-group color="accent">
+    <mat-tab label="Informations">
+      <div class="main-container container-spaced">
+        <form (ngSubmit)="onSubmitForm()" [formGroup]="databaseForm">
+          <div class="main-form-container">
+            <mat-form-field class="col app-primary-color-100">
+              <mat-label mat-lab i18n="@@ux.superadmin.showdb.field.name.label">Name</mat-label>
+              <input #name formControlName="name" matInput placeholder="Name" required class="app-bg-primary-color-100" i18n-placeholder="@@ux.superadmin.showdb.field.name.placeholder">
+            </mat-form-field>
+
+            <mat-form-field class="col app-primary-color-100">
+              <mat-label mat-lab i18n="@@ux.superadmin.showdb.field.description.label">Description</mat-label>
+              <input formControlName="description" matInput placeholder="Description" class="app-bg-primary-color-100" i18n-placeholder="@@ux.superadmin.showdb.field.description.placeholder">
+            </mat-form-field>
+
+            <mat-form-field class="col app-primary-color-100">
+              <mat-label mat-lab i18n="@@ux.superadmin.showdb.field.username.label">Username</mat-label>
+              <input formControlName="databaseUsername" matInput
+                     placeholder="username to connect to the database" class="app-bg-primary-color-100" i18n-placeholder="@@ux.superadmin.showdb.field.username.placeholder">
+            </mat-form-field>
+
+            <mat-form-field class="col app-primary-color-100">
+              <mat-label mat-lab i18n="@@ux.superadmin.showdb.field.password.label">Password</mat-label>
+              <input formControlName="encryptedPassword" matInput type="password"
+                     placeholder="password to connect to the database" class="app-bg-primary-color-100" i18n-placeholder="@@ux.superadmin.showdb.field.password.placeholder">
+            </mat-form-field>
+
+            <mat-form-field class="col app-primary-color-100">
+              <mat-label mat-lab i18n="@@ux.superadmin.showdb.field.host.label">Host</mat-label>
+              <input formControlName="databaseHost" matInput
+                     placeholder="hostname of the database" class="app-bg-primary-color-100" i18n-placeholder="@@ux.superadmin.showdb.field.databasehost.placeholder">
+            </mat-form-field>
+
+            <mat-form-field class="col app-primary-color-100">
+              <mat-label mat-lab i18n="@@ux.superadmin.showdb.field.port.label">Port</mat-label>
+              <input formControlName="databasePort" matInput
+                     placeholder="port of the database" class="app-bg-primary-color-100" i18n-placeholder="@@ux.superadmin.showdb.field.databaseport.placeholder">
+            </mat-form-field>
+
+
+            <div *ngIf="!processing" class="action-button">
+              <button (click)="back()" class="mat-stroked-button" mat-button type="button" i18n="@@ux.superadmin.showdb.action.cancel">Cancel</button>
+              <button color="accent" mat-raised-button type="submit" i18n="@@ux.superadmin.showdb.action.save">Save</button>
+            </div>
+            <div *ngIf="processing" class="action-button">
+              <app-loading-zone></app-loading-zone>
+            </div>
+
+
+          </div>
+        </form>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+
+</app-content-wrapper>

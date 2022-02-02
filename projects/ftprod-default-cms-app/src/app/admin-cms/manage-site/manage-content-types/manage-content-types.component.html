@@ -1,0 +1,10 @@
+<div class="content-wrapper">
+<h2>List of content types</h2>
+  <app-cms-edit-node-types (onNodeTypeSelected)="onNodeTypeSelected($event)" [selectedOrganizationId]="orgId"
+                           [selectedSiteId]="slug">
+    <div role="actions">
+      <button [routerLink]="'node-type/add'" color="accent" mat-button>Add</button>
+    </div>
+  </app-cms-edit-node-types>
+</div>
+

@@ -1,0 +1,70 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+
+tbody tr.mat-row {
+  height: 46px;
+}
+
+
+@import "assets/scss/forms";
+@import "assets/scss/globals";
+
+
+.action-button-bar {
+  & > button, & > a {
+    margin-right: 10px;
+  }
+}
+
+/** Menu **/
+.main-toolbar, .main-toolbar .mat-toolbar-row {
+  height: 100px
+}
+
+.top-menus > div {
+  height: 100%;
+}
+
+.top-menus .main-menu-items {
+  height: 100%;
+
+  a {
+    line-height: 100px;
+    height: 100%;
+  }
+
+  a.active {
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-radius: 0;
+  }
+}
+
+/**  **/
+.content-wrapper {
+  padding: 40px;
+}
+
+.content-wrapper-mobile {
+  margin: 0px;
+  min-height: 80%;
+}
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+.label-file, .add-file-button, #list.form-control {
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  background: #007a79;
+  padding: 6px 20px;
+  line-height: 22px;;
+  font-weight: 500;
+  height: 36px;
+
+  &:hover {
+    background: #25a5c4;
+  }
+}
+
+.nom-img {
+  display: block;
+  margin-top: 15px;
+}
+
+.material-icons {
+  display: block;
+  font-size: 100px;
+  min-height: 100px;
+  width: auto;
+}
+
+#fileUpload {
+  display: none;
+}
+
+.img-media .mat-icon {
+  border: #000007 solid 1px
+}
+
+.mat-paginator-container {
+  height: 43px !important;
+  min-height: 43px;
+  margin-bottom: 50px;
+}
+
+@media(max-width: 414px) {
+  .left-menu {
+    margin-bottom: 25px;
+  }
+}

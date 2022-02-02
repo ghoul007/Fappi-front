@@ -1,0 +1,21 @@
+body{
+  .shepherd-content{
+    border-radius: 0;
+    background: var(--color-700);
+    color: var(--contrast-700);
+  }
+  .shepherd-has-title .shepherd-content .shepherd-header{
+    background: var(--color-700);
+    color: var(--contrast-700);
+    border-bottom: 1px solid var(--contrast-700);
+    padding: 0.5em;
+  }
+  .shepherd-has-title .shepherd-content .shepherd-cancel-icon{
+    color: var(--color-A100);
+  }
+  .shepherd-button-primary.shepherd-button{
+    background: var(--color-A100);
+    color: var(--contrast-A100);
+  }
+
+}

@@ -1,0 +1,86 @@
+<app-content-wrapper [fullWidth]="false"
+                     [subTitle]="'Currently editing: '+name"
+                     i18n-subTitle="@@module.admin.group.show-subTitle"
+                     i18n-title="@@module.admin.group.show-title"
+                     iconUrl="assets/theme/scss/themes/img/avatar/img_avatar-group01.jpg" title="Edit group"
+                     withIcon="true"
+>
+
+
+
+  <mat-tab-group color="accent">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon color="accent">settings</mat-icon>
+        <span i18n-title="@@module.admin.group.tabtitle.informations">Informations</span>
+        &nbsp;&nbsp;
+        <mat-chip-list aria-label="Group attributes">
+          <mat-chip *ngIf="deleted" color="warn"  i18n="@@module.main-component.chip.groupDeleted" selected>deleted</mat-chip>
+        </mat-chip-list>
+      </ng-template>
+      <div *ngIf="groupForm && groupId" class="wrapper">
+        <form (ngSubmit)="onSubmitForm()" [formGroup]="groupForm">
+
+          <mat-form-field  class="app-primary-color-100">
+            <mat-label i18n="@@module.admin.group.field.id">Id</mat-label>
+            <input [value]="id" disabled="true" i18n-placeholder="@@module.admin.group.field.id" matInput
+                   placeholder="Id"
+                   required/>
+          </mat-form-field>
+
+          <mat-form-field  class="app-primary-color-100">
+            <mat-label i18n="@@module.admin.group.field.name">Name</mat-label>
+            <input #name formControlName="name" i18n-placeholder="@@module.admin.group.field.name" matInput
+                   placeholder="Name"
+                   required>
+          </mat-form-field>
+
+          <div *ngIf="!processing" class="action-button">
+            <button (click)="back()" class="cancel-button" i18n="@@module.admin.user.cancel" mat-stroked-button type="button">
+              Cancel
+            </button>
+            <button [disabled]="!groupForm.valid" color="accent" i18n="@@module.admin.user.save" mat-raised-button
+                    type="submit">Save
+            </button>
+          </div>
+          <div *ngIf="processing" class="action-button">
+            <app-loading-zone></app-loading-zone>
+          </div>
+        </form>
+      </div>
+    </mat-tab>
+    <mat-tab label="Members">
+      <ng-template mat-tab-label>
+        <mat-icon color="accent">group</mat-icon>
+        <span i18n-title="@@module.admin.group.tabtitle.informations">Members</span>
+      </ng-template>
+      <div class="wrapper">
+        <app-list-users (onRowDelete)="removeMember($event)" [rowActions]="['delete']" [selectedGroupId]="groupId">
+          <div role="actions">
+            <button (click)="addMember()" color="accent" i18n="@@module.admin.user.addMember" mat-button>Add Member
+            </button>
+          </div>
+        </app-list-users>
+      </div>
+    </mat-tab>
+    <mat-tab *fappiHasRole="['ROLE_ADMIN']">
+      <ng-template mat-tab-label>
+        <mat-icon color="accent">settings</mat-icon>
+        <span i18n-title="@@module.admin.user.tabtitle.otherTitle">Other</span>
+      </ng-template>
+      <div *ngIf="id" class="wrapper">
+        <div *ngIf="!deleted">
+          <mat-label i18n="@@module.admin.group.deleteActionLabel">Delete group</mat-label> &nbsp;&nbsp;
+          <a mat-flat-button color="accent" *ngIf="!processing" i18n="@@module.admin.group.deleteGroupButton" (click)="delete()" >Delete</a>
+        </div><br/>
+        <div *ngIf="deleted">
+          <mat-label i18n="@@module.admin.group.confirmDeleteActionLabel">Delete group</mat-label >&nbsp;&nbsp;
+          <a mat-flat-button color="accent" *ngIf="!processing" i18n="@@module.admin.group.confirmDeleteGroupButton" (click)="confirmDelete()" >Delete permanently</a>
+        </div><br/>
+
+
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</app-content-wrapper>

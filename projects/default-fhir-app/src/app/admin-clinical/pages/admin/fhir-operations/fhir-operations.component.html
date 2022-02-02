@@ -1,0 +1,22 @@
+<div class="content-wrapper">
+  <ng-container *ngIf="orgId">
+    <span i18n="@@ux.fappi-fhir.operation.managementTitle">Operations</span>
+    <div class="bloc-action">
+      <label>Import FHIR data</label><br/>
+      <a mat-flat-button color="accent" (click)="importFhirData(importTypes.FHIR)">Choose a file</a>&nbsp;&nbsp;
+    </div>
+
+    <div class="bloc-action">
+      <label>Import HL7 data</label><br/>
+      <a mat-flat-button color="accent" (click)="importFhirData(importTypes.HL7)">Choose a file</a>&nbsp;&nbsp;
+    </div>
+
+
+    <div class="bloc-action">
+      <label>Import CDA data</label><br/>
+      <a mat-flat-button color="accent" (click)="importFhirData(importTypes.CDA)">Choose a file</a>&nbsp;&nbsp;
+    </div>
+
+
+  </ng-container>
+</div>

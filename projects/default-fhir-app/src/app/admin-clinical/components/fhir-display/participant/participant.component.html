@@ -1,0 +1,31 @@
+<span *ngIf="mode == 'full'" class="{{condensed ? 'condensed':''}}">
+  <span *ngFor="let type of internalValue.type">
+                <app-fhir-codeable-concept [value]="type"></app-fhir-codeable-concept>
+              </span>
+  <app-fhir-period *ngIf="internalValue.period" [value]="internalValue.period"></app-fhir-period>
+  <app-fhir-reference *ngIf="internalValue.individual" [condensed]="condensed" [value]="internalValue.individual"
+  ></app-fhir-reference>
+</span>
+<span *ngIf="mode == 'small'" class="{{condensed ? 'condensed':''}}">
+  <app-fhir-reference *ngIf="internalValue.individual" [condensed]="condensed" [matMenuTriggerFor]="participantDetail"
+                      [value]="internalValue.individual"
+  ></app-fhir-reference>
+
+  <!-- detailed menu -->
+  <mat-menu #participantDetail="matMenu" class="participant-menu" yPosition="below">
+    <div class="reference-menu-wrapper">
+      <span *ngFor="let type of internalValue.type">
+            <span class="labelpopin" i18n="@@ux.fhir-broker.participant.type.label">Type:</span>    <app-fhir-codeable-concept
+        [value]="type"></app-fhir-codeable-concept>
+      </span>
+      <span>
+        <span class="labelpopin" i18n="@@ux.fhir-broker.participant.period.label">Periode:</span>  <span
+        class="period-part"><app-fhir-period *ngIf="internalValue.period"
+                                             [value]="internalValue.period"></app-fhir-period></span>
+      </span>
+    <div class="action-part">
+      <a (click)="onPaticipantDetail()" color="accent" i18n="@@ux.fhir-broker.participant.actionshow" mat-flat-button>Participant details</a>
+    </div>
+      </div>
+  </mat-menu>
+</span>

@@ -1,0 +1,77 @@
+.top-header-ch {
+  background: linear-gradient(to left, #087978 7%, #077879 11%, #07747e 18%, #464985 26%, #5b2d81 50%, #464985 75%, #07747e 82%, #077879 89%, #087978 93%);
+  // background: linear-gradient(to left,  #087978 0%,#087978 18%,#01767c 34%,#06727f 46%,#076e81 50%,#166284 56%,#315b85 60%,#464b85 65%,#523c82 77%,#5a2e81 83%,#5b2d81 90%,#5b2d81 96%,#5b2d81 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background-size: 200%;
+  background-position: 0%;
+  padding: 15px 0;
+
+  & .onglet-h h2 {
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+    font-weight: 400;
+    cursor: pointer;
+
+    & .mat-badge-medium.mat-badge-above .mat-badge-content {
+      top: -2px;
+      color: #fff;
+      background: #ed312e;
+    }
+  }
+
+  & .material-icons {
+    margin-right: 15px;
+    font-size: 33px;
+    vertical-align: sub;
+  }
+}
+
+.inner-ch {
+  min-height: 250px;
+}
+
+.header-ch {
+  font-size: 0;
+}
+
+
+@media(max-width: 768px) {
+  .top-header-ch {
+    font-size: 18px;
+
+    & .material-icons {
+      font-size: 25px;
+    }
+
+    & .onglet-h h2 {
+      font-size: 20px;
+    }
+  }
+}
+
+@media(max-width: 480px) {
+  .top-header-ch {
+    font-size: 18px;
+
+    & .material-icons {
+      font-size: 20px;
+    }
+
+    & .onglet-h h2 {
+      font-size: 16px;
+    }
+  }
+}
+
+@media(max-width: 375px) {
+  .top-header-ch {
+    & .material-icons {
+      font-size: 18px;
+    }
+
+    & .onglet-h h2 {
+      font-size: 12px;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<div *ngIf="observation" class=" {{condensed ? 'condensed' : 'row'}}">
+
+
+  <span *ngIf="observation.text">
+    {{observation.text}}
+  </span>
+
+  <div *ngIf="!condensed" class="col-1" style="text-align: center; padding-top: 9px">
+    <span class="information">
+      <span class="information-label">
+        <app-fhir-codeable-concept *ngFor="let category of observation.category"
+                                   [value]="category"></app-fhir-codeable-concept>
+      </span>
+    </span>
+  </div>
+  <div class="{{condensed ? '' : 'col-11'}} ">
+  <span *ngIf="observation.code" class="information">
+    <span class="information-label">
+      <span *ngIf="observation.code.text">{{observation.code.text}}</span>
+      <app-fhir-codeable-concept *ngFor="let code of observation.code.coding"
+                                 [value]="code"></app-fhir-codeable-concept>
+    </span>
+  </span>
+
+    <span class="information">
+    <span class="information-label">: </span>
+    <span *ngIf="observation.component" class="information-label">
+
+      <span *ngFor="let component of observation.component">
+        <span *ngIf="component.text">{{component.text}}</span>
+        <app-fhir-value-codeable-concept *ngIf="component.valueCodeableConcept"
+                                         [value]="component.valueCodeableConcept"></app-fhir-value-codeable-concept>
+        <app-fhir-value-quantity *ngIf="component.valueQuantity"
+                                 [value]="component.valueQuantity"></app-fhir-value-quantity>
+
+      </span>
+    </span>
+    <span *ngIf="observation.valueQuantity" class="information-label">
+      <app-fhir-value-quantity [value]="observation.valueQuantity"></app-fhir-value-quantity>
+    </span>
+    <span *ngIf="observation.valueCodeableConcept" class="information-label">
+        <app-fhir-value-codeable-concept [value]="observation.valueCodeableConcept"></app-fhir-value-codeable-concept>
+    </span>
+
+  </span>
+
+    <span *ngIf="observation.effectiveDateTime" class="observation-time">
+      <ng-container *ngIf="!condensed">{{observation.effectiveDateTime|date:'full'}}</ng-container>
+      <ng-container *ngIf="condensed">{{observation.effectiveDateTime|date:'short'}}</ng-container>
+    </span>
+  </div>
+
+</div>

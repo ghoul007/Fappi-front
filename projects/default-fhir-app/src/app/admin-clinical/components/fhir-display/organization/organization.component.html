@@ -1,0 +1,16 @@
+<ng-container *ngIf="internalValue">
+  <app-fhir-reference *ngIf="internalValue" [condensed]="condensed" [matMenuTriggerFor]="referenceDetail"
+                      [value]="internalValue"
+  ></app-fhir-reference>
+
+  <!-- detailed menu -->
+  <mat-menu #referenceDetail="matMenu" class="reference-menu" yPosition="below">
+    <div class="reference-menu-wrapper">
+      <span>Name: <span>{{internalValue.display}}</span></span>
+      <div class="action-part">
+        <a (click)="onOrganizationDetailClicked()" color="accent" i18n="@@ux.fhir-broker.reference.actionshow"
+           mat-flat-button>Show details</a>
+      </div>
+    </div>
+  </mat-menu>
+</ng-container>

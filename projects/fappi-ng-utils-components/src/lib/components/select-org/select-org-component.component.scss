@@ -1,0 +1,80 @@
+//@import "../assets/scss/globals";
+
+
+@media screen and (max-width: 640px) {
+  .main-toolbar {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 641px) {
+  .main-toolbar {
+  }
+  .main-toolbar-small {
+    display: none;
+  }
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  font-size: 14px;
+}
+
+.main-content {
+  padding: 20px 50px 50px 20px;
+}
+
+.menu-left {
+  padding: 25px;
+  width: 300px;
+}
+
+.top-logo {
+  max-height: 40px;
+  max-width: 100px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 27px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  margin-right: 10px;
+
+  .part1 {
+    //  color: #ffffff;
+    white-space: nowrap;
+
+  }
+
+  .part2 {
+    // color: #ffffff;
+    white-space: nowrap;
+  }
+}
+
+.footer {
+  height: 52px;
+}
+
+a {
+  cursor: pointer;
+}
+
+a.active {
+  text-decoration: underline;
+}
+
+.logoutbutton {
+  padding-left: 8px;
+  padding-right: 8px;
+
+  & .mat-icon {
+    vertical-align: bottom;
+  }
+}
+
+.change-label {
+  display: block;
+  height: 2em;
+  padding: 5px 12px;
+  font-size: 16px;
+}

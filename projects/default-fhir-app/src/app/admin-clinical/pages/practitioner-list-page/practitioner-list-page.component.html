@@ -1,0 +1,57 @@
+<app-content-wrapper fullWidth="true" i18n-subTitle="@@ux.fhir-broker.practitioners.subtitle"
+                     i18n-title="@@ux.fhir-broker.practitioners.title" subTitle="Find practitioners in {{orgName}}"
+                     title="Search practitioners">
+  <div class="content-wrapper">
+    <div class="action-button-bar topbar" role="actions">
+      <form [formGroup]="searchParams">
+        <mat-form-field  class="app-primary-color-100">
+          <mat-label i18n="@@ux.fhir-broker.searchPractitioner.filter.name">Name</mat-label>
+          <input formControlName="name" i18n-placeholder="@@ux.fhir-broker.searchPractitioner.filter.name" matInput
+                 placeholder="Name">
+        </mat-form-field>
+      </form>
+    </div>
+
+    <table [dataSource]="dataSource" mat-table matSort>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchPractitioner.table.name">Name</mat-header-cell>
+        <mat-cell *matCellDef="let entry">{{
+          formatName(entry.resource)
+          }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actionsCol">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchPractitioner.table.actions">Actions
+        </mat-header-cell>
+        <mat-cell *matCellDef="let entry">
+          <div role="actions">
+            <button (click)="viewPractitioner(entry)" color="accent"
+                    i18n="@@ux.fhir-broker.searchPractitioner.table.show"
+                    mat-raised-button>Show
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row
+        *matHeaderRowDef="displayedColumns"
+      ></mat-header-row>
+      <mat-row
+        (click)="selectRow(row)"
+        *matRowDef="
+          let row;
+          columns: displayedColumns
+        "
+      ></mat-row>
+    </table>
+    <mat-paginator #paginator
+                   (page)="goToPage($event)"
+                   [length]="length"
+                   [pageIndex]="pageIndex"
+                   [pageSizeOptions]="pageSizeOptions"
+                   [pageSize]="pageSize"
+    ></mat-paginator>
+
+  </div>
+
+
+</app-content-wrapper>

@@ -1,0 +1,15 @@
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section > * {
+  width: 100%;
+  max-width: 500px;
+  align-self: center;
+}
+
+.cancel-button {
+  margin-right: 20px;
+}

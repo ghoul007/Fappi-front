@@ -1,0 +1,36 @@
+table {
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.content-wrapper {
+  margin: 10px;
+}
+
+
+.search-fab {
+  position: fixed;
+  bottom: 34px;
+  right: 20px;
+  z-index: 100;
+}
+
+mat-chip {
+  font-size: 12px;
+  min-height: auto;
+  padding: 11px 12px;
+}
+
+mat-sidenav-container mat-sidenav {
+  border-left: none !important;
+}
+
+.close-edit-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

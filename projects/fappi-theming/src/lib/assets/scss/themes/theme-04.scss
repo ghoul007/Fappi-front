@@ -1,0 +1,90 @@
+@import 'theme-creator';
+
+// material
+$md-mcgpalette-theme-04: (
+  50 : #f1f5f9,
+  100 : #e2ebf3,
+  200 : #ffffff,
+  300 : #ffffff,
+  400 : #ffffff, // toolbar and
+  500 : #ffffff,
+  600 : #ffffff,
+  700 : #ffffff,
+  800 : #ffffff,
+  900 : #ffffff,
+  A100 : #00aac6,
+  A200 : #00a1be,
+  A400 : #51a2fe,
+  A700 : #0088ac,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+
+$themeName: 'theme-04';
+@include createTheme($md-mcgpalette-theme-04, $themeName);
+body.theme-04 {
+  // variables (we have to rewrite the palete because sass doesnt replace values in css vars):
+  --color-50: #f1f5f9;
+  --color-100: #ffffff;
+  --color-200: #ffffff;
+  --color-300: #ffffff;
+  --color-400: #ffffff;
+  --color-500: #ffffff;
+  --color-600: #ffffff;
+  --color-700: #ffffff;
+  --color-800: #ffffff;
+  --color-900: #ffffff;
+  --color-A100: #00aac6;
+  --color-A200: #00a1be;
+  --color-A400: #51a2fe;
+  --color-A700: #0088ac;
+  --contrast-50 : #000000;
+  --contrast-100 : #000000;
+  --contrast-200 : #000000;
+  --contrast-300 : #ffffff;
+  --contrast-400 : #000000;
+  --contrast-500 : #000000;
+  --contrast-600 : #000000;
+  --contrast-700 : #000000;
+  --contrast-800 : #000000;
+  --contrast-900 : #000000;
+  --contrast-A100 : #ffffff;
+  --contrast-A200 : #ffffff;
+  --contrast-A400 : #ffffff;
+  --contrast-A700 : #ffffff;
+
+
+
+
+  background: #eaf1f2 url("/front/assets/theme/scss/themes/img/fond.png") top center no-repeat;
+
+  & .mat-drawer-container {
+    background: transparent;
+    position: relative;
+  }
+& .mat-form-field-appearance-fill .mat-form-field-flex{
+  //background: transparent;
+  color: #000;
+}
+& .mat-input-element{
+  caret-color: #000
+}
+}
+
+
+

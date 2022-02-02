@@ -1,0 +1,14 @@
+<app-content-wrapper fullWidth="true"
+                     i18n-subTitle="@@module.admin.group.search-subTitle"
+                     i18n-title="@@module.admin.group.search-title"
+                     subTitle="All groups of this organization"
+                     title="Search groups">
+  <div class="content-wrapper">
+    <app-list-groups (onGroupSelected)="onGroupSelected($event)" [selectedOrganizationId]="orgId">
+      <div class="action-button-bar topbar" role="actions">
+        <button [routerLink]="'add'" class="col-lg-2 col-sm-12 col-md-6" color="accent" i18n="@@module.admin.group.add" mat-flat-button>Add
+        </button>
+      </div>
+    </app-list-groups>
+  </div>
+</app-content-wrapper>

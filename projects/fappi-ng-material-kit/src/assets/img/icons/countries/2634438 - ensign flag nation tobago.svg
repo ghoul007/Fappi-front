@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve"
+     xmlns="http://www.w3.org/2000/svg"><style type="text/css">
+	.st0 {
+    fill: #BC0030;
+  }
+
+  .st1 {
+    fill: #FFFFFF;
+  }
+</style>
+  <g><rect class="st0" height="298.7" width="512" y="106.7"/>
+    <polygon class="st1" points="0,106.7 355.4,405.4 512,405.4 156.6,106.7  "/>
+    <polygon points="26.1,106.7 381.5,405.4 485.9,405.4 130.5,106.7  "/></g></svg>

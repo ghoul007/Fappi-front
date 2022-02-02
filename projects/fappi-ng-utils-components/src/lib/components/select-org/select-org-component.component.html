@@ -1,0 +1,48 @@
+<mat-toolbar class="main-toolbar" color="primary">
+  <mat-toolbar-row>
+    <a class="logo" href="/" tabindex="0">
+      <img *ngIf="client?.personalization.logo.id" class="top-logo" src="{{client?.personalization.logo.url}}"/>
+      <span *ngIf="!client?.personalization.logo.id" class="part1">{{client?.name}}</span>
+
+    </a>
+    <div class="top-menus" style="flex: 1 1 auto;">
+      <ng-content select="[mainMenu]"></ng-content>
+    </div>
+    <div class="logged-part">
+      <a [matMenuTriggerFor]="loggedIn" mat-button><span
+        i18n="@@ux.right-menu.loggedin.log">3</span>&nbsp;<span>{{username}}</span>&nbsp;<span
+        *ngIf="selectedOrg" i18n="@@ux.right-menu.loggedin.in">in</span>&nbsp;
+        <span *ngIf="selectedOrg">{{selectedOrg.name}}</span>
+      </a>
+      <mat-menu #loggedIn="matMenu" yPosition="below">
+        <span class="change-label" i18n="@@ux.right-menu.changeorg.title">Change organization:</span>
+        <a (click)="orgSelected(option?.id.id)" *ngFor="let option of organizations" mat-menu-item> {{option.name}}</a>
+        <hr/>
+        <a (click)="profilSelected()" class="logoutbutton">
+          <mat-icon>account_box</mat-icon>
+          <span i18n="@@ux.right-menu.profil">My profil</span></a>
+        <hr/>
+        <a (click)="logout()" class="logoutbutton">
+          <mat-icon>exit_to_app</mat-icon>
+          <span i18n="@@ux.right-menu.logout">Logout</span></a>
+      </mat-menu>
+    </div>
+    <div>
+      <fappi-app-selector [orgId]="selectedOrg?.id.id"></fappi-app-selector>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-toolbar class="main-toolbar-small" color="primary">
+  <mat-toolbar-row>
+    <a class="logo" href="/" tabindex="0"><span class="part1">{{client?.name}}</span></a>
+    <span style="flex: 1 1 auto;"></span>
+    <a [matMenuTriggerFor]="smallMenu" mat-button>
+      <mat-icon>drag_handle</mat-icon>
+    </a>
+    <mat-menu #smallMenu="matMenu" yPosition="below">
+
+
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

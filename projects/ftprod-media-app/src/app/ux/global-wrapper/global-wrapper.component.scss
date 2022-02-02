@@ -1,0 +1,11 @@
+.all-wrap {
+  min-height: 100vh; // same height as browser window height
+}
+.page-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // same height as browser window height
+}
+.content {
+  flex: 1; // child will set to an equal size inside the container
+}

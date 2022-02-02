@@ -1,0 +1,23 @@
+<div i18n="@@ux.fappi-ng-cms.cms-nodeselect.title">
+  Select where to move the node
+</div>
+<app-cms-tree (onNodeSelected)="onNodeSelected($event)" [selectedOrganizationId]="selectedOrganizationId" [selectedSiteId]="selectedSiteId"
+              [viewControls]="false"
+              [viewOnlyFolders]="true"></app-cms-tree>
+
+
+<div>
+  <div *ngIf="node">
+    <span i18n="@@ux.fappi-ng-cms.cms-nodeselect.to">Move your node to:</span> <span
+    class="nodename">{{node.name}}</span>
+    <span class="realpath">{{node.id.nodeSlug.slug}}</span>
+  </div>
+
+  <div>
+    <a (click)="cancel()" i18n="@@ux.fappi-ng-cms.cms-nodeselect.cancel" mat-button>Cancel</a>
+    <a (click)="select()" *ngIf="node" i18n="@@ux.fappi-ng-cms.cms-nodeselect.move" mat-button
+       mat-raised-button>Move</a>
+  </div>
+
+</div>
+

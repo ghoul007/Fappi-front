@@ -1,0 +1,28 @@
+table {
+  width: 100%;
+}
+
+.cancel-button {
+  margin-right: 20px;
+}
+.mat-form-field{padding: 0.5em}
+.tab-fields-content-types td:nth-child(odd){
+  background:#c1c1c1;
+}
+.tab-fields-content-types td:nth-child(even){
+  background:#fff;
+}
+.tab-fields-content-types {
+  & mat-cell {
+    margin: 0.5em;
+    padding-left: 0;
+  }
+  & mat-select{
+    padding: 16px 10px;
+  }
+  & .select-tab .mat-form-field-infix{
+    padding: 0;
+    margin: 0;
+    border:0;
+  }
+}

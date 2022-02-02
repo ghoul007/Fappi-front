@@ -1,0 +1,39 @@
+<app-content-wrapper [fullWidth]="true"
+                     title="Search organization"
+                     subTitle="All organizations of the platform"
+                     i18n-title="@@ux.organization.search.title"
+                     i18n-subTitle="@@ux.organization.search.subtile"
+>
+  <div class="content-wrapper">
+    <div class="action-button-bar">
+      <button [routerLink]="'add'" class="col-lg-2 col-sm-12 col-md-6" color="accent" mat-flat-button i18n="@@ux.organization.search.button.add">Add</button>
+    </div>
+    <table [dataSource]="dataSource" mat-table matSort>
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header i18n="@@ux.organization.search.field.name"> Name</th>
+        <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.id.id">{{element.name}}</a></td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <th *matHeaderCellDef mat-header-cell i18n="@@ux.organization.search.field.description"> Description</th>
+        <td *matCellDef="let element" mat-cell> {{element.description}} </td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header i18n="@@ux.organization.search.field.status"> Status</th>
+        <td *matCellDef="let element" mat-cell> {{element.status}} </td>
+      </ng-container>
+      <ng-container matColumnDef="validationState">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header i18n="@@ux.organization.search.field.validationState"> ValidationState</th>
+        <td *matCellDef="let element" mat-cell> {{element.validationState}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+    </table>
+    <mat-paginator #paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+
+    <ng-container *fappiHasRole="['ROLE_ADMIN']">
+      <mat-checkbox [(ngModel)]="data.showDeleted" (change)="load()" i18n="@@module.main-component.list-organizations.showDeleted">Show deleted</mat-checkbox>
+    </ng-container>
+  </div>
+</app-content-wrapper>

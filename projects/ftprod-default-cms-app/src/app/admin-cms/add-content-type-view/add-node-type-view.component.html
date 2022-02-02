@@ -1,0 +1,30 @@
+<form (ngSubmit)="onSubmitForm()" [formGroup]="createNodeTypeForm">
+    <div class="main-container wrapper">
+      <h2  i18n="@@ux.customfieldeditor.add.title">Add a content type:</h2>
+      <div class="container-spaced ">
+
+      <mat-form-field class="app-bg-primary-color-100 col-lg-12">
+        <input #name formControlName="name" matInput placeholder="Name" required  i18n-placeholder="@@ux.customfieldeditor.field.name.placeholder">
+      </mat-form-field>
+
+      <mat-form-field class="app-bg-primary-color-100 col-lg-12">
+        <input [slugOf]="name" formControlName="slug" matInput placeholder="id" required i18n-placeholder="@@ux.customfieldeditor.field.id.placeholder">
+      </mat-form-field>
+
+      <div>
+        <mat-checkbox formControlName="scopeGlobal" i18n="@@ux.customfieldeditor.message.globalscope">Global (available in all organizations)</mat-checkbox>
+      </div>
+
+      <div *ngIf="!processing" class="action-button">
+        <button (click)="back()" class="mat-stroked-button" mat-button i18n="@@ux.customfieldeditor.action.cancel">Cancel</button>
+        <button color="accent" mat-raised-button type="submit" i18n="@@ux.customfieldeditor.action.add">Add</button>
+      </div>
+        <div *ngIf="processing" class="action-button">
+          <app-loading-zone></app-loading-zone>
+        </div>
+
+
+      </div>
+    </div>
+  </form>
+

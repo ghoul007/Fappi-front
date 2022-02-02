@@ -1,0 +1,291 @@
+//bootstrap
+@import "assets/scss/bootstrap/variables";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/alert";
+@import "~bootstrap/scss/mixins/background-variant";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~bootstrap/scss/mixins/reset-text";
+@import "~bootstrap/scss/mixins/size";
+@import "~bootstrap/scss/mixins/visibility";
+@import "~bootstrap/scss/mixins/caret";
+@import "~bootstrap/scss/mixins/gradients";
+@import "~bootstrap/scss/mixins/grid";
+@import "~bootstrap/scss/mixins/grid-framework";
+@import "~bootstrap/scss/mixins/hover";
+@import "~bootstrap/scss/mixins/list-group";
+@import "~bootstrap/scss/mixins/lists";
+@import "~bootstrap/scss/mixins/nav-divider";
+@import "~bootstrap/scss/mixins/pagination";
+@import "~bootstrap/scss/mixins/image";
+@import "~bootstrap/scss/mixins/screen-reader";
+@import "~bootstrap/scss/mixins/table-row";
+@import "~bootstrap/scss/mixins/text-emphasis";
+@import "~bootstrap/scss/mixins/text-hide";
+@import "~bootstrap/scss/mixins/text-truncate";
+@import "~bootstrap/scss/mixins/transition";
+@import "~bootstrap/scss/vendor/rfs";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid";
+// add the grid
+@import "assets/scss/bootstrap/reset";
+@import '~@angular/material/theming';
+
+
+@include mat-core();
+
+@import "assets/scss/themes/theme-00";
+@import "assets/scss/themes/theme-01";
+@import "assets/scss/themes/theme-02";
+@import "assets/scss/themes/theme-03";
+@import "assets/scss/themes/theme-04";
+@import "assets/scss/themes/clients/theme-smartbrain";
+@import "assets/scss/themes/clients/theme-ftprod";
+@import "tour";
+@import "forms";
+
+
+
+//fonts:
+$custom-typography: mat-typography-config(
+  $font-family: 'Roboto, monospace',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(14px, 24px, 500),
+  $input: mat-typography-level(14px, 1, 500)
+);
+@include mat-base-typography($custom-typography);
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($custom-typography);
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+//end fonts
+
+// override typo:
+@import "typo";
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.badge-m.mobile-b{
+  padding: 8px 20px;
+  border-radius: 6px;
+}
+tbody tr.mat-row {
+  height: 46px;
+}
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button{max-width:15rem}
+//.mat-form-field-label-wrapper{left: 0.5em !important;}
+.mat-form-field-appearance-legacy{
+  padding: 0.8em;
+   .mat-form-field-infix{padding:0; border:0}
+}
+.mat-select-trigger {
+  margin-top: 0.5em;
+}
+.mat-form-field-underline{display: none;background-color: transparent !important; height:0 !important;}
+.with-icon mat-select{
+  padding: 15px;
+  margin-top: -1em !important;
+}
+.mat-tab-body .mat-tab-body-content{overflow: hidden}
+
+.mat-elevation-z2.content-zone{
+  border-radius: 4px;
+  padding: 40px;
+  background: #fff;
+  p{margin-top:1rem;}
+  & .mat-list-base, & .mat-list-base .mat-subheader, & .mat-list-item-content, .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content{padding:0}
+  & .mat-button.mat-flat-button {
+    background: var(--color-A100);
+    color: var(--contrast-A100);
+  }
+}
+#left-menu .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: .75em .75em 0 .75em;
+  height: 45px
+}
+.mat-paginator-container .mat-form-field-appearance-legacy .mat-form-field-infix{
+  padding: 1em .75em 0 .75em;
+}
+.mat-form-field-appearance-legacy .mat-form-field-label{color: grey !important;}
+.mat-hint{margin-top: 8px}
+.mat-paginator-container, .mat-paginator-page-size{
+  height: 25px
+}
+.main-form-container.row{display: block;margin:0}
+.mat-paginator-page-size{
+ align-items: center !important;
+}
+.mat-paginator-page-size-select {
+  margin: 20px 4px 0 4px;
+  & .mat-select{
+    padding: 0;
+  //  margin-top: 0.6em !important;
+  }
+}
+.main-form-container input.mat-input-element{
+  padding: 0 !important;
+}
+.small-width {
+  h1{
+    margin-bottom: 46px;
+    margin-left: -60px;
+  }
+  .wrapper{
+    padding-top:0;
+  }
+}
+.with-icon .small-width{
+  h1{margin-left: 2px;margin-bottom: 6px}
+  .wrapper{padding-top: 20px}
+}
+//.mat-paginator-container .mat-form-field-wrapper .mat-form-field-infix{margin-top: 1em;}
+@media (min-width: 1200px){
+.container {
+   margin: 0;
+}
+}
+@media (max-width: 768px){
+  .mat-drawer-content{overflow: inherit !important;}
+}
+.mat-dialog-container{
+ // text-align:center;
+  min-width: 500px;
+  min-height: 220px !important;}
+.mat-dialog-actions {
+  justify-content: center !important;
+}
+//.mat-dialog-title{text-align: center}
+@media (max-width: 479px) {
+  .mat-elevation-z2.content-zone{padding:20px}
+  .content-wrapper.wrapper{
+    padding:0;
+    .action-button .button{max-width: 140px}
+  }
+  .big-width h1{
+    text-align:left !important;
+    padding-left: 20px;
+    line-height: 24px !important;
+    margin-bottom: 50px !important;
+  }
+  .right-sidebar{
+    margin-top: 25px;
+  }
+  .mat-form-field, .mat-select{display:block;}
+  .with-icon  .header, .icon-part{
+    float:left;
+    text-align:left !important;
+  }
+  .with-icon{
+    .big-width{
+      .sub-title  {
+        margin-left: 122px !important;
+        float: left;
+      }
+      h1{
+        text-align:left !important;
+        margin-left: 101px !important;
+        margin-bottom: 5px !important;
+      }
+      .mat-tab-labels{
+      /*  margin-top:26px !important;
+        padding-top:20px*/
+      }
+      .mat-tab-body-content{
+        padding: 20px
+      }
+      p{margin-top:1.5rem;font-size:14px;padding-top:1rem}
+
+       }
+    .small-width{
+      .header{
+        margin-top:-22px;
+        margin-left:106px;
+        h1{text-align:left;margin-bottom:15px;}
+      }
+      .content-zone{margin-top:-23px !important}
+      .sub-title{margin-left:0 !important;}
+    }
+
+    }
+
+    .header{margin-top: -10px;font-size:15px}
+    .main-header-part {
+      padding-top: 39px;
+    }
+
+    .icon-part img{
+      margin-top: -2px;
+      margin-left: 18px !important;
+      position: absolute;
+    }
+  .small-width{
+    h1{text-align:left !important;margin-left:20px}
+  }
+  }
+
+.action-button-bar  mat-form-field {vertical-align: bottom}
+@media (max-width: 375px) {
+  .with-icon{
+    .big-width {
+      .sub-title {
+        margin-left: 94px !important;
+        line-height: 22px;
+        margin-bottom: 21px;
+        font-size:13px;
+      }
+      h1 {
+        margin-left: 75px !important;
+        margin-top:29px
+      }
+      .icon-part img {
+        position: absolute;
+      }
+      .content-zone {
+        margin-top: -47px !important;
+      }
+      .mat-tab-labels{
+        margin-top:0 !important;
+        padding-top:0px
+      }
+      }
+    .small-width{
+      .sub-title {
+        margin-left: 0 !important;
+      }
+     .header {
+        margin-top: -4px;
+        margin-left: 0;
+       max-width: 33% !important;
+      }
+      .icon-part img{
+        margin-left: 11px !important;
+        position: relative;
+        margin-top: 17px;
+      }
+     .content-zone {
+        margin-top: -40px !important;
+      }
+    }
+    .icon-part img{
+      margin-left: 11px !important;
+      position: relative;
+      margin-top: 1px;
+    }
+    .content-zone {
+      margin-top: -41px !important;
+    }
+
+  }
+
+  .action-button > button{max-width: 140px !important;}
+
+}

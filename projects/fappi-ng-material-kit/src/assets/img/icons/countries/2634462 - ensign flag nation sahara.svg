@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve"
+     xmlns="http://www.w3.org/2000/svg"><style type="text/css">
+	.st0 {
+    fill: #348110;
+  }
+
+  .st1 {
+    fill: #FFFFFF;
+  }
+
+  .st2 {
+    fill: #BA0019;
+  }
+</style>
+  <g><rect height="99.6" width="512" x="0" y="106.7"/>
+    <rect class="st0" height="99.6" width="512" x="0" y="305.8"/>
+    <rect class="st1" height="99.6" width="512" x="0" y="206.2"/>
+    <polygon class="st2" points="0,106.7 0,108.2 0,405.4 199.1,256.4  "/>
+    <path class="st2"
+          d="M298.7,216.3c21.9,0,39.7,17.8,39.7,39.7s-17.8,39.7-39.7,39.7c-21.9,0-39.7-17.8-39.7-39.7   S276.7,216.3,298.7,216.3"/>
+    <path class="st1"
+          d="M313.8,216.3c21.9,0,39.7,17.8,39.7,39.7s-17.8,39.7-39.7,39.7s-39.7-17.8-39.7-39.7S291.9,216.3,313.8,216.3"/>
+    <polygon class="st2"
+             points="288,280.1 305,268 321.8,280.3 315.5,260.4 332.4,248.2 311.6,248 305.2,228.1 298.6,247.9    277.7,247.9 294.5,260.3  "/></g></svg>

@@ -1,0 +1,16 @@
+<div class="content-wrapper">
+    <form (ngSubmit)="onSubmitForm()" [formGroup]="addChannelForm">
+
+      <div class="main-container content-wrapper wrapper">
+        <mat-form-field class="app-primary-color-100">
+          <input  formControlName="name" matInput placeholder="Name" required>
+        </mat-form-field>
+
+        <div class="action-button">
+          <button (click)="back()" class="mat-stroked-button" mat-button type="button">Cancel</button>
+          <button color="accent" mat-raised-button type="submit">Add</button>
+        </div>
+
+      </div>
+    </form>
+  </div>

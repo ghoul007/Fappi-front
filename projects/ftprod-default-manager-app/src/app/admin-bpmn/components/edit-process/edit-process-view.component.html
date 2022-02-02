@@ -1,0 +1,67 @@
+<app-content-wrapper [fullWidth]="true"
+                     [subTitle]="'Currently editing: '+key"
+                     [title]="'Edit process'"
+                     i18n-subTitle="@@module.admin.process.edit-subTitle"
+                     i18n-title="@@module.admin.process.edit-title">
+
+  <mat-tab-group color="accent">
+    <mat-tab i18n-label="@@module.admin.process.tab.definition" label="Definition">
+      <div class="row main-form-container">
+        <div class="col-md-12">
+          <div class="zone-bpm">
+            <app-bpm-modeler (saveClick)="modelerSave($event)" [id]="id" [orgId]="orgId"></app-bpm-modeler>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab i18n-label="@@module.admin.process.tab.update" label="Update">
+      <form (ngSubmit)="onSubmitForm()" [formGroup]="editProcessForm">
+        <div class="main-container wrapper">
+          <mat-form-field class="app-primary-color-100">
+            <input formControlName="name" i18n-placeholder="@@module.admin.process.field.name.placeholder" matInput
+                   placeholder="Name"
+                   required>
+          </mat-form-field>
+          <mat-form-field class="app-primary-color-100">
+            <textarea formControlName="contentXml"
+                      i18n-placeholder="@@module.admin.process.field.contentXml.placeholder" matInput
+                      placeholder="Bpmn xml"
+                      required></textarea>
+          </mat-form-field>
+          <div class="action-button">
+            <button (click)="back()" class="mat-stroked-button" i18n="@@module.admin.process.cancel" mat-button>Cancel
+            </button>
+            <button color="accent" i18n="@@module.admin.process.start" mat-raised-button type="submit">Add</button>
+          </div>
+        </div>
+      </form>
+    </mat-tab>
+    <mat-tab i18n-label="@@module.admin.process.tab.start" label="Start Process">
+      <form (ngSubmit)="onStartManualProcess()" [formGroup]="startProcessFormGroup">
+        <div class="main-container wrapper">
+          <mat-form-field class="app-bg-primary-color-100">
+            <input formControlName="name" i18n-placeholder="@@module.admin.process.field.name.placeholder" matInput
+                   placeholder="Name"
+                   required/>
+          </mat-form-field>
+          <mat-form-field  class="app-bg-primary-color-100">
+            <textarea formControlName="variables" i18n-placeholder="@@module.admin.process.field.variables.placeholder"
+                      matInput placeholder="Variables"
+                      required></textarea>
+          </mat-form-field>
+          <div i18n="@@module.admin.process.field.variables.hint">
+            Put your properties like: {{'{'}}"value":"false"}
+          </div>
+
+          <div class="action-button">
+            <button (click)="back()" class="mat-stroked-button" i18n="@@module.admin.process.cancel" mat-button>Cancel
+            </button>
+            <button color="accent" i18n="@@module.admin.process.start" mat-raised-button type="submit">Start</button>
+          </div>
+        </div>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+
+
+</app-content-wrapper>

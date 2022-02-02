@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+	.st0 {
+    clip-path: url(#SVGID_2_);
+    fill: #3F9645;
+  }
+</style>
+  <g><defs><rect height="298.7" id="SVGID_1_" width="512" y="106.7"/></defs>
+    <clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath>
+    <rect class="st0" height="298.7" width="512" y="106.7"/></g></svg>

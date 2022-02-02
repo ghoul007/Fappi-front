@@ -1,0 +1,104 @@
+<app-content-wrapper fullWidth="true" i18n-subTitle="@@ux.fhir-broker.patient.subtitle"
+                     i18n-title="@@ux.fhir-broker.patient.title" subTitle="Find patients in {{orgName}}"
+                     title="Search patients">
+  <div class="content-wrapper">
+    <div class="action-button-bar topbar" role="actions">
+      <form [formGroup]="searchParams">
+        <mat-form-field   class="app-primary-color-100">
+          <mat-label i18n="@@ux.fhir-broker.searchEncounter.filter.ipp">IPP</mat-label>
+          <input formControlName="ipp" i18n-placeholder="@@ux.fhir-broker.searchEncounter.filter.ipp" matInput
+                 placeholder="Ipp">
+        </mat-form-field>
+
+        <mat-form-field   class="app-primary-color-100">
+          <mat-label i18n="@@ux.fhir-broker.searchEncounter.filter.nir">NIR</mat-label>
+          <input formControlName="nir" i18n-placeholder="@@ux.fhir-broker.searchEncounter.filter.nir" matInput
+                 placeholder="Nir">
+        </mat-form-field>
+
+        <mat-form-field   class="app-primary-color-100">
+          <mat-label i18n="@@ux.fhir-broker.searchEncounter.filter.name">Name</mat-label>
+          <input formControlName="name" i18n-placeholder="@@ux.fhir-broker.searchEncounter.filter.name" matInput
+                 placeholder="Name">
+        </mat-form-field>
+
+        <mat-form-field   class="app-primary-color-100">
+          <mat-label i18n="@@ux.fhir-broker.searchEncounter.filter.service">Service</mat-label>
+          <mat-select multiple>
+            <mat-option *ngFor="let service of ['Service 1', 'Service 2']" [value]="service">{{service}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+
+    <table [dataSource]="dataSource" mat-table matSort>
+      <ng-container matColumnDef="familyNameCol">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchPatient.table.family">Family</mat-header-cell>
+        <mat-cell *matCellDef="let entry">{{
+          getPatientFamilyName(entry)
+          }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="givenNamesCol">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchPatient.table.given">Given</mat-header-cell>
+        <mat-cell *matCellDef="let entry">{{
+          getPatientGivenNames(entry)
+          }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="nirCol">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchPatient.table.nir">Nir</mat-header-cell>
+        <mat-cell *matCellDef="let entry">{{
+          getPatientNir(entry)
+          }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="birthDateCol">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchPatient.table.birthdate">Birthdate
+        </mat-header-cell>
+        <mat-cell *matCellDef="let entry">{{
+          getPatientBirthDate(entry)
+          }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="addressLinesCol">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchPatient.table.street">Street</mat-header-cell>
+        <mat-cell *matCellDef="let entry">{{
+          getPatientAddressLines(entry)
+          }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="addressCityCol">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchPatient.table.city">City</mat-header-cell>
+        <mat-cell *matCellDef="let entry">{{
+          getPatientAddressCity(entry)
+          }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="actionsCol">
+        <mat-header-cell *matHeaderCellDef i18n="@@ux.fhir-broker.searchPatient.table.actions">Actions</mat-header-cell>
+        <mat-cell *matCellDef="let entry">
+          <div role="actions">
+            <button (click)="viewPatient(entry)" color="accent" i18n="@@ux.fhir-broker.searchPatient.table.show"
+                    mat-raised-button>Show
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row
+        *matHeaderRowDef="displayedColumns"
+      ></mat-header-row>
+      <mat-row
+        (click)="selectRow(row)"
+        *matRowDef="
+          let row;
+          columns: displayedColumns
+        "
+      ></mat-row>
+    </table>
+    <mat-paginator #paginator
+                   (page)="goToPage($event)"
+                   [length]="length"
+                   [pageIndex]="pageIndex"
+                   [pageSizeOptions]="pageSizeOptions"
+                   [pageSize]="pageSize"
+    ></mat-paginator>
+
+  </div>
+
+
+</app-content-wrapper>

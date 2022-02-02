@@ -1,0 +1,26 @@
+<div #wrapper >
+  <div style="" class="chart-wrapper" *ngIf="showGraph">
+    <ngx-charts-line-chart
+      [view]="[width,300]"
+      [results]="chartData"
+      [xAxisLabel]="'Episodes'"
+      [legendTitle]="'Evolution'"
+      [yAxisLabel]="''"
+      [legend]="showLegend"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxis]="true"
+      [yAxis]="false"
+      [gradient]="true"
+      [scheme]="'aqua'"
+      [animations]="true"
+      [showRefLines]="true"
+      [showRefLabels]="true"
+      [rotateXAxisTicks]="true"
+      [schemeType]="'linear'"
+      [timeline]="true"
+      [curve]="lineChartLineInterpolation"
+    >
+    </ngx-charts-line-chart>
+  </div>
+</div>

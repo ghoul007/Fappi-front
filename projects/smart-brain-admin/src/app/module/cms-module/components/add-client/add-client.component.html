@@ -1,0 +1,37 @@
+<app-content-wrapper title="Ajout d'un client"
+                     [fullWidth]="false"
+                     subTitle="Ajoutez un nouveau client"
+                     iconUrl="assets/theme/scss/themes/img/avatar/img_avatar-orga01.jpg"
+                     [withIcon]="true"
+                     i18n-title="@@ux.smartbrain.add-clients.title"
+                     i18n-subTitle="@@ux.smartbrain.add-clients.subTitle"
+>
+  <form (ngSubmit)="onSubmitForm()" [formGroup]="createSiteForm">
+    <br/>
+    <br/>
+    <div *ngIf="!loading" class="main-container">
+      <mat-form-field  class="col app-primary-color-100">
+        <input #name formControlName="name" matInput placeholder="Nom" required i18n-placeholder="@@ux.smartbrain.add-clients.name">
+        <mat-hint i18n="@@ux.smartbrain.add-clients.name.hint">Nom visible dans votre back office.</mat-hint>
+      </mat-form-field>
+      <br/>
+      <mat-form-field  class="col app-primary-color-100">
+        <input formControlName="slug" matInput placeholder="id" required i18n-placeholder="@@ux.smartbrain.add-clients.id">
+        <mat-hint i18n="@@ux.smartbrain.add-clients.id.hint">Cet identifiant sera unique et sera visible du client.</mat-hint>
+      </mat-form-field>
+      <br/>
+
+      <div class="action-button">
+        <button (click)="back()" class="cancel-button" mat-stroked-button i18n="@@ux.smartbrain.add-clients.cancel">Annuler</button>
+        <button color="accent" mat-raised-button type="submit" i18n="@@ux.smartbrain.add-clients.create">Créer</button>
+      </div>
+      <br/><br/>
+
+    </div>
+    <div *ngIf="loading">
+      <h3 style="    padding-bottom: 30px;
+    margin-left: 50px;" i18n="@@ux.smartbrain.add-clients.loading">Client en cours de création...</h3>
+    </div>
+  </form>
+
+</app-content-wrapper>

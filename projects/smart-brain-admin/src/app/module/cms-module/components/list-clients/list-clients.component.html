@@ -1,0 +1,26 @@
+<app-content-wrapper [fullWidth]="true"
+                     title="Search clients"
+                     i18n-title="@@ux.smartbrain.search-clients.title"
+                     i18n-subTitle="@@ux.smartbrain.search-clients.subtile"
+                     subTitle="All clients of the platform">
+  <div class="content-wrapper">
+    <div class="action-button-bar">
+      <button [routerLink]="'add'" class="col-2" color="accent" mat-flat-button i18n="@@ux.smartbrain.organization.search.button.add">Add</button>
+    </div>
+    <table [dataSource]="dataSource" mat-table matSort (matSortChange)="sortData($event)">
+      <ng-container matColumnDef="name"  >
+        <th *matHeaderCellDef mat-header-cell mat-sort-header="name" i18n="@@ux.smartbrain.organization.search.field.name"> Name</th>
+        <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.id.id">{{element.name}}</a></td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <th *matHeaderCellDef mat-header-cell i18n="@@ux.smartbrain.organization.search.field.description"> Description</th>
+        <td *matCellDef="let element" mat-cell> {{element.description}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+    </table>
+    <mat-paginator #paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</app-content-wrapper>

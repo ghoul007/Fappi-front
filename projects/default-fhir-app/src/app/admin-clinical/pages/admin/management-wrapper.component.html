@@ -1,0 +1,27 @@
+<app-content-wrapper [fullWidth]="true" title="Edit repository configuration"
+                     subTitle="settings">
+  <left-zone>
+
+    <mat-list>
+
+      <h3 matSubheader>Administration</h3>
+      <mat-list-item [routerLink]="'rights'" [routerLinkActive]="'active'">
+        <mat-icon matListIcon>table_rows</mat-icon>
+        <h4 matLine>Rights</h4>
+        <p matLine class="demo-2"> Manage access </p>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'operations'" [routerLinkActive]="'active'">
+        <mat-icon matListIcon>admin_panel_settings</mat-icon>
+        <h4 matLine>Operations</h4>
+        <p matLine class="demo-2"> Configure, Import/export data... </p>
+      </mat-list-item>
+
+    </mat-list>
+  </left-zone>
+  <main-zone>
+    <router-outlet></router-outlet>
+  </main-zone>
+
+
+</app-content-wrapper>

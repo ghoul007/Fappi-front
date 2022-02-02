@@ -1,0 +1,13 @@
+<mat-dialog-content class="container-spaced" >
+  <div class="wrapper">
+  <h3 i18n-title="@@module.smartbrain.admin.organization.sharelink.hint">Partagez le formulaire pour vos utilisateurs :</h3>
+  <input id="hrefClient" value="{{data.url}}" >&nbsp;&nbsp;
+  <a href="{{data.url}}{{data.token}}" target="_blank"><mat-icon>screen_share</mat-icon></a>&nbsp;&nbsp;
+  <a onclick="var copyText = document.querySelector('#hrefClient');copyText.select();document.execCommand('copy');"><mat-icon>content_copy</mat-icon></a>
+  </div>
+</mat-dialog-content>
+<div class="container-spaced">
+  <mat-dialog-actions align="end">
+    <button i18n="ux.fappi-ng-material-kit.ux.dialog.confirm.close" mat-button mat-dialog-close>Fermer</button>
+  </mat-dialog-actions>
+</div>

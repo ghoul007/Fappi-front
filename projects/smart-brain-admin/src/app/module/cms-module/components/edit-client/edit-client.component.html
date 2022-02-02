@@ -1,0 +1,109 @@
+<app-content-wrapper [fullWidth]="true"
+                     subTitle="Edition du client : {{name}}"
+                     i18n-title="@@ux.smartbrain.edit-clients.title"
+                     i18n-subTitle="@@ux.smartbrain.edit-clients.subTitle"
+                     iconUrl="assets/theme/scss/themes/img/avatar/img_avatar-orga01.jpg"
+                     [withIcon]="true"
+                     title="Edition">
+  <div>
+    <br/>
+    <mat-tab-group color="accent">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon color="accent">build</mat-icon>
+          <span i18n-title="@@ux.smartbrain.admin.organization.tabtitle.informations">Informations</span>
+        </ng-template>
+
+        <div class="wrapper">
+        <form (ngSubmit)="onSubmitForm()" [formGroup]="organizationForm">
+          <div class="">
+            <div>
+              <mat-form-field style="width: 100%;" class="col app-primary-color-100">
+                <mat-label i18n="@@ux.smartbrain.admin.organization.edit.language.label">Default language</mat-label>
+                <mat-select formControlName="defaultLanguage">
+                  <mat-option *ngFor="let lang of languages" [value]="lang.code">
+                    {{lang.label}}
+                  </mat-option>
+                </mat-select>
+                <mat-hint i18n="@@ux.smartbrain.admin.organization.edit.language.label.hint">The language selected will be the base language of your organization</mat-hint>
+              </mat-form-field>
+            </div>
+            <mat-form-field class="col app-primary-color-100">
+              <input formControlName="description" matInput placeholder="Description" i18n-placeholder="@@ux.smartbrain.admin.organization.edit.description">
+            </mat-form-field>
+            <mat-form-field class="col app-primary-color-100">
+              <input formControlName="email" matInput placeholder="Email" i18n-placeholder="@@ux.smartbrain.admin.organization.edit.email">
+              <mat-error *ngIf="organizationForm.controls.email.errors" i18n="@@ux.smartbrain.admin.organization.email.errorvalidemail">
+                Please enter a valid email
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field style="display: none" class="col app-primary-color-100">
+              <input formControlName="faxNumber" matInput placeholder="FaxNumber">
+            </mat-form-field>
+            <mat-form-field class="col app-primary-color-100">
+              <input formControlName="phoneNumber" matInput placeholder="PhoneNumber" i18n-placeholder="@@ux.smartbrain.admin.organization.edit.phone">
+            </mat-form-field>
+
+
+            <div *ngIf="!processing" class="action-button">
+              <button (click)="back()" class="mat-stroked-button" mat-button type="button" i18n="@@ux.smartbrain.admin.organization.edit.cancel">Cancel</button>
+              <button [disabled]="!organizationForm.valid" color="accent" mat-raised-button type="submit" i18n="@@ux.smartbrain.admin.organization.edit.save">Save</button>
+            </div>
+            <div *ngIf="processing" class="action-button">
+              <app-loading-zone></app-loading-zone>
+            </div>
+
+          </div>
+        </form>
+        </div>
+      </mat-tab>
+      <mat-tab *ngIf="id && clientConfigNode">
+        <ng-template mat-tab-label>
+          <mat-icon color="accent">settings</mat-icon>
+          <span i18n-title="@@ux.smartbrain.admin.organization.tabtitle.parameters">Parameters</span>
+        </ng-template>
+          <div class="wrapper">
+            <app-cms-edit-node [standAlone]="true" [selectedNode]="clientConfigNode" (nodeSaved)="onSettingSaved()" ></app-cms-edit-node>
+
+          </div>
+      </mat-tab>
+      <mat-tab *ngIf="id && clientConfigNode">
+        <ng-template mat-tab-label>
+          <mat-icon color="accent">share</mat-icon>
+          <span i18n-title="@@ux.smartbrain.admin.organization.tabtitle.share">Partage</span>
+        </ng-template>
+        <div class="content-wrapper">
+          <h3 i18n-title="@@ux.smartbrain.admin.organization.sharelink.hint">Partagez le formulaire pour vos utilisateurs :</h3>
+          <input id="hrefClient" value="{{hrefClient}}">&nbsp;&nbsp;
+          <a href="{{hrefClient}}{{token}}" target="_blank"><mat-icon>screen_share</mat-icon></a>&nbsp;&nbsp;
+          <a onclick="var copyText = document.querySelector('#hrefClient');copyText.select();document.execCommand('copy');"><mat-icon>content_copy</mat-icon></a>
+
+          <br/>
+          <br/>
+          <h3 i18n-title="@@ux.smartbrain.admin.organization.sharelinkdelegation.hint">Partagez le formulaire pour déléguer le back office :</h3>
+          <input id="hrefClient2" value="{{hrefClientAdmin}}">&nbsp;&nbsp;
+          <a href="{{hrefClientAdmin}}{{token}}" target="_blank"><mat-icon>screen_share</mat-icon></a>&nbsp;&nbsp;
+          <a onclick="var copyText = document.querySelector('#hrefClient2');copyText.select();document.execCommand('copy');"><mat-icon>content_copy</mat-icon></a>
+
+        </div>
+      </mat-tab>
+
+      <mat-tab *ngIf="id && clientConfigNode">
+        <ng-template mat-tab-label>
+          <mat-icon color="accent">supervisor_account</mat-icon>
+          <span i18n-title="@@ux.smartbrain.smartbrain.admin.organization.tabtitle.share">Utilisateurs</span>
+        </ng-template>
+        <div class="content-wrapper">
+          <app-list-users [selectedOrganizationId]="id" (onRowDelete)="removeMember($event)" (onUserSelected)="selectMember($event)" [rowActions]="['edit','delete']" >
+            <div class="action-button-bar topbar" role="actions">
+              <button color="accent" [routerLink]="'users/add'" class="col-lg-2 col-sm-12 col-md-6"  i18n="@@ux.smartbrain.admin.user.create-button"
+                      mat-flat-button>Create User
+              </button>
+            </div>
+          </app-list-users>
+        </div>
+      </mat-tab>
+
+    </mat-tab-group>
+  </div>
+</app-content-wrapper>

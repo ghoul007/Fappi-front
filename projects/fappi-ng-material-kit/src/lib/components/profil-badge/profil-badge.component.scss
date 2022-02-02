@@ -1,0 +1,80 @@
+.badge {
+  border-radius: 1.35em;
+  -moz-border-radius: 1.35em;
+  -webkit-border-radius: 1.35em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 2.0em;
+  text-align: center;
+  width: 2.0em;
+  font-size: 1.8em;
+}
+
+.badge.medium {
+  line-height: 2em;
+  width: 2em;
+}
+
+ .badge-m.mobile-b {
+  background: #2e73aa;
+ // padding: 15px;
+  //border-radius: 13px;
+  color: #fff;
+  }
+
+
+.badge.big {
+  line-height: 2.0em;
+  width: 2.0em;
+}
+
+
+@media(max-width: 1024px){
+ /*.badge-m.mobile-b {
+    background: url(assets/theme/scss/themes/img/avatar/avatar-menu-mobile.png) top center no-repeat;
+    margin-top: -58px;
+  }
+.badge-m.mobile-b:before {
+    width: 98px;
+    height: 100px;
+    left: 309px;
+  }*/
+}
+
+
+
+@media (max-width: 375px) {
+ .badge-m.mobile-b::before {
+    width: 86px;
+    height: 87px;
+    left: 88px;
+  }
+}
+
+@media only screen
+and (device-width : 375px)
+and (device-height : 812px)
+and (-webkit-device-pixel-ratio : 3) {
+ .badge-m.mobile-b:before {
+    top: -8px;
+    width: 93px;
+    height: 90px;
+    left: 85px;
+  }
+}
+@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
+ .badge-m.mobile-b::before {
+    width: 93px;
+    height: 99px;
+    left: 99px;
+  }
+}
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
+ .badge-m.mobile-b::before {
+  width: 91px;
+  height: 95px;
+  left: 86px;
+}
+}
+

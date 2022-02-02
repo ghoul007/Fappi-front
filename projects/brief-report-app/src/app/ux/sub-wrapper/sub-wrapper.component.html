@@ -1,0 +1,37 @@
+<section class="header-ch">
+  <div class="container">
+    <div [@gradientState]="gradientState" class="top-header-ch">
+      <div class="row">
+        <div class="col-md-6 col-6">
+          <div [routerLink]="'chapters'" class="onglet-h text-center">
+            <h2><span class="material-icons">
+                  menu_book
+                </span>Liste des chapitres</h2>
+          </div>
+        </div>
+        <div class="col-md-6 col-6">
+          <div [routerLink]="'chapters/contributions'" class="onglet-h text-center">
+            <h2><span class="material-icons">
+                 vertical_split
+                </span>Mes contributions</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="wrapper-ch">
+  <div class="container">
+    <div class="inner-ch">
+      <div class="row">
+        <div class="col-md-12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+

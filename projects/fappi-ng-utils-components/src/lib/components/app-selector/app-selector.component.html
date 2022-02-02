@@ -1,0 +1,26 @@
+<!-- button + menu -->
+<div *ngIf="!inline">
+  <a [matMenuTriggerFor]="appsMenu" mat-button>
+    <mat-icon class="open-button-icon">apps</mat-icon>
+  </a>
+  <mat-menu #appsMenu="matMenu" yPosition="below">
+    <div>
+      <div *ngFor="let app of apps">
+        <a (click)="goToApp(app)" class="logoutbutton" class="menu-icon">
+          <mat-icon class="app-fg-primary-color-inverted-A700" title="{{app.label}}">{{app.icon}}</mat-icon>
+          <!--<span class="app-fg-primary-color-inverted-A700">{{app.label}}</span>-->
+        </a>
+      </div>
+    </div>
+  </mat-menu>
+</div>
+<!-- raw apps -->
+<div *ngIf="inline">
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile *ngFor="let app of apps" class="btns-apps">
+      <a (click)="goToApp(app)" class="logoutbutton" class="menu-icon">
+        <mat-icon class="app-fg-primary-color-inverted-A700 icon-mm">{{app.icon}}</mat-icon>
+        <span>{{app.label}}</span></a>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

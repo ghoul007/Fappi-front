@@ -1,0 +1,118 @@
+<app-content-wrapper [fullWidth]="true"
+                     i18n-subTitle="@@module.admin.audit.search-subTitle"
+                     i18n-title="@@module.admin.audit.search-title"
+                     subTitle="All audit trail informations of this organization"
+                     title="Search audit"
+>
+
+  <left-zone>
+      <h4 i18n="@@module.admin.audit.filter-title" style="color:#656565">Filters</h4>
+      <div class="row">
+        <mat-form-field class="col-sm-12 app-bg-primary-color-100">
+          <input (keyup)="applyFilter()" [(ngModel)]="filters.username"
+                 i18n-placeholder="@@module.admin.audit.field.username" matInput
+                 placeholder="Username">
+        </mat-form-field>
+        <mat-form-field class="col-sm-12 app-bg-primary-color-100">
+          <input (keyup)="applyFilter()" [(ngModel)]="filters.ip" i18n-placeholder="@@module.admin.audit.field.ip"
+                 matInput
+                 placeholder="Ip">
+        </mat-form-field>
+        <mat-form-field class="col-sm-12 app-bg-primary-color-100">
+          <input (keyup)="applyFilter()" [(ngModel)]="filters.service"
+                 i18n-placeholder="@@module.admin.audit.field.service" matInput
+                 placeholder="Service">
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-sm-12 app-bg-primary-color-100">
+          <input (keyup)="applyFilter()" [(ngModel)]="filters.action"
+                 i18n-placeholder="@@module.admin.audit.field.action" matInput
+                 placeholder="Action">
+        </mat-form-field>
+        <mat-form-field class="col-sm-12 col-lg-12 app-bg-primary-color-100">
+          <input (keyup)="applyFilter()" [(ngModel)]="filters.elementType"
+                 i18n-placeholder="@@module.admin.audit.field.elementType" matInput
+                 placeholder="Element Type">
+        </mat-form-field>
+        <div class="col">
+        </div>
+      </div>
+  </left-zone>
+
+  <main-zone>
+    <div>
+      <table [dataSource]="dataSource" mat-table matSort>
+        <ng-container matColumnDef="username">
+          <th *matHeaderCellDef i18n="@@module.admin.audit.table.username" mat-header-cell mat-sort-header> Username
+          </th>
+          <td *matCellDef="let element" mat-cell>{{element.username}}</td>
+        </ng-container>
+        <ng-container matColumnDef="service">
+          <th *matHeaderCellDef i18n="@@module.admin.audit.table.service" mat-header-cell> Service</th>
+          <td *matCellDef="let element" mat-cell> {{element.service}} </td>
+        </ng-container>
+        <ng-container matColumnDef="ip">
+          <th *matHeaderCellDef i18n="@@module.admin.audit.table.ip" mat-header-cell mat-sort-header> Ip</th>
+          <td *matCellDef="let element" mat-cell> {{element.ip}} </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th *matHeaderCellDef i18n="@@module.admin.audit.table.action" mat-header-cell mat-sort-header> Action</th>
+          <td *matCellDef="let element" mat-cell> {{element.action}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actionDescription">
+          <th *matHeaderCellDef i18n="@@module.admin.audit.table.actionDesc" mat-header-cell mat-sort-header> Action
+            Desc.
+          </th>
+          <td *matCellDef="let element" mat-cell> {{element.actionDescription}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actionDate">
+          <th *matHeaderCellDef i18n="@@module.admin.audit.table.date" mat-header-cell mat-sort-header> Date</th>
+          <td *matCellDef="let element" mat-cell> {{element.actionDate| date:'short'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="elementType">
+          <th *matHeaderCellDef i18n="@@module.admin.audit.table.elementType" mat-header-cell mat-sort-header> Element
+            Type
+          </th>
+          <td *matCellDef="let element" mat-cell> {{element.elementType}} </td>
+        </ng-container>
+        <ng-container matColumnDef="elementRef">
+          <th *matHeaderCellDef i18n="@@module.admin.audit.table.elementRef" mat-header-cell mat-sort-header> Element
+            Ref
+          </th>
+          <td *matCellDef="let element" mat-cell> {{element.elementRef}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="allInOneCol">
+          <th *matHeaderCellDef i18n="@@module.admin.audit.table.traces" mat-header-cell mat-sort-header> Traces</th>
+          <td *matCellDef="let element" mat-cell>
+            <span class="label-in-table-cell"
+                  i18n="@@module.admin.audit.table.username">Username:</span> {{element.username}}<br/>
+            <span class="label-in-table-cell"
+                  i18n="@@module.admin.audit.table.service">Service:</span> {{element.service}}<br/>
+            <span class="label-in-table-cell" i18n="@@module.admin.audit.table.ip">Ip:</span> {{element.ip}}<br/>
+            <span class="label-in-table-cell" i18n="@@module.admin.audit.table.action">Action:</span> {{element.action}}
+            <br/>
+            <span class="label-in-table-cell"
+                  i18n="@@module.admin.audit.table.actionDesc">Action Desc.:</span> {{element.actionDescription}}<br/>
+            <span class="label-in-table-cell"
+                  i18n="@@module.admin.audit.table.date">Date:</span> {{element.actionDate| date:'short'}}<br/>
+            <span class="label-in-table-cell"
+                  i18n="@@module.admin.audit.table.elementType">Element Type:</span> {{element.elementType}}<br/>
+            <span class="label-in-table-cell"
+                  i18n="@@module.admin.audit.table.elementRef">Element Ref:</span> {{element.elementRef}}<br/>
+
+          </td>
+        </ng-container>
+
+
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+      </table>
+      <mat-paginator #paginator [length]="dataSource.totalElements" [pageSizeOptions]="[10, 20, 50]"
+                     [pageSize]="10"></mat-paginator>
+    </div>
+  </main-zone>
+</app-content-wrapper>

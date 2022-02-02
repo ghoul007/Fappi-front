@@ -1,0 +1,51 @@
+<app-content-wrapper [fullWidth]="true" [title]="'Edit book'" [withIcon]="true"
+                     subTitle="Edit your book" iconUrl="/content/assets/img_avatar-defaut01.jpg">
+
+  <div class="content-wrapper">
+    <div class="action-cms">
+      <mat-icon (click)="sidenav.toggle()">more_vert</mat-icon>
+    </div>
+
+        <div class="custom-s app-primary-color-50">
+          <mat-label>Channel</mat-label>
+          <mat-select [(ngModel)]="toolbarModel.selectedChannel" [ngModelOptions]="{standalone: true}">
+            <mat-option [value]="null">Default channel</mat-option>
+            <mat-option *ngFor="let channel of channels" [value]="channel">
+              {{channel.id}}
+            </mat-option>
+          </mat-select>
+        </div>
+
+        <div class="custom-s app-primary-color-50 sd-select">
+        <mat-label>Version</mat-label>
+        <mat-select [(ngModel)]="toolbarModel.selectedVersion" [ngModelOptions]="{standalone: true}">
+          <mat-option [value]="null">Latest version</mat-option>
+          <mat-option *ngFor="let version of versions" [value]="version">
+            {{version.label}} ({{version.internalVersion}})
+          </mat-option>
+        </mat-select>
+      </div>
+      <button class="btn-go-admin app-primary-color-A100" mat-flat-button  [routerLink]="'../../admin/'+slug+'/content-types'">
+        Go to Admin
+      </button>
+
+      <mat-sidenav-container>
+        <mat-sidenav #sidenav [(opened)]="menuOpenned" class="left-side-nav" mode="side">
+          <app-cms-tree class="app-primary-color-50" #tree (onNodeSelected)="onNodeSelected($event)" [rootNodeName]="name"
+                        [selectedOrganizationId]="orgId"
+                        [selectedSiteId]="slug"></app-cms-tree>
+        </mat-sidenav>
+
+        <mat-sidenav-content class="content-editing-view">
+          <div class="right-side">
+            <app-cms-edit-node (nodeDeleted)="tree.refresh()" (nodeEditEnd)="tree.refresh()" [selectedNode]="selectedNode"
+                               [selectedChannel]="toolbarModel.selectedChannel"
+                               [selectedVersion]="toolbarModel.selectedVersion"
+            ></app-cms-edit-node>
+          </div>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+
+  </div>
+
+</app-content-wrapper>

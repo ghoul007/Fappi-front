@@ -1,0 +1,119 @@
+<div class="   " style="    border-bottom: 1px solid #eee;">
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav-content>
+        <div class="container-fluid " style="padding: 0px">
+          <div class="row no-gutters" style="padding-right: 5px;background: white;">
+            <div [className]="editing?'col-md-6 px-0':'col-md-3 px-0'">
+              <div
+                style="min-height: 100%;padding: 20px;">
+                <h4 class="example-h2">Search</h4>
+                <h5>Full text</h5>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Search</mat-label>
+                  <input matInput placeholder="Placeholder">
+                  <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+                <br/>
+                <hr/>
+                <h5>Tags</h5>
+                <section class="example-section">
+                  <mat-checkbox class="example-margin">passion (33)</mat-checkbox>
+                  <br/>
+                  <mat-checkbox class="example-margin">offline (12)</mat-checkbox>
+                  <br/>
+                  <mat-checkbox class="example-margin">todo (2)</mat-checkbox>
+                </section>
+                <hr/>
+                <h5>Activity</h5>
+                After:<br/>
+                <mat-form-field>
+                  <input [matDatepicker]="picker1" matInput placeholder="Activity after date">
+                  <mat-datepicker-toggle [for]="picker1" matSuffix></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+                <br/>
+                Before:<br/>
+                <mat-form-field>
+                  <input [matDatepicker]="picker2" matInput placeholder="Activity before date">
+                  <mat-datepicker-toggle [for]="picker2" matSuffix></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+
+              </div>
+            </div>
+            <div [className]="editing?'col-md-6 px-0':'col-md-9  px-0'">
+
+              <div class="mat-elevation-z4">
+                <table [dataSource]="dataSource" mat-table matSort>
+                  <ng-container matColumnDef="badge">
+                    <th *matHeaderCellDef mat-header-cell mat-sort-header></th>
+                    <td *matCellDef="let element" mat-cell style="    width: 64px;">
+                      <app-crm-profil-badge [resource]="element" [size]="'small'"></app-crm-profil-badge>
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="name">
+                    <th *matHeaderCellDef mat-header-cell mat-sort-header> Name</th>
+                    <td *matCellDef="let element" mat-cell><a
+                      [routerLink]="'../../show/'+element.id.contactId">{{element.firstname}} {{element.lastname}}</a>
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="email">
+                    <th *matHeaderCellDef mat-header-cell mat-sort-header> Email</th>
+                    <td *matCellDef="let element" mat-cell><a
+                      [routerLink]="'show/'+element.id.contactId">{{element.email}}</a>
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="title">
+                    <th *matHeaderCellDef mat-header-cell mat-sort-header> Title</th>
+                    <td *matCellDef="let element" mat-cell><a
+                      [routerLink]="'show/'+element.id.contactId">CEO</a>
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="actions">
+                    <th *matHeaderCellDef mat-header-cell mat-sort-header> Actions</th>
+                    <td *matCellDef="let element" mat-cell>
+                      <a mat-button>
+                        <mat-icon aria-hidden="false" aria-label="Notes">access_alarm</mat-icon>
+                      </a>
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="tags">
+                    <th *matHeaderCellDef mat-header-cell mat-sort-header> Tags</th>
+                    <td *matCellDef="let element" mat-cell>
+                      <mat-chip-list aria-label="Contact tags">
+                        <mat-chip>passion</mat-chip>
+                        <mat-chip>offline</mat-chip>
+                        <mat-chip color="accent">todo</mat-chip>
+                      </mat-chip-list>
+                    </td>
+                  </ng-container>
+                  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+                  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+                </table>
+                <mat-paginator #paginator [pageSizeOptions]="[15, 30]" showFirstLastButtons></mat-paginator>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </mat-sidenav-content>
+      <mat-sidenav #sidenav mode="side" position="end">
+        <div style="width: 900px">
+          <a (click)="close()" class="close-edit-button" mat-button>
+            <mat-icon aria-hidden="false" aria-label="Notes">clear</mat-icon>
+          </a>
+          <app-add-contact *ngIf="selectedContact == null" [orgId]="orgId"></app-add-contact>
+          <app-edit-contact *ngIf="selectedContact != null" [contact]="selectedContact"
+                            [orgId]="orgId"></app-edit-contact>
+        </div>
+      </mat-sidenav>
+    </mat-sidenav-container>
+  </div>
+</div>
+
+<button (click)="add()" aria-label="Search" class="search-fab" mat-fab>
+  <mat-icon>add</mat-icon>
+</button>
+

@@ -1,0 +1,55 @@
+<app-content-wrapper [fullWidth]="true" [withIcon]="true" i18n-subTitle="@@ux.fhir-broker.encounter.subtitle"
+                     i18n-title="@@ux.fhir-broker.encounter.title" subTitle="Your encounter"
+                     title="Encounter'">
+
+  <div *ngIf="encounter && encounter.subject && encounter.subject.reference" [routerLink]="'../../patient/'+encounter.subject.reference.replace('Patient/','')"
+       breadcrumb>
+    <mat-icon>arrow_back</mat-icon>
+    <span i18n="@@ux.fhir-broker.encounter.breadcrumb.backtopatient">Back to patient</span>
+  </div>
+
+  <div *ngIf="encounter" class="content-wrapper">
+    <div class="action-episode">
+      <mat-icon (click)="sidenav.toggle()">more_vert</mat-icon>
+    </div>
+    <mat-sidenav-container>
+      <mat-sidenav #sidenav [(opened)]="episodeSelectorOpenned" class="left-side-nav" mode="side">
+        <app-episode-list (episodeClicked)="goToEpisode($event)"
+                          (organizationDetailClicked)="gotToOrganization($event)"
+                          (paticipantDetailClicked)="gotToParticipant($event)" *ngIf="encounter.subject && encounter.subject.reference"
+                          [organizationId]="orgId"
+                          [patientId]="encounter.subject.reference.replace('Patient/','')"
+                          class="inner-bloc-items"
+        ></app-episode-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div class="episode-content">
+          <h1><span *ngFor="let type of encounter.type">
+              <app-fhir-codeable-concept [value]="type"></app-fhir-codeable-concept>
+             </span></h1>
+          <app-fhir-period [value]="encounter.period"></app-fhir-period>
+          <div>
+          <span *ngFor="let participant of encounter.participant">
+        <app-fhir-participant (paticipantDetailClicked)="gotToParticipant($event)" [value]="participant"
+                              class="tag"></app-fhir-participant>
+      </span>
+            <app-fhir-organization (organizationDetailClicked)="gotToOrganization($event)" [value]="encounter.serviceProvider"
+                                   class="tag"
+            ></app-fhir-organization>
+          </div>
+          <hr>
+          <app-resporatory-rate-graph [organizationId]="orgId" [patientId]="encounter.subject.reference" [observationSeries]="['http://loinc.org|9279-1', 'http://loinc.org|85354-9']"></app-resporatory-rate-graph>
+          <hr/>
+          <h2 i18n="@@ux.fhir-broker.detailEncounter.titleObservations">Observations</h2>
+          <div>
+            <app-observation-list [episodeId]="id" [organizationId]="orgId"></app-observation-list>
+          </div>
+          <hr>
+          <h2 i18n="@@ux.fhir-broker.detailEncounter.titleAttachements">Attachments</h2>
+          <hr>
+          <h2 i18n="@@ux.fhir-broker.detailEncounter.titleLocation">Location</h2>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</app-content-wrapper>

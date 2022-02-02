@@ -1,0 +1,97 @@
+<header class="header-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-9 col-sm-9 col-8">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a  (click)="goHome()" class="navbar-brand" routerLinkActive="router-link-active"> <img *ngIf="client?.personalization.logo.id"
+                                                                                                   class="img-fluid"
+                                                                                                   src="{{client?.personalization.logo.url}}"/>
+            <span *ngIf="!client?.personalization.logo.id" class="part1">{{client?.name}}</span>
+          </a>
+          <ul class="nav  d-lg-block d-none d-sm-block">
+            <li class="nav-item active">
+              <a [routerLink]="['/org/'+orgId+'/chapters']" class="nav-link" routerLinkActive="active">Liste des
+                chapitres</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/org/'+orgId+'/tasks']" class="nav-link" routerLinkActive="active">Mes tâches
+                <mat-icon *ngIf="tasksCount>0" matBadge="{{tasksCount}}" matBadgeColor="warn"></mat-icon>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/org/'+orgId+'/medias']" class="nav-link" routerLinkActive="active">Galerie</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="menu-mobile d-block d-lg-none d-sm-none">
+          <button [matMenuTriggerFor]="menu" mat-button>Menu</button>
+          <mat-menu #menu="matMenu" class="menu-mobile d-xl-none d-lg-block">
+            <button mat-menu-item><a [routerLink]="['/org/'+orgId+'/chapters']" class="nav-link"
+                                     routerLinkActive="active">Liste des chapitres</a></button>
+            <button mat-menu-item><a [routerLink]="['/org/'+orgId+'/tasks']" class="nav-link" routerLinkActive="active">Mes
+              tâches
+              <mat-icon *ngIf="tasksCount>0" matBadge="{{tasksCount}}" matBadgeColor="warn"></mat-icon>
+            </a></button>
+            <button mat-menu-item><a [routerLink]="['/org/'+orgId+'/medias']" class="nav-link"
+                                     routerLinkActive="active">Galerie</a></button>
+          </mat-menu>
+        </div>
+
+      </div>
+      <div class="col-lg-3 col-sm-3 col-4 right-text">
+        <div class="logged-part">
+          <!-- <a mat-button [matMenuTriggerFor]="loggedIn">
+            <span class="material-icons">
+            person_outline
+            </span>
+            <span i18n="@@ux.right-menu.loggedin.log">Logged as</span>&nbsp;<span>{{username}}</span>&nbsp;<span i18n="@@ux.right-menu.loggedin.in" *ngIf="selectedOrg">in</span>&nbsp;
+            <span *ngIf="selectedOrg">{{selectedOrg.name}}</span>
+          </a> -->
+          <a [matMenuTriggerFor]="loggedIn" mat-button>
+              <span class="material-icons">
+              person_outline
+              </span>&nbsp;<span>{{username}}</span>
+          </a>
+          <mat-menu #loggedIn="matMenu" yPosition="below">
+            <span class="change-label app-primary-color-700"
+                  i18n="@@ux.right-menu.changeorg.title">Change organization:</span>
+            <a (click)="orgSelected(option?.id.id)" *ngFor="let option of organizations"
+               mat-menu-item> {{option.name}}</a>
+            <hr/>
+            <a (click)="profilSelected()" class="logoutbutton">
+              <mat-icon>account_box</mat-icon>
+              <span i18n="@@ux.right-menu.profil">My profil</span></a>
+            <hr/>
+            <a (click)="logout()" class="logoutbutton">
+              <mat-icon>exit_to_app</mat-icon>
+              <span i18n="@@ux.right-menu.logout">Logout</span></a>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12  title-header">
+        La plateforme éditoriale ASN
+      </div>
+    </div>
+  </div>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="copy">
+          Mentions légales
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+

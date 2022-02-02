@@ -1,0 +1,121 @@
+<div *ngIf="nodeType && !selectedNode.folder" class="cms-edit-node-wrapper fappi-editor node-type-{{nodeType.id.slug}}">
+  <form (ngSubmit)="saveNode()" [formGroup]="editNodeForm">
+    <!-- node path/name (click)="editTitle = true; "-->
+    <h3 *ngIf="!editTitle"><span class="node-title">{{editNodeForm.controls._$$name.value}}</span>
+      <span class="node-slug-title" style="display: none">{{selectedNode.id.nodeSlug.slug}}</span>
+      <app-cms-edit-node-toolbar (delete)="delete()" (edit)="edit()" (editTitle)="editTitle = true;"
+                                 (move)="selectNode()"></app-cms-edit-node-toolbar>
+    </h3>
+    <!-- Title -->
+    <div *ngIf="editTitle" class="row">
+      <div class="col-2">
+        <mat-form-field>
+          <input formControlName="_$$name" i18n-placeholder="@@ux.fappi-ng-cms.cms-edit-node.nameofnode" matInput
+                 placeholder="Name of the node">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- form -->
+    <div class="node-form-wrapper">
+      <div *ngIf="loading" class="loader">
+        <mat-progress-bar mode="buffer"></mat-progress-bar>
+      </div>
+      <div *ngFor="let nodeTypeField of  nodeType.customTypeFields">
+        <mat-form-field *ngIf="nodeTypeField.type=='STRING'">
+          <input formControlName="{{nodeTypeField.slug}}" matInput placeholder="{{nodeTypeField.label}}">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="nodeTypeField.type=='NUMBER'">
+          <input formControlName="{{nodeTypeField.slug}}" matInput placeholder="{{nodeTypeField.label}}" type="number">
+        </mat-form-field>
+
+        <div *ngIf="nodeTypeField.type=='MEDIA'">
+          <span class="label-preview">{{nodeTypeField.label}}</span>
+          <div class="node-preview">
+            {{editNodeForm.controls[nodeTypeField.slug].value}}
+            <a (click)="openFile(nodeTypeField.slug)"
+               *ngIf="editNodeForm.controls[nodeTypeField.slug].value"
+               target="_blank">View</a>
+          </div>
+          <a (click)="chooseFile(nodeTypeField.slug)" *ngIf="editNodeForm.enabled">Choose a media</a>
+        </div>
+
+
+        <div *ngIf="nodeTypeField.type=='TEXT' && editNodeForm.enabled">
+          <span class="label-preview">{{nodeTypeField.label}}</span>
+          <textarea formControlName="{{nodeTypeField.slug}}" matInput placeholder="{{nodeTypeField.label}}"></textarea>
+        </div>
+        <div *ngIf="nodeTypeField.type=='TEXT' && !editNodeForm.enabled">
+          <span class="label-preview">{{nodeTypeField.label}}</span>
+          <div [innerHTML]="selectedNode.properties[nodeTypeField.slug]" class="node-preview">
+          </div>
+        </div>
+
+        <div *ngIf="nodeTypeField.type=='BOOLEAN'">
+          <span class="label-preview">{{nodeTypeField.label}}</span>
+          <div>
+            <mat-slide-toggle formControlName="{{nodeTypeField.slug}}"></mat-slide-toggle>
+          </div>
+        </div>
+
+
+        <mat-form-field *ngIf="nodeTypeField.type=='DATE'">
+          <input [matDatepicker]="picker" formControlName="{{nodeTypeField.slug}}" matInput
+                 placeholder="{{nodeTypeField.label}}">
+          <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+      </div>
+      <div *ngIf="editing" class="action-button">
+        <a (click)="cancel()" class="cancel-button" i18n="@@ux.fappi-ng-cms.cms-edit-node.cancel" mat-button>Cancel</a>
+        <button color="accent" i18n="@@ux.fappi-ng-cms.cms-edit-node.save" mat-raised-button type="submit">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<form (ngSubmit)="saveNode()" *ngIf="selectedNode && selectedNode.nodeType.slug == 'folder'" [formGroup]="editNodeForm">
+  <h3 *ngIf="!editTitle  && selectedNode.id.nodeSlug.slug !== '/'">
+    <span class="title-node-folder">
+      <mat-icon
+        class="app-fg-primary-color-inverted-A400">folder</mat-icon><span>{{editNodeForm.controls._$$name.value}}</span>
+    </span>
+    <span class="node-slug-title" style="display: none"> {{selectedNode.id.nodeSlug.slug}}</span>
+    <app-cms-edit-node-toolbar (delete)="delete()" (edit)="edit()" (editTitle)="startEditTitle()"
+                               (move)="selectNode()"></app-cms-edit-node-toolbar>
+  </h3>
+  <div *ngIf="editTitle" class="row">
+    <div class="col-2">
+      <mat-form-field>
+        <input formControlName="_$$name" i18n-placeholder="@@ux.fappi-ng-cms.cms-edit-node.nameofnode" matInput
+               placeholder="Name of the node">
+      </mat-form-field>
+    </div>
+    <div class="col-2">
+      <button (click)="editTitle = false" class="cancel-button" i18n="@@ux.fappi-ng-cms.cms-edit-node.close" mat-button>
+        Close
+      </button>
+      <button class="cancel-button" i18n="@@ux.fappi-ng-cms.cms-edit-node.save" mat-button type="submit">Save</button>
+    </div>
+  </div>
+</form>
+
+<div *ngIf="selectedNode && selectedNode.nodeType.slug == 'folder' && childNodes.length>0">
+
+  <div class="child-rows">
+    <div *ngIf="selectedNode.id.nodeSlug.slug !== '/'" class="folder-title app-primary-color-400">
+      <div class="folder-name">{{selectedNode.name}}</div>
+    </div>
+    <div class="child-content">
+      <div *ngFor="let subNode of childNodes">
+        <app-cms-edit-node-v2 (nodeEditEnd)="onSubNodeEditEnd($event)" (nodeEditStart)="onSubNodeEditStart($event)"
+                              [selectedNode]="subNode"
+                              [selectedOrganizationId]="selectedOrganizationId"
+                              [selectedSiteId]="selectedSiteId"
+        ></app-cms-edit-node-v2>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<app-content-wrapper [fullWidth]="false"
+                     i18n-title="@@ux.fappi-task.edittitle"
+                     subTitle="Currently editing your task"
+                     title="Edit task:" [withIcon]="true">
+  <mat-tab-group color="accent">
+    <mat-tab *ngIf="task" i18n-label="@@ux.fappi-task.tabinfo" label="Informations">
+      <div class="content-wrapper">
+
+        <section class="form-section container-spaced">
+          <h3>{{task.name}}</h3>
+          <h4 i18n="@@ux.fappi-task.variables">Variables:</h4>
+          <div *ngFor="let propertyKey of propertyKeys">
+            <div *ngIf="propertyKey != 'tenant'">
+              {{propertyKey}}: {{task.variables[propertyKey]}}
+            </div>
+          </div>
+        </section>
+
+
+        <section class="form-section container-spaced">
+          <h4 i18n="@@ux.fappi-task.actionsTitle">Actions available</h4>
+          <div class="action-button" *ngIf="this.task?.outcomeActions?.length > 0">
+            <ng-container *ngFor="let outcomeAction of this.task?.outcomeActions">
+              <button (click)="onTaskAction(outcomeAction.key)" color="accent"
+                      mat-raised-button>{{outcomeAction.label}}
+              </button>
+            </ng-container>
+          </div>
+          <div class="action-button" *ngIf="this.task?.outcomeActions == null || this.task?.outcomeActions?.length == 0">
+            <button (click)="onTaskAction(null)" color="accent" i18n="@@ux.fappi-task.validateresponse.validateTask"
+                    mat-raised-button>Validate task
+            </button>
+          </div>
+        </section>
+
+
+
+        <section>
+          <div class="action-button">
+            <button (click)="onDeleteForm()" color="warn" i18n="@@ux.fappi-task.validateresponse.delete" mat-button>
+              Delete
+            </button>
+            <button (click)="onSubmitForm()" color="accent" i18n="@@ux.fappi-task.validateresponse.back"
+                    mat-raised-button> Back
+            </button>
+          </div>
+        </section>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+
+</app-content-wrapper>

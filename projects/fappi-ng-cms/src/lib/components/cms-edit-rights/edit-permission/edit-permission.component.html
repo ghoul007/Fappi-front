@@ -1,0 +1,26 @@
+<table class="mat-table">
+  <thead>
+  <tr>
+    <td class="mat-cell"></td>
+    <td *ngFor="let scope of scopes" class="mat-cell">{{scope.name}}</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let group of groups" class="mat-row">
+    <td class="mat-cell">{{group.name}}</td>
+    <td *ngFor="let scope of scopes" class="mat-cell">
+      <mat-checkbox [(ngModel)]="model[group.groupId.id][scope.id]"></mat-checkbox>
+    </td>Fields:mat-option-text
+
+  </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!processing" class="action-button">
+<button (click)="cancel()" class="mat-stroked-button" mat-button i18n="@@ux.fappi-ng-cms.right.cancelButton">Cancel</button>
+<button (click)="saveSecurityMatrix()" color="accent" mat-raised-button i18n="@@ux.fappi-ng-cms.right.saveButton">Save</button>
+</div>
+<div *ngIf="processing" class="action-button">
+  <app-loading-zone></app-loading-zone>NB: This type of content apply to all your organization's books
+
+</div>

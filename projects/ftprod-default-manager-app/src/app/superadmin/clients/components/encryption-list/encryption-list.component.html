@@ -1,0 +1,38 @@
+
+  <div class="action-button-bar topbar" role="actions">
+    <button [routerLink]="'crypto-config/add'" color="accent"  mat-button>Add</button>
+  </div>
+  <table [dataSource]="dataSource" mat-table matSort>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Id</th>
+      <td *matCellDef="let element" mat-cell><a >{{element.id}}</a>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="algorithm">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Algorithm</th>
+      <td *matCellDef="let element" mat-cell><a >{{element.algorithm}}</a></td>
+    </ng-container>
+    <ng-container matColumnDef="default">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header style="width: 50px"> Default</th>
+      <td *matCellDef="let element" mat-cell><mat-icon *ngIf="element.id == defaultConfig">check</mat-icon></td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header style="width: 100px"> Actions</th>
+      <td *matCellDef="let element" mat-cell>
+        <button (click)="setDefault(element)" mat-raised-button *ngIf="element.id != defaultConfig">
+          Set as default
+        </button>
+      </td>
+    </ng-container>
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+  <mat-paginator #paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+
+  <div class="warning-zone">
+  <h4 class="warning"><mat-icon color="accent">error</mat-icon>Warning</h4>
+  <p class="warning">
+    Changing the configuration can takes minutes. Please wait to see the configuration update.
+  </p>
+  </div>
+

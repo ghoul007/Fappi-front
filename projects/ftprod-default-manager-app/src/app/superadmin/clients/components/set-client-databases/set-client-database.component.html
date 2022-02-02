@@ -1,0 +1,88 @@
+<form (ngSubmit)="onSubmitForm()" [formGroup]="databaseForm" *ngIf="databaseForm && clientId">
+
+  <div>
+    <p>
+    The client is in status: {{clientStatus}}.
+    </p>
+
+    <p *ngIf="clientStatus === 'CREATED'">
+      This means that your platform is created. No more operations on database are needed.
+    </p>
+    <p *ngIf="clientStatus === 'PENDING_DB_CREATION'">
+       You have to select where to store data of your platform. <br/>
+       First select a database:
+    </p>
+  </div>
+
+  <div>
+    <h4>1. Choose a database configuration for the platform</h4>
+    <mat-form-field class="app-bg-primary-color-100">
+      <mat-label>Management database</mat-label>
+      <mat-select formControlName="adminDatabase">
+        <mat-option *ngFor="let db of databases" [value]="db.databaseId">
+          {{db.databaseId}}
+        </mat-option>
+      </mat-select>
+      <mat-hint>The database where to store the platform (tenant)</mat-hint>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field class="app-bg-primary-color-100">
+      <mat-label>Cms database</mat-label>
+      <mat-select formControlName="cmsDatabase">
+        <mat-option *ngFor="let db of databases" [value]="db.databaseId">
+          {{db.databaseId}}
+        </mat-option>
+      </mat-select>
+      <mat-hint>We only support mongodb</mat-hint>
+    </mat-form-field>
+
+    &nbsp;
+    <mat-form-field class="app-bg-primary-color-100">
+      <mat-label>Fhir database</mat-label>
+      <mat-select formControlName="fhirDatabase">
+        <mat-option *ngFor="let db of databases" [value]="db.databaseId">
+          {{db.databaseId}}
+        </mat-option>
+      </mat-select>
+      <mat-hint>We only support Iris</mat-hint>
+    </mat-form-field>
+
+    <div *ngIf="!processing && (clientStatus == 'PENDING_DB_CREATION' || clientStatus == 'IN_ERROR')" class="action-button">
+      <button (click)="back()" class="mat-stroked-button" mat-button type="button">Cancel</button>
+      <button color="accent" mat-raised-button type="submit">Save</button>
+    </div>
+    <p *ngIf="clientStatus != 'PENDING_DB_CREATION' && clientStatus != 'IN_ERROR'">
+      Database already set. You can't modify this after database creation.
+    </p>
+
+    <div *ngIf="processing" class="action-button">
+      <app-loading-zone></app-loading-zone>
+    </div>
+
+
+    <div class="section init-database-section">
+      <h4>2. Encryption</h4>
+      <p>
+        By default, your data aren't crypted. You can choose to add an encryption method in the encryption section : <a (click)="goToEncryption()" color="accent" mat-raised-button>View encryption methods</a>
+      </p>
+      <p>
+        Note that you can add encryption later but this will not affect legacy data.
+      </p>
+    </div>
+
+
+    <div class="section init-database-section">
+    <h4>3. When all options are set, init the database</h4>
+      <a (click)="initDatabase()" color="accent" mat-raised-button *ngIf="clientStatus == 'PENDING_DB_CREATION'" >INIT DATABASE</a>
+      <p *ngIf="clientStatus != 'PENDING_DB_CREATION'">Database already initialized</p>
+
+
+      <p *ngIf="clientStatus == 'IN_ERROR'">
+        The client is in error. You can try to retry the db setup :  <a (click)="initDatabase()" color="accent" mat-raised-button >INIT DATABASE</a>
+      </p>
+
+    </div>
+
+  </div>
+</form>
+

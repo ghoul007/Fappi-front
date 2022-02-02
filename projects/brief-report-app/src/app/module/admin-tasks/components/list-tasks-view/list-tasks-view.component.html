@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <!-- <h1 class="h1">Vos tâches</h1> -->
+  <div>
+    <table [dataSource]="dataSource" mat-table matSort>
+      <ng-container matColumnDef="processName">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Type de tâche</th>
+        <td *matCellDef="let element" mat-cell>{{element.processName}}</td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Tâche</th>
+        <td *matCellDef="let element" mat-cell>{{element.name}}</td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Action</th>
+        <td *matCellDef="let element" mat-cell>
+          <button (click)="goToChapter(element)" color="accent" mat-raised-button>Voir le chapitre</button>
+        </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+    </table>
+    <mat-paginator #paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

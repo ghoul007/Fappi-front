@@ -1,0 +1,9 @@
+<span *ngIf="internalValue"
+      class="reference-wrapper {{condensed ? 'app-primary-color-100' : 'app-primary-color-A100'}}">
+  <span *ngIf="icon" class="icon"><mat-icon aria-hidden="false"
+                                            class="{{condensed ? 'app-primary-color-100' : 'app-primary-color-A100'}}">{{icon.icon}}</mat-icon></span>
+  <span class="id">{{internalValue.id}}</span>
+  <span class="identifier">{{internalValue.identifier}}</span>
+  <span class="display">{{internalValue.display}}</span>
+</span>
+

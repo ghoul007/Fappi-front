@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Notifier</h2>
+<p>{{data.taskName}}</p>
+<mat-dialog-content class="container-spaced">
+
+  <mat-form-field style="width: 100%">
+    <textarea [(ngModel)]="data.description" matInput placeholder="Commentaire"></textarea>
+  </mat-form-field>
+
+
+</mat-dialog-content>
+<div class="container-spaced">
+  <mat-dialog-actions *ngIf="data.outcomeActions && data.outcomeActions.length > 0" align="end">
+    <button mat-button mat-dialog-close>Annuler</button>
+    <button (click)="submitAction(outcomeAction.key);" *ngFor="let outcomeAction of data.outcomeActions" cdkFocusInitial
+            mat-button>{{outcomeAction.label}}</button>
+  </mat-dialog-actions>
+  <mat-dialog-actions *ngIf="!data.outcomeActions || data.outcomeActions.length == 0" align="end">
+    <button mat-button class="mat-stroked-button" mat-dialog-close>Annuler</button>
+    <button [mat-dialog-close]="data" cdkFocusInitial mat-button>Envoyer</button>
+  </mat-dialog-actions>
+</div>

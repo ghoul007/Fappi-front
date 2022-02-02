@@ -1,0 +1,80 @@
+{
+  "/cms/": {
+    "target": "https://fappi-preprod.cloud.ftprod.fr",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "_ga=GA1.2.22008580.1593683004; SESSION=e5db2d9e-112c-4b17-b021-98e5276ee14",
+      "Content-Type": "application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/api/": {
+    "target": "https://fappi-preprod.cloud.ftprod.fr",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "_ga=GA1.2.22008580.1593683004; SESSION=e5db2d9e-112c-4b17-b021-98e5276ee14",
+      "Content-Type": "application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/user-info": {
+    "target": "https://fappi-preprod.cloud.ftprod.fr",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "_ga=GA1.2.22008580.1593683004; SESSION=e5db2d9e-112c-4b17-b021-98e5276ee14",
+      "Content-Type": "application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/organization/": {
+    "target": "https://fappi-preprod.cloud.ftprod.fr",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "_ga=GA1.2.22008580.1593683004; SESSION=e5db2d9e-112c-4b17-b021-98e5276ee14",
+      "Content-Type": "application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/media/": {
+    "target": "https://fappi-preprod.cloud.ftprod.fr",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "_ga=GA1.2.22008580.1593683004; SESSION=e5db2d9e-112c-4b17-b021-98e5276ee14",
+      "Content-Type": "application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/activiti/": {
+    "target": "https://fappi-preprod.cloud.ftprod.fr",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "_ga=GA1.2.22008580.1593683004; SESSION=e5db2d9e-112c-4b17-b021-98e5276ee14",
+      "Content-Type": "application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  }
+}

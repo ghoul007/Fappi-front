@@ -1,0 +1,66 @@
+<div *ngIf="!contact" class="main-container">
+  <span>Please select a contact</span>
+</div>
+<div *ngIf="contact" class="main-container">
+
+
+  <form (ngSubmit)="onSubmitForm()" *ngIf="editContactForm" [formGroup]="editContactForm">
+
+    <div *ngIf="!editing" class="profil-part">
+      <div class="">
+        <div class="badge-container">
+          <app-crm-profil-badge [resource]="contact" [size]="'big'"></app-crm-profil-badge>
+        </div>
+        <div style="display: inline-block">
+          <span class="main-property">{{contact.firstname}} {{contact.lastname}},</span> {{contact.title}}<br/>
+          <span class="small-property">email:</span> <span class="small-value">{{contact.emails}}</span> <span
+          class="small-property">phone:</span> <span class="small-value">{{contact.phone}}</span>
+          <span class="small-property">address:</span> <span class="small-value">{{contact.addresses}}</span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="editing" class="main-form-container container-spaced">
+      <h3>Edit contact</h3>
+
+      <mat-form-field>
+        <input formControlName="firstname" matInput placeholder="First name" required value="Jean">
+        <mat-error *ngIf="true">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="lastname" matInput placeholder="Last name" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="lastname" matInput placeholder="Last name" required>
+      </mat-form-field>
+
+
+      <!--
+            <div class="action-button">
+              <button mat-button class="cancel-button" (click)="close()">Cancel</button>
+              <button mat-raised-button color="primary" type="submit">Save</button>
+            </div>-->
+    </div>
+    <mat-tab-group color="accent">
+      <mat-tab label="Activity">
+        <app-crm-search-activity></app-crm-search-activity>
+      </mat-tab>
+      <mat-tab label="Campaigns">
+        <app-crm-search-activity></app-crm-search-activity>
+      </mat-tab>
+      <mat-tab label="Relations">
+        <app-crm-search-activity></app-crm-search-activity>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span matBadge="22" matBadgeOverlap="false" matBadgePosition="above after">Notes</span>
+        </ng-template>
+        <app-crm-search-activity></app-crm-search-activity>
+      </mat-tab>
+    </mat-tab-group>
+
+  </form>
+</div>

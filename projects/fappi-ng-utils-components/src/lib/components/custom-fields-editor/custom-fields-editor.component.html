@@ -1,0 +1,122 @@
+<div *ngIf="loading">
+  <app-loading-zone></app-loading-zone>
+</div>
+<div *ngIf="rendered">
+  <div [formGroup]="createNodeTypeForm" >
+    <div class="content">
+      <div class=" container-spaced ">
+        <mat-form-field class="app-bg-primary-color-100" *ngIf="showName">
+          <input formControlName="name" matInput placeholder="Name" required i18n-placeholder="@@ux.customfieldeditor.globalName">
+        </mat-form-field>
+
+
+        <h5>Fields:</h5>
+        <div *ngIf="dataSource">
+          <mat-table class="tab-fields-content-types" [dataSource]="dataSource">
+            <ng-container matColumnDef="label">
+              <mat-header-cell *matHeaderCellDef i18n="@@ux.customfieldeditor.field.label"> Label</mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <mat-form-field class="app-bg-primary-color-100" floatLabel="{{ row.editing ? 'float' : 'never'}}"><!-- -->
+                  <input [formControl]="row.validator.controls['label']" matInput>
+                </mat-form-field>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="slug">
+              <mat-header-cell *matHeaderCellDef i18n="@@ux.customfieldeditor.field.name"> Name</mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <mat-form-field class="app-bg-primary-color-100" floatLabel="{{ row.editing ? 'float' : 'never'}}"><!-- -->
+                  <input [formControl]="row.validator.controls['slug']" matInput>
+                </mat-form-field>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="type">
+              <mat-header-cell *matHeaderCellDef i18n="@@ux.customfieldeditor.field.type"> Type</mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <mat-form-field class="select-tab">
+                <mat-select class="app-bg-primary-color-100" [formControl]="row.validator.controls['type']">
+                  <mat-option *ngFor="let fieldType of fieldTypes" [value]="fieldType.value">
+                    {{fieldType.label}}
+                  </mat-option>
+                </mat-select>
+                </mat-form-field>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="possibleValues">
+              <mat-header-cell *matHeaderCellDef i18n="@@ux.customfieldeditor.field.possiblevalues"> Possible Values</mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <mat-form-field class="app-bg-primary-color-100" floatLabel="{{ row.editing ? 'float' : 'never'}}"><!-- -->
+                  <input [formControl]="row.validator.controls['possibleValues']" matInput
+                         placeholder="Possible Values" i18n-placeholder="@@ux.customfieldeditor.field.possiblevalues">
+                </mat-form-field>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="helper">
+              <mat-header-cell *matHeaderCellDef i18n="@@ux.customfieldeditor.field.helper"> Helper</mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <mat-form-field class="app-bg-primary-color-100" floatLabel="{{ row.editing ? 'float' : 'never'}}"><!-- -->
+                  <input [formControl]="row.validator.controls['helper']" matInput placeholder="Helper" i18n-placeholder="@@ux.customfieldeditor.field.helper">
+                </mat-form-field>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="order">
+              <mat-header-cell *matHeaderCellDef i18n="@@ux.customfieldeditor.field.order"> Order</mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <mat-form-field class="app-bg-primary-color-100" floatLabel="{{ row.editing ? 'float' : 'never'}}">
+                  <input [formControl]="row.validator.controls['order']" matInput placeholder="Order" type="number" i18n-placeholder="@@ux.customfieldeditor.field.order">
+                </mat-form-field>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="actionsColumn">
+              <mat-header-cell *matHeaderCellDef>
+                <button (click)="dataSource.createNew()" color="accent" mat-icon-button><i
+                  class="fa fa-plus mat-icon"></i>
+                </button>
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <button (click)="row.startEdit()" *ngIf="!row.editing" color="accent" focusable="false" mat-icon-button>
+                  <mat-icon aria-hidden="false" aria-label="Edit" i18n-aria-label="@@ux.customfieldeditor.action.edit">edit</mat-icon>
+                </button>
+                <button (click)="row.confirmEditCreate()" *ngIf="row.editing" color="accent" focusable="false"
+                        mat-icon-button>
+                  <mat-icon aria-hidden="false" aria-label="Validate" i18n-aria-label="@@ux.customfieldeditor.action.validate">check</mat-icon>
+                </button>
+                <button (click)="row.cancelOrDelete()" color="accent" focusable="false" mat-icon-button>
+                  <mat-icon aria-hidden="false" aria-label="Delete" i18n-aria-label="@@ux.customfieldeditor.action.delete">delete</mat-icon>
+
+                </button>
+              </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <div style="float: right;margin-top:10px; ">
+            <button color="accent" (click)="addNodeTypeField()" mat-button i18n="@@ux.customfieldeditor.action.addnewfield">Add new field</button>
+          </div>
+
+        </div>
+
+
+        <br/><br/>
+        <mat-form-field class="app-bg-primary-color-100" *ngIf="showVisibility">
+          <mat-label>Visibility</mat-label>
+          <mat-select formControlName="visibility">
+            <mat-option *ngFor="let visibilityType of visibilityTypes" [value]="visibilityType">
+              {{visibilityType}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <div *ngIf="!processing"  class="action-button"><br/><br/>
+          <button (click)="back()" class="mat-stroked-button" mat-button i18n="@@ux.customfieldeditor.action.cancel">Cancel</button>
+          <button (click)="onSubmitForm()" color="accent" mat-raised-button i18n="@@ux.customfieldeditor.action.save">Save</button>
+        </div>
+        <div *ngIf="processing" class="action-button">
+          <app-loading-zone></app-loading-zone>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

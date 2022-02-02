@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fappi1-angular-service
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 80
+
+  selector:
+    app: angular-service
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-service-deployment
+  labels:
+    app: angular-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular-service
+  template:
+    metadata:
+      labels:
+        app: angular-service
+    spec:
+      containers:
+        - name: angular-service
+          image: docker.io/ftprod/ui-board:{{VERSION}}
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: regcred

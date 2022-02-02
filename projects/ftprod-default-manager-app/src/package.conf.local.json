@@ -1,0 +1,81 @@
+{
+  "/cms/": {
+    "target": "https://fappi-preprod.cloud.ftprod.fr/",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "experimentation_subject_id=ImQ4ZGViYmIxLTFlNDUtNGNhMC1iODE4LWE3MWQ0ZjJiMmMxYiI%3D--dcb41822a0fa5a4f1695fdd421f3647c705e8e88; SESSION=1d72e9ff-19b1-4cbf-b0c8-07cd9ddd46d8",
+      "Content-Type":"application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/api/": {
+    "target": "https://fappi-preprod.cloud.ftprod.fr/",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "experimentation_subject_id=ImQ4ZGViYmIxLTFlNDUtNGNhMC1iODE4LWE3MWQ0ZjJiMmMxYiI%3D--dcb41822a0fa5a4f1695fdd421f3647c705e8e88; SESSION=1d72e9ff-19b1-4cbf-b0c8-07cd9ddd46d8",
+      "Content-Type":"application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/user-info": {
+    "target": "https://fappi-preprod.cloud.ftprod.fr/",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "experimentation_subject_id=ImQ4ZGViYmIxLTFlNDUtNGNhMC1iODE4LWE3MWQ0ZjJiMmMxYiI%3D--dcb41822a0fa5a4f1695fdd421f3647c705e8e88; SESSION=1d72e9ff-19b1-4cbf-b0c8-07cd9ddd46d8",
+      "Content-Type":"application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/organization/": {
+    "target": "https://fappi-preprod.cloud.ftprod.fr/",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "experimentation_subject_id=ImQ4ZGViYmIxLTFlNDUtNGNhMC1iODE4LWE3MWQ0ZjJiMmMxYiI%3D--dcb41822a0fa5a4f1695fdd421f3647c705e8e88; SESSION=1d72e9ff-19b1-4cbf-b0c8-07cd9ddd46d8",
+      "Content-Type":"application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/media/": {
+    "target": "https://fappi-preprod.cloud.ftprod.fr/",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "experimentation_subject_id=ImQ4ZGViYmIxLTFlNDUtNGNhMC1iODE4LWE3MWQ0ZjJiMmMxYiI%3D--dcb41822a0fa5a4f1695fdd421f3647c705e8e88; SESSION=1d72e9ff-19b1-4cbf-b0c8-07cd9ddd46d8",
+      "Content-Type":"application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  },
+  "/activiti/": {
+    "target": "https://fappi-preprod.cloud.ftprod.fr/",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Cookie": "experimentation_subject_id=ImQ4ZGViYmIxLTFlNDUtNGNhMC1iODE4LWE3MWQ0ZjJiMmMxYiI%3D--dcb41822a0fa5a4f1695fdd421f3647c705e8e88; SESSION=1d72e9ff-19b1-4cbf-b0c8-07cd9ddd46d8",
+      "Content-Type":"application/json"
+    },
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  }
+
+}

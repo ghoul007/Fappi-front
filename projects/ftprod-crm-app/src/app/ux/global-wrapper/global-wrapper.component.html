@@ -1,0 +1,10 @@
+<fappi-select-org-light (onNoOrgSelected)="onNoOrgSelected()"
+                        (onOrganizationSelected)="onOrganizationSelected($event)"
+                        (onProfilSelected)="onProfilSelected()"
+                        [selectedOrg]="selectedOrg">
+  <div main-menu>
+    <app-main-menu [selectedOrg]="selectedOrg"></app-main-menu>
+  </div>
+</fappi-select-org-light>
+<router-outlet></router-outlet>
+<app-footer [poweredBy]="poweredBy"></app-footer>

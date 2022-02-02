@@ -1,0 +1,32 @@
+app-fhir-reference {
+  cursor: pointer;
+}
+
+.labelpopin {
+  color: #707070;
+  margin-right: 8px;
+}
+
+.reference-menu-wrapper {
+  padding: 16px;
+
+  & > span {
+    display: block;
+    margin-bottom: 8px;
+  }
+}
+
+.action-part {
+  text-align: center;
+  padding: 12px 0;
+}
+
+.period-part {
+  max-width: 70%;
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+.participant-menu {
+  margin-top: 16px;
+}

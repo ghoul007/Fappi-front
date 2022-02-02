@@ -1,0 +1,63 @@
+.inner1-graph {
+  background: #fff;
+  border-radius: 5px;
+  padding: 16px;
+  color: #656565;
+  margin-bottom: 10px;
+
+  .title1-g{
+    color:#3f3f3f;
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 45px;
+  }
+  .num-g{
+    font-weight: lighter;
+    font-size: 54px;
+    display: inline-block;
+  }
+  & p {
+    font-size: 13px;
+    margin-bottom: 0;
+    text-align: center
+  }
+
+  & .material-icons {
+    font-size: 20px;
+    float: left;
+    margin-right: 5px;
+    color: #3274a8
+  }
+
+  & .chiffre {
+    color: #656565;
+    font-size: 18px;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    padding-top: 22px;
+    line-height: 19px;
+
+    & .material-icons {
+      color: #f2453d
+    }
+  }
+}
+@media (max-width:479px) {
+  .inner1-graph{
+    .num-g{font-size:37px;}
+    .material-icons{
+      float: none;
+      display: table;
+      margin: auto;
+    }
+    .chiffre{float:none;padding-top:0}
+    .title1-g{text-align: center}
+  }
+
+}
+@media (max-width:375px) {
+  .inner1-graph{
+    padding:3px
+  }
+}

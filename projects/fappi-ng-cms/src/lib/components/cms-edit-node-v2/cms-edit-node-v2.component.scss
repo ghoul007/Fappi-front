@@ -1,0 +1,134 @@
+table {
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+h3 {
+  font-size: 12px;
+  display: flex;
+}
+
+h3 > * {
+  flex: 1;
+}
+
+.node-title {
+  padding-top: 8px;
+  &:before{
+    content: '';
+    position: absolute;
+    left: -15px;
+    width: 10px;
+    height: 100vh;
+    /*    background: mat-color($palete, A100);
+        color: mat-contrast($palete, A100);*/
+    background: #80d1e2;
+  }
+}
+
+.node-slug-title {
+  font-size: 12px;
+  font-style: italic;
+  display: block;
+}
+
+.mat-form-field {
+  width: 100%;
+  max-width: 100%;
+}
+
+textarea {
+  height: 120px;
+}
+
+.fappi-editor {
+  padding-top: 10px;
+}
+
+.child-rows {
+  display: flex;
+  overflow: hidden;
+}
+
+.folder-title {
+  flex: 1;
+  margin-right: 9px;
+  color: white;
+  padding-top: 20px;
+  max-width: 24px;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.folder-name {
+  white-space: nowrap;
+  transform: rotate(90deg);
+  transform-origin: center center;
+}
+
+/*
+ transform: rotate(90deg);
+  transform-origin: top left;
+ */
+.child-content {
+  flex: 23;
+  //width: calc(100% - 85px);
+  // margin-left: 21px;
+  // display: inline-block;
+}
+
+.label-preview {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #707070;
+}
+
+.node-preview {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.action-button {
+  margin-top: 12px;
+}
+
+
+.cms-edit-node-wrapper {
+  background: #f4f4f4;
+  padding: 12px 24px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  border:green solid
+}
+
+.title-node-folder {
+  padding-top: 4px;
+  display: flex;
+  position: relative;
+}
+
+.title-node-folder mat-icon {
+}
+
+.title-node-folder span {
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+.node-form-wrapper {
+  position: relative;
+}
+
+.loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #0000001E;
+  text-align: center;
+}
+//@import "../../dist/fappi-theming/src/lib/assets/scss/themes/theme-creator";

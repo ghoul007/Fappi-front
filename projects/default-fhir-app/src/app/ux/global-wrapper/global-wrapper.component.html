@@ -1,0 +1,72 @@
+<mat-sidenav-container  class="all-wrap">
+  <mat-sidenav #sidenav [(opened)]="leftMobileMenuOpen" class="menu-left" id="left-menu" mode="push">
+    <a class="logo-mobile" href="">
+      <img alt="logo mobile" class="img-fluid" src="{{client?.personalization.logo.url}}" width="160"/>
+    </a>
+
+    <div class="logged-part log-mb">
+      <app-profil-badge *ngIf="username" [size]="'big'" [text]="username" class="badge-nav-mobile"></app-profil-badge>
+    </div>
+    <div class="mobile-menu">
+      <app-main-menu (menuClicked)="leftMobileMenuOpen = false" [selectedOrg]="selectedOrg"></app-main-menu>
+      <div class="li-link  hidden-lg"><span class="material-icons">settings</span>
+
+        <div class="clr-col-lg-12 clr-col-12">
+          <div class="card">
+            <div class="card-block">
+              <div class="expandCollapse">
+                <button (click)="toggle(i)">
+                  <span class="change-label" i18n="@@ux.right-menu.changeorg.title"> {{hideRuleContent[i] ? 'Change organization' : 'Change organization'}}</span>
+                </button><span class="material-icons">expand_more</span>
+              </div>
+              <div class="expandCollapseContent" *ngIf="hideRuleContent[i]">
+                <a (click)="onOrganizationSelected(option?.id.id); leftMobileMenuOpen = false"
+                   *ngFor="let option of organizations" mat-menu-item> {{option.name}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <h3 i18n="@@ux.main-menu.fhir.menu-name.other-apps">Other Apps</h3>
+      <div class="icons-apps">
+        <fappi-app-selector [inline]="true" [orgId]="selectedOrg?.id.id"></fappi-app-selector>
+      </div>
+    </div>
+    <div class="logout-mobile">
+      <a (click)="onProfilSelected(); leftMobileMenuOpen = false" class="myprofil">
+        <mat-icon>account_circle</mat-icon>
+        <span i18n="@@ux.right-menu.profil">My profil</span></a>
+
+      <a (click)="logout()" class="logoutbutton">
+        <mat-icon>exit_to_app</mat-icon>
+        <span i18n="@@ux.right-menu.logout">Logout</span></a>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="page-wrap" id="content1">
+    <fappi-select-org-light (onNoOrgSelected)="onNoOrgSelected()"
+                            (onOrganizationSelected)="onOrganizationSelected($event)"
+                            (onProfilSelected)="onProfilSelected()"
+                            [selectedOrg]="selectedOrg"
+                            [shortAppName]="'FHIR'"
+    >
+      <div mobile-menu>
+        <button (click)="leftMobileMenuOpen = !leftMobileMenuOpen" class="btn-nav" value="ouvrir">
+          <span class="material-icons">menu</span>
+        </button>
+      </div>
+      <div main-menu>
+        <app-main-menu [selectedOrg]="selectedOrg"></app-main-menu>
+      </div>
+    </fappi-select-org-light>
+    <main class="content">
+     <router-outlet #o="outlet"></router-outlet>
+    </main>
+    <app-footer  [poweredBy]="poweredBy"></app-footer>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
+

@@ -1,0 +1,165 @@
+//@import "../assets/scss/globals";
+
+.top-menus {
+  flex: 1 1 auto;
+  height: 100%;
+}
+
+.top-menus > div {
+  height: 100%;
+
+  a {
+    height: 100%;
+    border-bottom: red;
+  }
+}
+.menu-mosaique{
+  background: #fff;
+  box-shadow: #d0cece 1px -3px 18px;
+  height: 100%;
+ // padding-top: 4px;
+  width: 74px;
+  position: relative;
+
+  & .mat-button, & .mat-icon-button, & .mat-stroked-button, & .mat-flat-button{
+    padding: 0 22px;
+    line-height: 52px;
+  }
+
+
+  & .mat-button-wrapper{
+    padding-top: 8px;
+  }
+
+  & .title-page{
+    background: #93afcd;
+    color:#fff;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+     padding: 3px;
+    position: absolute;
+    bottom: 0;
+  }
+  & mat-button:hover{background: transparent !important;}
+}
+
+@media screen and (max-width: 640px) {
+  .main-toolbar {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 641px) {
+  .main-toolbar {
+  }
+  .main-toolbar-small {
+    display: none;
+  }
+}
+
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  font-size: 14px;
+}
+
+.main-content {
+  padding: 20px 50px 50px 20px;
+}
+
+.menu-left {
+  padding: 25px;
+  width: 300px;
+}
+//.content-zone{border-radius: 0 !important;}
+.top-logo {
+  max-height: 100%;
+  max-width:100%;
+  margin-top: 0;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 27px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  line-height: 92px;
+  margin: 0 5px 0 0;
+  padding: 0 15px 0 0;
+  max-width: 135px;
+  .part1 {
+    white-space: nowrap;
+
+  }
+
+  .part2 {
+    white-space: nowrap;
+  }
+}
+
+
+.footer {
+  height: 52px;
+}
+
+
+a {
+  cursor: pointer;
+}
+
+a.active {
+  text-decoration: underline;
+}
+
+.logoutbutton .mat-icon {
+  vertical-align: bottom;
+}
+
+.logoutbutton {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.change-label {
+  display: block;
+  height: 2em;
+  padding: 5px 12px;
+  font-size: 16px;
+}
+
+
+.logged-part-button {
+  display: flex;
+  align-items: center;
+  //  margin-top: 10px;
+  cursor: pointer;
+}
+
+.zone-loggedas, .zone-inorg {
+  display: inline-block;
+  font-size: 18px;
+  flex: 1;
+
+  & > span {
+    display: block;
+    line-height: 1.2em;
+    text-align: right;
+  }
+}
+
+.zone-loggedas {
+  margin-right: 8px;
+}
+
+.zone-inorg {
+  margin-left: 8px;
+
+  & > span {
+    text-align: left;
+  }
+}
+
+
+.list-orgs{
+  max-height: 400px;
+  overflow-y: scroll;
+}

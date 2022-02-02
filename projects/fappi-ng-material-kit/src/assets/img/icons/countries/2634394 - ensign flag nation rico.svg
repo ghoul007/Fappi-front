@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve"
+     xmlns="http://www.w3.org/2000/svg"><style type="text/css">
+	.st0 {
+    fill: #D81E34;
+  }
+
+  .st1 {
+    fill: #2A2D2F;
+  }
+
+  .st2 {
+    fill: #FFFFFF;
+  }
+
+  .st3 {
+    fill: #2E3D86;
+  }
+
+  .st4 {
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    fill: #FFFFFF;
+  }
+</style>
+  <g><rect class="st0" height="298.7" width="512" y="106.7"/>
+    <path class="st1" d="M0,315.9h512H0z M0,196.1h512H0z"/>
+    <path class="st2" d="M0,345.7h512v-59.6H0V345.7z M0,225.9h512v-59.6H0V225.9z"/>
+    <polygon class="st3" points="0,106.7 0,405.4 258.2,256.2  "/>
+    <polygon class="st4"
+             points="103.9,261.9 133.4,240.9 97.2,240.9 86.2,206.2 74.9,240.9 38.5,240.9 68,261.9 56.8,296.2 86,274.8    115.1,296.2  "/></g></svg>

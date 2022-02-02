@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 col-lg-3 bordered">
+      <mat-list>
+        <h3 matSubheader>Administration</h3>
+        <mat-list-item [routerLink]="'content-types'" [routerLinkActive]="'active'">
+          <mat-icon matListIcon>folder</mat-icon>
+          <h4 matLine>Content types</h4>
+          <p matLine class="demo-2"> Manage fields of yours contents </p>
+        </mat-list-item>
+        <mat-list-item [routerLink]="'rights'" [routerLinkActive]="'active'">
+          <mat-icon matListIcon>folder</mat-icon>
+          <h4 matLine>Rights</h4>
+          <p matLine class="demo-2"> Manage rights </p>
+        </mat-list-item>
+        <mat-list-item [routerLink]="'channels'" [routerLinkActive]="'active'">
+          <mat-icon matListIcon>folder</mat-icon>
+          <h4 matLine>Channels</h4>
+          <p matLine class="demo-2"> Manage channels </p>
+        </mat-list-item>
+        <mat-list-item [routerLink]="'versions'" [routerLinkActive]="'active'">
+          <mat-icon matListIcon>folder</mat-icon>
+          <h4 matLine>Versions</h4>
+          <p matLine class="demo-2"> Manage versions </p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item [routerLink]="'actions'" [routerLinkActive]="'active'">
+          <mat-icon matListIcon>folder</mat-icon>
+          <h4 matLine>Actions</h4>
+          <p matLine class="demo-2"> Other actions </p>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div class="col-md-8 col-lg-9 bordered">
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

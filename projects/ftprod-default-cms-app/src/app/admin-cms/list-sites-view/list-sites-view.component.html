@@ -1,0 +1,38 @@
+<app-content-wrapper [fullWidth]="true"
+                     [subTitle]="'All your contents'" [title]="'Search content'"
+                     i18n-subTitle="@@ux.fappi-ng-cms.ux.list.subtitle" i18n-title="@@ux.fappi-ng-cms.ux.list.title">
+  <div class="content-wrapper">
+    <div class="action-button-bar topbar">
+      <button [routerLink]="'add'" class="col-1" i18n="@@ux.fappi-ng-cms.ux.action.add" mat-flat-button>Add</button>
+      <button (click)="export()" class="col-1" i18n="@@ux.fappi-ng-cms.ux.action.export" mat-flat-button>Export</button>
+      <button (click)="import()" class="col-1" i18n="@@ux.fappi-ng-cms.ux.action.import" mat-flat-button>Import</button>
+    </div>
+    <table [dataSource]="dataSource" mat-table matSort>
+      <ng-container matColumnDef="slug">
+        <th *matHeaderCellDef class="table-id-col" i18n="@@ux.fappi-ng-cms.ux.title.slug" mat-header-cell> Slug</th>
+        <td *matCellDef="let element" mat-cell><a
+          [routerLink]="'edit/'+element.id.elementId">{{element.id.elementId}}</a></td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell> Name</th>
+        <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.id.elementId">{{element.name}}</a></td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th *matHeaderCellDef class="table-action-col" i18n="@@ux.fappi-ng-cms.ux.action.title" mat-header-cell>
+          Actions
+        </th>
+        <td *matCellDef="let element" mat-cell>
+          <div class="action-button-bar">
+            <a (click)="adminChapter(element)" color="accent" i18n="@@ux.fappi-ng-cms.ux.action.admin"
+               mat-flat-button>Admin</a>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+    </table>
+    <mat-paginator #paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</app-content-wrapper>

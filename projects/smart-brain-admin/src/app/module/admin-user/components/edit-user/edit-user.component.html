@@ -1,0 +1,44 @@
+<form (ngSubmit)="onSubmitForm()" [formGroup]="userForm">
+  <div>
+    <mat-form-field  class="col app-bg-primary-color-100">
+      <mat-label i18n="@@module.admin.user.field.firstName">First name</mat-label>
+      <input formControlName="firstName" i18n-placeholder="@@module.admin.user.field.firstName" matInput
+             placeholder="First name">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field  class="col app-bg-primary-color-100">
+      <mat-label i18n="@@module.admin.user.field.lastName">Last name</mat-label>
+      <input   formControlName="lastName" i18n-placeholder="@@module.admin.user.field.lastName" matInput
+             placeholder="Last name">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field  class="col app-bg-primary-color-100">
+      <mat-label i18n="@@module.admin.user.field.preferedEmail">Prefered email</mat-label>
+      <input  formControlName="preferredEmail" i18n-placeholder="@@module.admin.user.field.preferedEmail" matInput
+             placeholder="Prefered email">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field  class="col app-bg-primary-color-100">
+      <mat-label   i18n-placeholder="@@module.admin.user.field.language">Language</mat-label>
+      <mat-select  (ngModelChange)="onLangageChange()" formControlName="language">
+        <mat-option *ngFor="let lang of languages" [value]="lang.code">
+          {{lang.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="!processing" class="action-button">
+    <button (click)="back()" class="mat-stroked-button" i18n="@@module.admin.user.cancel" mat-button type="button">Cancel
+    </button>
+    <button [disabled]="!userForm.valid" color="accent" i18n="@@module.admin.user.save" mat-raised-button
+            type="submit">Save
+    </button>
+  </div>
+  <div *ngIf="processing" class="action-button">
+    <app-loading-zone></app-loading-zone>
+  </div>
+</form>

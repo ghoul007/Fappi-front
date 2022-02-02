@@ -1,0 +1,24 @@
+<div>
+  <ng-content select="div[role=actions]"></ng-content>
+  <table [dataSource]="dataSource" mat-table matSort>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header style="width: 320px"> Id</th>
+      <td *matCellDef="let element" mat-cell><a (click)="lineClicked(element)">{{element.groupId.id}}</a></td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Name</th>
+      <td *matCellDef="let element" mat-cell>
+        <a (click)="lineClicked(element)">{{element.name}}</a>
+        <mat-chip-list aria-label="Group attributes">
+          <mat-chip *ngIf="element.protectedGroup" color="accent" selected>protected</mat-chip>
+        </mat-chip-list>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+  </table>
+  <mat-paginator #paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+
+</div>

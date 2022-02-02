@@ -1,0 +1,16 @@
+table {
+  width: 100%;
+}
+
+a {
+  text-decoration: inherit;
+  color: var(--color-A100) !important;
+  cursor: pointer;
+}
+h4{
+  mat-icon{
+    vertical-align: bottom;
+    margin-right: 8px;
+    color: var(--color-A100) !important;
+  }
+}

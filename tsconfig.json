@@ -1,0 +1,72 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "paths": {
+      "fappi-theming": [
+        "dist/fappi-theming"
+      ],
+      "fappi-theming/*": [
+        "dist/fappi-theming/*"
+      ],
+      "fappi-common-model": [
+        "dist/fappi-common-model"
+      ],
+      "fappi-common-model/*": [
+        "dist/fappi-common-model/*"
+      ],
+      "fappi-ng-material-kit": [
+        "dist/fappi-ng-material-kit"
+      ],
+      "fappi-ng-material-kit/*": [
+        "dist/fappi-ng-material-kit/*"
+      ],
+      "fappi-ng-utils-components": [
+        "dist/fappi-ng-utils-components"
+      ],
+      "fappi-ng-utils-components/*": [
+        "dist/fappi-ng-utils-components/*"
+      ],
+      "fappi-ng-cms": [
+        "dist/fappi-ng-cms"
+      ],
+      "fappi-ng-cms/*": [
+        "dist/fappi-ng-cms/*"
+      ],
+      "fappi-ng-media": [
+        "dist/fappi-ng-media"
+      ],
+      "fappi-ng-media/*": [
+        "dist/fappi-ng-media/*"
+      ],
+      "ng-fhirjs": [
+        "dist/ng-fhirjs"
+      ],
+      "ng-fhirjs/*": [
+        "dist/ng-fhirjs/*"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
+}

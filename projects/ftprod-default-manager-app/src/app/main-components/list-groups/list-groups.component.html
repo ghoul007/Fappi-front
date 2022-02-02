@@ -1,0 +1,30 @@
+<div>
+  <ng-content select="div[role=actions]"></ng-content>
+  <table [dataSource]="dataSource" mat-table matSort>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header style="width: 320px"> Id</th>
+      <td *matCellDef="let element" mat-cell><a (click)="lineClicked(element)">{{element.groupId.id}}</a></td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Name</th>
+      <td *matCellDef="let element" mat-cell>
+        <a (click)="lineClicked(element)">{{element.name}}</a>
+        <mat-chip-list aria-label="Group attributes">
+          <mat-chip *ngIf="element.protectedGroup" color="accent" i18n="@@module.main-component.chip.groupProtected" selected>protected</mat-chip>
+          <mat-chip *ngIf="element.deleted" color="warn"  i18n="@@module.main-component.chip.groupDeleted" selected>deleted</mat-chip>
+        </mat-chip-list>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+  </table>
+  <mat-paginator #paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+
+
+  <ng-container *fappiHasRole="['ROLE_ADMIN']">
+    <mat-checkbox [(ngModel)]="data.showDeleted" (change)="this.searchGroups()" i18n="@@module.main-component.list-users.showDeleted">Show deleted</mat-checkbox>
+  </ng-container>
+
+</div>

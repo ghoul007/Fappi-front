@@ -1,0 +1,158 @@
+
+.header-top {
+  min-height: 110px;
+  padding: 25px 0 0;
+  display: block;
+
+  & .title-header {
+    color: #087978;
+    font-size: 35px;
+    padding-bottom: 42px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  & .navbar {
+    & .navbar-brand {
+      margin-right: 3rem;
+      cursor: pointer;
+    }
+
+    & .nav-item {
+      display: inline-block;
+
+      a.nav-link {
+        position: relative;
+        font-weight: normal;
+        font-size: 19px;
+        color: #000;
+
+        &:hover, &:active, &:focus, :visited {
+          color: #087978;
+          background: transparent;
+          text-decoration: none;
+        }
+
+        &.active {
+          color: #087978;
+        }
+
+        & .mat-badge-warn {
+          top: 6px;
+          right: 2px;
+          position: absolute;
+        }
+      }
+    }
+
+  }
+
+  & .menu-mobile {
+    .nav-link:hover {
+      color: #000 !important;
+    }
+
+    .mat-button {
+      line-height: 30px
+    }
+  }
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.right-text {
+  display: flex;
+  align-items: center;
+}
+
+.footer .copy {
+  background: #087978;
+  color: #fff;
+  padding: 10px 15px;
+  margin-top: 25px;
+  display: block;
+  font-size: 12px;
+}
+
+.logged-part {
+  & .material-icons {
+    border-radius: 50%;
+    border: solid 1px #494a4b;
+    margin-right: 7px;
+  }
+
+  & a {
+    text-decoration: none;
+  }
+}
+
+@media(max-width: 992px) and (min-width: 768px) {
+  td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  .header-top {
+    & .title-header {
+      font-size: 25px;
+    }
+  }
+}
+
+@media(max-width: 800px) {
+  .header-top .navbar {
+    flex-wrap: nowrap;
+
+    & .navbar-brand {
+      margin-right: 1rem;
+      max-width: 33%;
+    }
+
+    & .nav-item a.nav-link {
+      font-size: 17px;
+      padding: 5px;
+    }
+  }
+
+}
+
+@media(max-width: 640px) {
+  .header-top .title-header {
+    font-size: 22px;
+  }
+}
+
+@media(max-width: 480px) {
+  .header-top {
+    & .navbar {
+      float: left;
+      display: contents;
+
+      & .navbar-brand {
+        max-width: 50%;
+        float: right;
+        margin: 0;
+      }
+    }
+
+    & .menu-mobile {
+      float: left;
+      margin-top: 1.5rem;
+    }
+
+    & .logged-part a {
+      & .material-icons {
+        margin: 0;
+      }
+
+      padding: 0;
+    }
+
+    & .title-header {
+      margin-top: 20px;
+    }
+  }
+}
+

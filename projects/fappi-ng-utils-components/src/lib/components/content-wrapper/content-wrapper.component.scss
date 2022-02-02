@@ -1,0 +1,262 @@
+.header {
+  padding: 10px 20px;
+  font-size: 20px;
+}
+
+.content-zone {
+ p{
+   margin-top:1rem
+ }
+}
+.directories-tree mat-icon{
+  float: right;
+  cursor: pointer
+}
+.left-side-nav {
+  width: 38.5%;
+  padding-top: 15px;
+
+  border:none;
+
+  & .mat-drawer-inner-container{overflow: hidden !important;}
+}
+.mat-form-field-infix{width: 234px}
+
+.action-toogle {
+  cursor: pointer;
+  position: absolute;
+  right: 24px;
+  top: -47px;
+  z-index: 101;
+}
+.big-width {
+
+  min-height: calc(100vh - 217px);
+  margin-bottom: 50px;
+
+  h1 {
+    font-weight: 400;
+    font-size: 48px;
+    margin-top: 53px;
+    line-height: 34px;
+    margin-bottom: 20px;
+    position:relative;
+   // margin-left: 40px;
+    z-index: 1;
+    & span {
+      display: block;
+      font-size: 12px;
+    }
+  }
+
+  @media(max-width: 992px) {
+   & h1{
+      font-size: 21px;
+      margin-top: 12px;
+    }
+  }
+
+  .content-wrapper-inner-content {
+  }
+
+  .mat-elevation-z2.content-zone{
+   // margin-top: -40px;
+  }
+}
+
+
+.small-width {
+  max-width: 759px;
+  margin: 0 auto;
+  padding: 0;
+
+  min-height: calc(100vh - 217px);
+  margin-bottom: 50px;
+  .mat-elevation-z2.content-zone{
+    margin-top: -38px;
+  }
+
+  h1 {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 0.8em;
+    margin-top: 38px;
+    position: relative;
+    z-index: 1;
+    //margin-left:40px;
+    @media(max-width: 992px) {
+      font-size: 21px;
+      margin-top: 12px;
+    }
+  }
+
+  .sub-title {
+    display: block;
+    font-size: 13px;
+    //padding-top: 3px;
+  }
+
+  .main-header-part {
+    & > div {
+      max-width: 759px;
+      margin: 0 auto;
+    }
+  }
+
+  .content-wrapper-inner-content {
+   // padding: 35px;
+  }
+
+  .main-header-part {
+    max-width: 759px;
+    min-width: 759px;
+    margin: 0 auto;
+  }
+}
+
+.with-icon .small-width .sub-title {
+  margin-left: 8px;
+  @media(max-width: 992px) {
+    & {
+      margin-top: 12px;
+    }
+  }
+}
+
+.with-icon .small-width {
+  h1 {
+   margin-top: 25px;
+  }
+  .content-zone{
+    //margin-top: -38px;
+  }
+  .mat-elevation-z2.content-zone{
+    margin-top: -68px;
+  }
+}
+
+@media(max-width: 992px) {
+  .with-icon .small-width .content-wrapper-inner-content {
+   // padding: 40px;
+  }
+}
+
+
+.with-icon .big-width .sub-title {
+ // margin-left: 164px;
+  @media(max-width: 992px) {
+    margin-left: 0;
+  }
+}
+
+  .with-icon .big-width{
+  .mat-elevation-z2.content-zone{
+  // margin-top: -66px;
+  }
+    h1{margin-left: 0;margin-bottom: 4px}
+}
+
+
+.breadcrumb {
+
+}
+
+
+// when the icon is  displayed:
+.with-icon {
+  .header {
+    padding: 0 3px;
+    vertical-align: super;
+    max-width: 75%;
+  }
+
+  & .icon-part {
+    text-align: center;
+
+    img {
+      border-radius: 50%;
+      vertical-align: middle;
+      width: 144px;
+      margin-right: 10px;
+      margin-left: 16px;
+      @media(max-width: 992px) {
+        width: 83px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  & .main-header-part {
+    padding-top: 13px;
+    z-index: 100;
+    position: relative;
+
+    & > div > div {
+      display: inline-table;
+    }
+  }
+
+  & h1 {
+    margin-top: 0px;
+    font-weight: 400;
+    //line-height: 1em;
+    //margin-left: 15px;
+
+    @media(max-width: 992px) {
+      margin-top: 12px;
+    }
+
+  }
+
+  & .content-zone {
+    margin-top: -68px;
+    padding-top: 62px;
+    @media(max-width: 992px) {
+      margin-top: -31px;
+      padding-top: 62px;
+    }
+  }
+
+}
+
+
+/*
+
+
+ */
+@media(max-width: 992px) {
+  .with-icon  .small-width .mat-elevation-z2.content-zone  {
+    margin-top: -40px;
+  }
+}
+@media(max-width: 768px) {
+  .with-icon .big-width .sub-title {
+    margin-left: 0
+  }
+}
+@media(max-width: 479px) {
+  .logout-mobile {
+    min-height: 50px;
+  }
+    .li-link .expandCollapse button .material-icons{border:none}
+  .icon-part{display: none}
+ .with-icon{
+   /*.content-zone{
+     padding: 0;
+     margin-top: -32px !important;
+    .mat-tab-body-content{
+      padding: 20px
+    }
+   }*/
+   h1{padding-left:20px;text-align: left !important;padding-top:15px;font-size:18px}
+   .small-width h1{padding-left:0}
+   .mat-tab-labels{
+     margin-top:26px !important;
+   }
+ }
+
+  .mat-tab-header{margin-top: 25px}
+  .main-form-container{padding: 20px}
+}
+
+

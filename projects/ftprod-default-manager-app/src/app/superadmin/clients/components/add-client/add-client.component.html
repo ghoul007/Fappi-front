@@ -1,0 +1,30 @@
+<app-content-wrapper [fullWidth]="false" title="Add platform" withIcon="true" i18n-title="@@ux.platform.addplatform.title">
+  <div *ngIf="rendered" class="main-container container-spaced">
+    <form (ngSubmit)="onSubmitForm()" [formGroup]="addClientForm">
+      <div class="main-form-container">
+        <mat-form-field  class="app-bg-primary-color-100 col-lg-12">
+          <input #name formControlName="name" matInput placeholder="Name" required i18n-placeholder="@@ux.platform.addplatform.field.name.placeholder">
+        </mat-form-field>
+
+        <mat-form-field  class="app-bg-primary-color-100 col-lg-12">
+          <input [slugOf]="name" formControlName="id" matInput placeholder="Id" required i18n-placeholder="@@ux.platform.addplatform.field.id.placeholder">
+        </mat-form-field>
+
+        <mat-form-field  class="app-bg-primary-color-100 col-lg-12">
+          <input formControlName="description" matInput placeholder="Description"  i18n-placeholder="@@ux.platform.addplatform.field.description.placeholder">
+        </mat-form-field>
+
+
+        <div *ngIf="!processing" class="action-button">
+          <button (click)="back()" class="mat-stroked-button" mat-button type="button" i18n="@@ux.platform.addplatform.action.cancel">Cancel</button>
+          <button color="accent" mat-raised-button type="submit" i18n="@@ux.platform.addplatform.action.save">Save</button>
+        </div>
+        <div *ngIf="processing" class="action-button">
+          <app-loading-zone></app-loading-zone>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+</app-content-wrapper>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="fr" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="ux.right-menu.loggedin.log" datatype="html">
+        <source>Logged as</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            ../../dist/fappi-ng-utils-components/lib/components/select-org/select-org-component.component.d.ts
+          </context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.right-menu.loggedin.in" datatype="html">
+        <source>in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            ../../dist/fappi-ng-utils-components/lib/components/select-org/select-org-component.component.d.ts
+          </context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.right-menu.changeorg.title" datatype="html">
+        <source>Change organization:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            ../../dist/fappi-ng-utils-components/lib/components/select-org/select-org-component.component.d.ts
+          </context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.right-menu.profil" datatype="html">
+        <source>My profil</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            ../../dist/fappi-ng-utils-components/lib/components/select-org/select-org-component.component.d.ts
+          </context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.right-menu.logout" datatype="html">
+        <source>Logout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            ../../dist/fappi-ng-utils-components/lib/components/select-org/select-org-component.component.d.ts
+          </context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.footer.version" datatype="html">
+        <source>Current Version:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            ../../dist/fappi-ng-utils-components/lib/components/footer/app-footer.component.d.ts
+          </context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.superadmin.menu-name" datatype="html">
+        <source>Super Admin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/superadmin/menu-superadmin-component.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.superadmin.menu-name.client" datatype="html">
+        <source>Clients</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/superadmin/menu-superadmin-component.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.dashboard" datatype="html">
+        <source>Dashboard</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.content" datatype="html">
+        <source>Content</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.my-tasks" datatype="html">
+        <source>My tasks</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="408cb6073e60c5d966296a3207fc596adca75e01" datatype="html">
+        <source>Admin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">ux.main-menu.menu-name.admin</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.organization" datatype="html">
+        <source>Organizations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="313b17449cbb602beebac84465b5266c6f078d19" datatype="html">
+        <source>Organizations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">ux.main-menu.menu-name.admin.organization</note>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.user" datatype="html">
+        <source>Users</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.group" datatype="html">
+        <source>Groups</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.audit" datatype="html">
+        <source>Audit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin.process" datatype="html">
+        <source>Process</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ux.main-menu.menu-name.admin" datatype="html">
+        <source>Admin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ux/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="module.main-component.list-users.username" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-components/list-users/list-users.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="module.main-component.list-users.actions" datatype="html">
+        <source>Actions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-components/list-users/list-users.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="module.admin.user.create-button" datatype="html">
+        <source>Create User</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/admin-user/components/list-users-view/list-users-view.component.html
+          </context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="module.admin.user.add-member" datatype="html">
+        <source>Add Member to this organization</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/admin-user/components/list-users-view/list-users-view.component.html
+          </context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="module.admin.user.search-title" datatype="html">
+        <source>Search users</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/admin-user/components/list-users-view/list-users-view.component.html
+          </context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

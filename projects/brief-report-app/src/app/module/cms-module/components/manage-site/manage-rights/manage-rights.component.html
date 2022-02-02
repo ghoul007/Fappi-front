@@ -1,0 +1,8 @@
+<div class="content-wrapper">
+<ng-container *ngIf="slug && orgId">
+<h2>Gestion des droits :</h2>
+  <div class="app-edit-permission-wrap">
+<app-edit-permission [path]="'/'" [selectedOrganizationId]="orgId" [selectedSiteId]="slug"></app-edit-permission>
+  </div>
+</ng-container>
+</div>

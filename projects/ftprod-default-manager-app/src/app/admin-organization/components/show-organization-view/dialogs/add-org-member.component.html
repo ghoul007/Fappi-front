@@ -1,0 +1,15 @@
+<h1 mat-dialog-title i18n="@@ux.organization.addOrgMember.title">Add member</h1>
+<div *ngIf="members" mat-dialog-content>
+  <mat-form-field>
+    <mat-label i18n="@@ux.organization.addOrgMember.labelmember">Members</mat-label>
+    <mat-select [(ngModel)]="data.member">
+      <mat-option *ngFor="let member of members" [value]="member.username">
+        {{member.username}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button class="mat-stroked-button" (click)="onNoClick()" mat-button i18n="@@ux.organization.addOrgMember.action.cancel">Cancel</button>
+  <button [mat-dialog-close]="data" cdkFocusInitial mat-button i18n="@@ux.organization.addOrgMember.action.ok">Ok</button>
+</div>

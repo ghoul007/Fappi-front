@@ -1,0 +1,6 @@
+<div class="content-wrapper">
+<ng-container *ngIf="slug && orgId">
+<span i18n="@@ux.fappi-ng-cms.right.managementTitle">Right management</span>:
+<app-edit-permission [path]="'/'" [selectedOrganizationId]="orgId" [selectedSiteId]="slug"></app-edit-permission>
+</ng-container>
+</div>

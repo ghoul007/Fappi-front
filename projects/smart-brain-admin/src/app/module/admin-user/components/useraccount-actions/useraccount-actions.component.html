@@ -1,0 +1,13 @@
+<div class="wrapper">
+ <div>
+    <mat-label i18n="@@module.admin.user.sendResetPasswordActionLabel">Send a reset password email</mat-label>
+    <a mat-flat-button color="accent" *ngIf="!processing" i18n="@@module.admin.user.askResetPasswordButton" (click)="onAskResetPassword()" >Ask</a>
+ </div><br/>
+  <div>
+    <mat-label i18n="@@module.admin.user.resetPassordActionLabel">Reset the user password</mat-label>
+    <a mat-flat-button color="accent" *ngIf="!processing" i18n="@@module.admin.user.resetPasswordButton" (click)="onResetPassword()">Reset</a>
+  </div>
+</div>
+<div *ngIf="processing" class="action-button">
+  <app-loading-zone></app-loading-zone>
+</div>

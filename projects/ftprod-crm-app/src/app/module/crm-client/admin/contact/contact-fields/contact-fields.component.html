@@ -1,0 +1,21 @@
+<app-custom-fields-editor (onError)="onError($event)"
+                          (onSaved)="onSaved()"
+                          [attachedElementId]="attachedElementId"
+                          [customFieldService]="crmCustomFieldsService"
+                          [nodeTypeSlug]="nodeTypeSlug"
+                          [orgId]="orgId"
+                          [showName]="false"
+                          [showVisibility]="false"
+></app-custom-fields-editor>
+
+
+<div *ngIf="error">
+  <h3>Sory, the service is temporarily unavailable. Please try again</h3>
+</div>
+<div *ngIf="notInitialized">
+  <h3>Not yet initialized. Do you want to create custom fields?</h3>
+  <div>
+    <a (click)="createDefault()" color="accent" mat-raised-button>Create default custom fields</a>
+
+  </div>
+</div>

@@ -1,0 +1,48 @@
+.small-width h1 {
+  font-weight: 400;
+  margin-bottom: 40px;
+  margin-top: 50px;
+  font-size: 40px;
+  line-height: .8em;
+
+  .sub-title {
+    display: block;
+    font-size: 13px;
+  }
+}
+.dashboard-wrapper{height: calc(100% - 200px)}
+.mat-card-header-text{margin: 0 !important;}
+.mat-card-header .mat-card-title, .mat-card-header .mat-card-subtitle{margin: 0 -16px}
+.mat-card-content ul{padding-left: 25px}
+div[ng-view]{
+  height: 100%;
+}
+
+.home-card {
+  margin-bottom: 40px;
+  //  padding: 25px;
+}
+.mat-card > .mat-card-actions:last-child{
+  text-align: center;
+  & a, & button{
+    background: #03b1cb;
+    color: #fff;
+  }
+}
+
+@media (max-width:1400px) {
+  .mat-card > .mat-card-actions:last-child{
+    display: table;
+    margin: auto;
+    & a, & button{
+      font-size: 12px;
+      margin: 0 0  0 8px
+    }
+  }
+  .mat-card-header .mat-card-title{font-size: 18px}
+}
+@media (max-width:1199px) {
+  .home-card {
+    padding: 9px;
+  }
+}

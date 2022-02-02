@@ -1,0 +1,84 @@
+@import 'theme-creator';
+
+// material
+$md-mcgpalette-theme-00: (
+  50 : #e1e6f1,
+  100 : #b3c1dd,
+  200 : #8198c6,
+  300 : #4f6faf,
+  400 : #29509d,
+  500 : #03318c,
+  600 : #032c84,
+  700 : #022579,
+  800 : #021f6f,
+  900 : #01135c,
+  A100 : #8d9bff,
+  A200 : #5a6eff,
+  A400 : #2741ff,
+  A700 : #0e2aff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+$themeName: 'theme-00';
+@include createTheme($md-mcgpalette-theme-00, $themeName);
+
+body.theme-00 {
+
+  // variables (we have to rewrite the palete because sass doesnt replace values in css vars):
+  --color-50: #e1e6f1;
+  --color-100: #b3c1dd;
+  --color-200: #8198c6;
+  --color-300: #4f6faf;
+  --color-400: #29509d;
+  --color-500: #03318c;
+  --color-600: #032c84;
+  --color-700: #022579;
+  --color-800: #021f6f;
+  --color-900: #01135c;
+  --color-A100: #8d9bff;
+  --color-A200: #5a6eff;
+  --color-A400: #2741ff;
+  --color-A700: #0e2aff;
+  --contrast-50 : #000000;
+  --contrast-100 : #000000;
+  --contrast-200 : #000000;
+  --contrast-300 : #ffffff;
+  --contrast-400 : #ffffff;
+  --contrast-500 : #ffffff;
+  --contrast-600 : #ffffff;
+  --contrast-700 : #ffffff;
+  --contrast-800 : #ffffff;
+  --contrast-900 : #ffffff;
+  --contrast-A100 : #000000;
+  --contrast-A200 : #ffffff;
+  --contrast-A400 : #ffffff;
+  --contrast-A700 : #ffffff;
+
+  background: #eaf1f2   url("/front/assets/theme/scss/themes/img/fond.png") top center no-repeat;
+  & .mat-drawer-container {
+    background: transparent;
+    position: relative;
+  }
+  .content-wrapper {
+    background: white;
+  }
+
+}
+
+
+

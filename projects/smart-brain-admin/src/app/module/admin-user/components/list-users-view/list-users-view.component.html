@@ -1,0 +1,31 @@
+<app-content-wrapper [fullWidth]="true"
+                     i18n-subTitle="@@module.admin.user.search-subTitle"
+                     i18n-title="@@module.admin.user.search-title"
+                     subTitle="All users of the platform"
+                     title="Search users">
+
+  <right-zone *ngIf="tipsActivated">
+    <div>
+      <div class="container-spaced-inner">
+        <h4><mat-icon color="accent">help_center</mat-icon>Tips</h4>
+        <p>
+          Voici les utilisateurs de l'organisation {{orgId}}. <a class="link-color" (click)="startTour()">Démarrer le tour</a>.
+        </p>
+      </div>
+    </div>
+  </right-zone>
+
+  <div class="content-wrapper">
+    <app-list-users  (onRowDelete)="removeMember($event)" (onUserSelected)="onUserSelected($event)"
+                    [rowActions]="['delete']"
+                    [selectedOrganizationId]="orgId">
+      <div class="action-button-bar topbar" role="actions">
+        <button [routerLink]="'add'" class="col-lg-2 col-sm-12 col-md-6 tour-add-button" color="accent" i18n="@@module.admin.user.create-button"
+                mat-flat-button>Create User
+        </button>
+      </div>
+    </app-list-users>
+    </div>
+</app-content-wrapper>
+
+

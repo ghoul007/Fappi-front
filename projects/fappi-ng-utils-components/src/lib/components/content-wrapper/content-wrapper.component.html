@@ -1,0 +1,49 @@
+<div [ngClass]="withIcon ? 'with-icon' : ''">
+  <div [ngClass]="fullWidth ? 'big-width' : ' container-fluid small-width' ">
+    <div class="row breadcrumb">
+      <div class="{{mainContentClass}} breadcrumb">
+        <ng-content select="[breadcrumb]"></ng-content>
+      </div>
+    </div>
+    <div *ngIf="title && withIcon" class="row main-header-part">
+      <div class="col-lg-12 offset-lg-1">
+        <div class="icon-part">
+          <img src="{{iconUrl}}"/>
+        </div>
+        <div class="header">
+          <div>
+            <h1>{{title}}</h1>
+            <span *ngIf="subTitle" class="sub-title">{{subTitle}}</span>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div *ngIf="title && !withIcon"  class="col-lg-12 offset-lg-1">
+        <h1>{{title}}<span *ngIf="subTitle" class="sub-title">{{subTitle}}</span></h1>
+      </div>
+
+      <div *ngIf="hasLeft" class="col-lg-3 offset-lg-1">
+        <div class="mat-elevation-z2 content-zone">
+          <ng-content select="left-zone"></ng-content>
+        </div>
+      </div>
+      <div [ngClass]="mainContentClass">
+        <div class="mat-elevation-z2 content-zone">
+                    <div class="content-wrapper-inner-content">
+            <ng-content></ng-content>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="hasRight" class="col-lg-3 right-sidebar">
+        <div class="mat-elevation-z2 content-zone">
+          <ng-content select="right-zone"></ng-content>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

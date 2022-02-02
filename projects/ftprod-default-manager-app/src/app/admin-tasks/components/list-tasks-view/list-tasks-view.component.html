@@ -1,0 +1,21 @@
+<app-content-wrapper [fullWidth]="false"
+                     [title]="'Your tasks'"
+                     subTitle="All your tasks for this organization" [withIcon]="true">
+  <div class="content-wrapper">
+    <table [dataSource]="dataSource" mat-table matSort>
+      <ng-container matColumnDef="processName">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Process name</th>
+        <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.id">{{element.processName}}</a></td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Name</th>
+        <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.id">{{element.name}}</a></td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+    </table>
+    <mat-paginator #paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</app-content-wrapper>

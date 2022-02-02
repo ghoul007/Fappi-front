@@ -1,0 +1,33 @@
+<section class="header-ch">
+  <div class="container">
+    <div class="top-header-ch">
+      <div class="row">
+        <div class="col-md-6 col-6">
+          <div class="onglet-h text-center">
+            <h2><span class="material-icons">
+                  menu_book
+                </span>Edition du type de contenu {{nodeTypeSlug}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <app-custom-fields-editor (onSaved)="onSaved()"
+                                [attachedElementId]="attachedElementId"
+                                [customFieldService]="siteService"
+                                [nodeTypeSlug]="nodeTypeSlug"
+                                [orgId]="orgId"></app-custom-fields-editor>
+
+    </div>
+  </div>
+  <div class="row chapter-note">
+    <div class="col-md-2"></div>
+    <div *ngIf="attachedElementId == '0'" class="scope-message col-md-8">
+      NB: Ce type de contenu d'applique pour tous les chapitres de l'organisation.
+    </div>
+  </div>
+</div>

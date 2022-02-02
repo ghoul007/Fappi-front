@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <table [dataSource]="dataSource" mat-table matSort>
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Titre du chapitre</th>
+      <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.chapterId">{{element.chapterTitle}}</a></td>
+    </ng-container>
+    <ng-container matColumnDef="tasks">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Tâches</th>
+      <td *matCellDef="let element" mat-cell>
+{{element.tasks}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="lastModified">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Date de modification</th>
+      <td *matCellDef="let element" mat-cell>
+       {{element.modificationDate| date}}
+      </td>
+    </ng-container>
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+  <mat-paginator #paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+  <button [routerLink]="'add'" color="primary" mat-button>Ajouter</button>
+</div>

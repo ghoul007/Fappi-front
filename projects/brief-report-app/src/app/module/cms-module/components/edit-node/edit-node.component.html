@@ -1,0 +1,195 @@
+<!-- For content (not folder): -->
+<div *ngIf="selectedNode  && selectedNode.nodeType.slug != 'folder'">
+  <mat-drawer-container  class="all-wrap" autosize>
+    <mat-drawer-content>
+      <div *ngIf="editNodeForm">
+        <div *ngIf="nodeType && !selectedNode.folder"
+             class="fappi-editor hot-content-{{selectedNode.meta?.hotContent}}">
+          <form (ngSubmit)="saveNode()" [formGroup]="editNodeForm">
+            <h3 class="title-file"> {{editNodeForm.controls._$$name.value}}
+              <span class="node-slug-title" style="display: none">{{selectedNode.id.nodeSlug.slug}}</span>
+              <span class="leave-comment-action">
+              <div class="comment-button">
+                <a (click)="drawer.toggle()" mat-button><mat-icon>comment</mat-icon>({{commentCount}})</a>
+              </div>
+              </span>
+              <app-cms-edit-node-toolbar  *ngIf="!oldVersionMode"  (delete)="delete()" (edit)="edit()" (editTitle)="startEditTitle()" (moveUp)="moveUp()" (moveDown)="moveDown()"
+                                         (move)="selectNode()"></app-cms-edit-node-toolbar>
+            </h3>
+            <!-- Title -->
+            <div *ngIf="editTitle" class="row">
+              <div class="col-2">
+                <mat-form-field  appearance="fill">
+                  <input formControlName="_$$name" matInput placeholder="Nom du contenu">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- form -->
+            <div class="text-content">
+              <div *ngFor="let nodeTypeField of  nodeType.customTypeFields">
+                <ng-container *ngIf="oldVersionMode">
+                  <div class="field-content old-version-mode">
+                    <div class="value-part" [innerHTML]="editNodeForm.controls[nodeTypeField.slug].value">
+                    </div>
+                  </div>
+
+                </ng-container>
+
+                <ng-container *ngIf="!oldVersionMode">
+
+                  <mat-form-field *ngIf="nodeTypeField.type=='STRING'">
+                    <input formControlName="{{nodeTypeField.slug}}" matInput placeholder="{{nodeTypeField.label}}">
+                  </mat-form-field>
+
+                  <mat-form-field *ngIf="nodeTypeField.type=='NUMBER'">
+                    <input formControlName="{{nodeTypeField.slug}}" matInput placeholder="{{nodeTypeField.label}}"
+                           type="number">
+                  </mat-form-field>
+
+                  <div *ngIf="nodeTypeField.type=='MEDIA'">
+                    <span class="label-preview">{{nodeTypeField.label}}</span>
+                    <div class="node-preview">
+                    <span *ngIf="editNodeForm.controls[nodeTypeField.slug].value.indexOf('|') >= 0">
+                    {{editNodeForm.controls[nodeTypeField.slug].value.split('|')[1]}}
+                      </span>
+                      <a (click)="openFile(nodeTypeField.slug)"
+                         *ngIf="editNodeForm.controls[nodeTypeField.slug].value"
+                         target="_blank">Voir</a>
+                    </div>
+                    <a (click)="chooseFile(nodeTypeField.slug)" *ngIf="editNodeForm.enabled" class="mat-raised-button">Choisir
+                      un fichier</a>
+                  </div>
+
+
+                  <div *ngIf="nodeTypeField.type=='TEXT' && editNodeForm.enabled">
+                    <span class="label-preview">{{nodeTypeField.label}}</span>
+                    <quill-editor [modules]="rteModules" formControlName="{{nodeTypeField.slug}}">
+                    </quill-editor>
+                  </div>
+                  <div *ngIf="nodeTypeField.type=='TEXT' && !editNodeForm.enabled" class="manual-form">
+                    <span class="label-preview" disabled>{{nodeTypeField.label}}</span>
+                    <div [innerHTML]="selectedNode.properties[nodeTypeField.slug]" class="node-preview">
+                    </div>
+                  </div>
+
+
+                  <mat-form-field *ngIf="nodeTypeField.type=='DATE'">
+                    <input [matDatepicker]="picker" formControlName="{{nodeTypeField.slug}}" matInput
+                           placeholder="{{nodeTypeField.label}}">
+                    <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+
+                </ng-container>
+
+
+              </div>
+              <div *ngIf="editing" class="action-button">
+                <a (click)="cancel()" class="mat-stroked-button" mat-button i18n="@@ux.cms.node.edit.action.cancel">Annuler</a>
+                <button color="primary" mat-raised-button type="submit" i18n="@@ux.cms.node.edit.action.save">Sauvegarder</button>
+              </div>
+
+              <div class="foot-note">
+              <span class="last-edit-info">
+                Dernière édition le {{selectedNode.lastModified | date :'short':null: 'fr'}}
+                par {{selectedNode.modifiedBy}}.
+              </span>
+              </div>
+
+              <div *ngIf="currentlyEditingWarn">
+                <div style="background: #ff2d2d;    padding: 20px;">
+                  <div style="display: inline-block;">
+                    <mat-icon>warning</mat-icon>
+                  </div>
+                  <div style="display: inline-block;margin: 20px;">
+                    Attention un contributeur ({{currentlyEditingWarnPerson}}) édite déjà cet article. <br/>
+                    Dernière activité il y a {{currentlyEditingWarnTime}} secondes.
+                    <button (click)="cancel()" color="primary" mat-raised-button type="submit">Annuler</button>
+                  </div>
+                </div>
+              </div>
+              <div *fappiHasGroup="{orgId:selectedNode.id.organizationId, groups :['hot-content-editor']}">
+                <div *ngIf="editing">
+                  <mat-checkbox [(ngModel)]="hotContent" [ngModelOptions]="{standalone: true}">
+                    Contenu chaud
+                  </mat-checkbox>
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+        <form (ngSubmit)="saveNode()" *ngIf="selectedNode && selectedNode.nodeType.slug == 'folder'"
+              [formGroup]="editNodeForm">
+
+          <h3 *ngIf="!editTitle && selectedNode.id.nodeSlug.slug !== '/'"> {{editNodeForm.controls._$$name.value}}
+            <span class="node-slug-title" style="display: none">{{selectedNode.id.nodeSlug.slug}}</span>
+            <app-cms-edit-node-toolbar  *ngIf="!oldVersionMode"  (delete)="delete()" (edit)="edit()" (editTitle)="editTitle = true;"
+                                       (move)="selectNode()" (moveUp)="moveUp()" (moveDown)="moveDown()"></app-cms-edit-node-toolbar>
+          </h3>
+          <div *ngIf="editTitle" class="row">
+            <div class="col-2">
+              <mat-form-field>
+                <input formControlName="_$$name" matInput placeholder="Nom du contenu">
+              </mat-form-field>
+            </div>
+            <div class="col-2">
+              <button (click)="editTitle = false" class="mat-stroked-button" mat-button>Annuler</button>
+              <button class="cancel-button" mat-button type="submit">Sauvegarder</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div *ngIf="loading" class="loading"></div>
+    </mat-drawer-content>
+    <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
+      <app-view-comments (close)="drawer.toggle()" (commentCount)="commentCount = $event"
+                         [chapterId]="selectedNode.id.elementId" [nodeSlug]="selectedNode.id.nodeSlug.slug"
+                         [orgId]="selectedNode.id.organizationId"></app-view-comments>
+    </mat-drawer>
+  </mat-drawer-container>
+</div>
+<!-- For folders: -->
+<div *ngIf="selectedNode && selectedNode.nodeType.slug == 'folder' && childNodes.length>0">
+  <div class="child-rows">
+    <div *ngIf="selectedNode.id.nodeSlug.slug !== '/'" class="folder-title app-primary-color-400">
+      <div class="folder-name">
+        <!-- title -->
+        <span *ngIf="!editTitle">
+            {{selectedNode.name}}<a (click)="startEditTitle()" class="edit-title-button"><mat-icon>edit</mat-icon></a>
+        </span>
+
+        <!-- Edit folder name -->
+        <div *ngIf="editTitle" class="row edit-folder-name-title-wrapper">
+          <div class="col-12">
+            <form (ngSubmit)="saveNode()" [formGroup]="editNodeForm">
+              <mat-form-field>
+                <input formControlName="_$$name" matInput placeholder="Titre">
+              </mat-form-field>
+              <div *ngIf="editTitle" class="row">
+                <div class="col-2">
+                  <button (click)="editTitle = false" class="cancel-button" mat-button>Annuler</button>
+                </div>
+                <div class="col-2">
+                  <button class="cancel-button" mat-button type="submit">Sauvegarder</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- End edit folder name -->
+
+      </div>
+    </div>
+    <div class="child-content">
+      <div *ngFor="let subNode of childNodes">
+        <app-edit-node (nodeEditEnd)="onSubNodeEditEnd($event)" (nodeEditStart)="onSubNodeEditStart($event)"
+                       [selectedNode]="subNode" [filterFunction]="filterFunction"
+                       [selectedChannel]="selectedChannel" [selectedVersion]="selectedVersion"
+        ></app-edit-node>
+      </div>
+    </div>
+  </div>
+</div>

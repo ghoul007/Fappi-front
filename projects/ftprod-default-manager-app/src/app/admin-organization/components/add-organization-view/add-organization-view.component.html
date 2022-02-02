@@ -1,0 +1,33 @@
+<app-content-wrapper [fullWidth]="false"
+                     iconUrl="assets/theme/scss/themes/img/avatar/img_avatar-orga01.jpg"
+                     subTitle="Create a new organization"
+                     title="Add organization" withIcon="true">
+  <mat-tab-group color="accent">
+    <mat-tab label="Informations">
+      <div class="content-wrapper">
+        <form (ngSubmit)="onSubmitForm()" [formGroup]="createOrgForm">
+
+          <div class="main-container wrapper">
+              <mat-form-field class="col app-bg-primary-color-100">
+              <input #name formControlName="name" matInput placeholder="Name" required  i18n-placeholder="@@ux.organization.addorganization.field.name.placeholder">
+              <mat-hint i18n="@@ux.organization.addorganization.field.name.hint">The name of your organization</mat-hint>
+              <mat-error *ngIf="createOrgForm.controls.name.errors" i18n="@@ux.organization.addorganization.errormessage.validname">
+                Please enter a valid organization name
+              </mat-error>
+            </mat-form-field>
+
+            <div *ngIf="!processing" class="action-button">
+              <button (click)="back()" class="mat-stroked-button" mat-button type="button" i18n="@@ux.organization.actions.cancel">Cancel</button>
+              <button [disabled]="!createOrgForm.valid" color="accent" mat-raised-button type="submit" i18n="@@ux.organization.actions.add">Add</button>
+            </div>
+            <div *ngIf="processing" class="action-button">
+              <app-loading-zone></app-loading-zone>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</app-content-wrapper>

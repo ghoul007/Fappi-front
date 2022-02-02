@@ -1,0 +1,17 @@
+<app-content-wrapper [fullWidth]="false" [subTitle]="'Currently editing: '+username"
+                     i18n-subTitle="@@ux.smartbrain.admin.user.edit-subtitle" i18n-title="@@ux.smartbrain.admin.user.edit-title"
+                     iconUrl="assets/theme/scss/themes/img/avatar/img_avatar-user01.jpg" title="Edit user"
+                     withIcon="true">
+  <mat-tab-group color="accent">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon color="accent">settings</mat-icon>
+        <span i18n-title="@@ux.smartbrain.admin.user.tabtitle.informations">Informations</span>
+      </ng-template>
+      <div class=" wrapper ">
+        <app-edit-user [username]="username"></app-edit-user>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</app-content-wrapper>

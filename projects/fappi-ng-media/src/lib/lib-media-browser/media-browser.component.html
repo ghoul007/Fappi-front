@@ -1,0 +1,38 @@
+<div>
+  <div role="actions">
+    <button (click)="addFile()" class="add-file-button" color="accent" i18n="@@ux.media.action.addFile" mat-button>Add
+      file
+    </button>
+  </div>
+  <div class="file-table-container">
+    <table [dataSource]="medias" mat-table>
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef i18n="@@ux.media.action.fileName" mat-header-cell> Name.</th>
+        <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="size">
+        <th *matHeaderCellDef i18n="@@ux.media.action.fileSize" mat-header-cell> Size</th>
+        <td *matCellDef="let element" mat-cell> {{element.size | prettyOctet}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th *matHeaderCellDef mat-header-cell></th>
+        <td *matCellDef="let element" mat-cell>
+          <a (click)="download(element)" mat-button>
+            <mat-icon>cloud_download</mat-icon>
+          </a>
+          <a (click)="delete(element)" *ngIf="showDeleteButton" mat-button>
+            <mat-icon>delete</mat-icon>
+          </a>
+        </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+      <tr (click)="rowClicked(row)" *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+  </div>
+
+</div>
+
+

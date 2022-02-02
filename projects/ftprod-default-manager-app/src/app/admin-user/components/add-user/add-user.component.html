@@ -1,0 +1,69 @@
+<app-content-wrapper [fullWidth]="false " [title]="'Add user'"
+                     i18n-subTitle="@@module.admin.user.add-subTitle" i18n-title="@@module.admin.user.add-title"
+                     iconUrl="assets/theme/scss/themes/img/avatar/img_avatar-user01.jpg" subTitle="Create a new user"
+                     [withIcon]="true"
+>
+
+  <mat-tab-group color="accent">
+    <mat-tab label="Informations">
+      <div class="main-container wrapper">
+        <form (ngSubmit)="onSubmitForm()" *ngIf="addUserForm" [formGroup]="addUserForm">
+      <span *ngIf="errorMessage" class="app-form-error">
+       {{errorMessage}}
+      </span>
+          <div>
+            <mat-form-field class="app-bg-primary-color-100">
+              <input [matAutocomplete]="auto" formControlName="organizationId"
+                     i18n-placeholder="@@module.admin.user.field.organization" matInput
+                     placeholder="Organization" type="text">
+              <mat-hint i18n="@@module.admin.user.field.organization.hint">Default organization of the user</mat-hint>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option *ngFor="let option of organizations" [value]="option">{{option.name}}</mat-option>
+            </mat-autocomplete>
+          </div>
+          <div>
+            <mat-form-field class="app-bg-primary-color-100">
+              <input formControlName="username" i18n-placeholder="@@module.admin.user.field.username" matInput
+                     placeholder="Username"
+                     required>
+              <mat-error *ngIf="addUserForm.controls.password.errors" i18n="@@module.admin.user.field.username.errors">
+                Username is required and must be at least 2 characters long.
+              </mat-error>
+            </mat-form-field>
+
+          </div>
+          <div>
+            <mat-form-field class="app-bg-primary-color-100">
+              <input formControlName="password" matInput placeholder="Password" required type="password">
+              <mat-error *ngIf="addUserForm.controls.password.errors" i18n="@@module.admin.user.field.password.errors">
+                Password is required and must be at least 6 characters long.
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+
+          <div>
+            <mat-checkbox formControlName="temporary" >Temporary password</mat-checkbox>
+          </div>
+
+
+
+          <div *ngIf="!processing" class="action-button">
+            <button (click)="back()" class="mat-stroked-button" i18n="@@module.admin.user.cancel" mat-button type="button">
+              Cancel
+            </button>
+            <button [disabled]="!addUserForm.valid" color="accent" i18n="@@module.admin.user.save" mat-raised-button
+                    type="submit">Save
+            </button>
+          </div>
+          <div *ngIf="processing" class="action-button">
+            <app-loading-zone></app-loading-zone>
+          </div>
+        </form>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</app-content-wrapper>

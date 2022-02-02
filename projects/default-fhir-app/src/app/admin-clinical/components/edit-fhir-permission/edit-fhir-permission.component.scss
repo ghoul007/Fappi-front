@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+}
+
+.group-row {
+  display: flex;
+  background: grey;
+}
+
+.scope-row {
+  display: flex;
+  background: #0e2aff;
+}
+
+.group-name {
+  flex: auto;
+  background: #3d8610;
+}
+
+.scope-name {
+  flex: auto;
+  background: #8d9bff;
+}

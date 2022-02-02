@@ -1,0 +1,5 @@
+@mixin createTree($palete,$name) {
+  mat-tree-node{
+    border-bottom: 1px solid mat-color($palete, 100) ;
+  }
+}

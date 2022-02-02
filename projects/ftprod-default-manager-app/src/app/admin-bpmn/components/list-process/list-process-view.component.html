@@ -1,0 +1,32 @@
+<app-content-wrapper fullWidth="true"
+                     i18n-subTitle="@@module.admin.process.search-subTitle"
+                     i18n-title="@@module.admin.process.search-title"
+                     subTitle="All your process"
+                     title="List process">
+  <div class="content-wrapper">
+    <button [routerLink]="'add'" color="accent" class="col-1" i18n="@@module.admin.process.add" mat-flat-button>Add</button>
+    <table [dataSource]="dataSource" mat-table matSort>
+      <ng-container matColumnDef="id">
+        <th *matHeaderCellDef i18n="@@module.admin.process.name" mat-header-cell mat-sort-header> Name</th>
+        <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.key">{{element.key}}</a></td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <th *matHeaderCellDef i18n="@@module.admin.process.description" mat-header-cell> Description</th>
+        <td *matCellDef="let element" mat-cell> {{element.description}} </td>
+      </ng-container>
+      <ng-container matColumnDef="version">
+        <th *matHeaderCellDef i18n="@@module.admin.process.version" mat-header-cell mat-sort-header> Version</th>
+        <td *matCellDef="let element" mat-cell> {{element.version}} </td>
+      </ng-container>
+      <ng-container matColumnDef="key">
+        <th *matHeaderCellDef i18n="@@module.admin.process.key" mat-header-cell mat-sort-header> Key</th>
+        <td *matCellDef="let element" mat-cell> {{element.key}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+    </table>
+    <mat-paginator #paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</app-content-wrapper>

@@ -1,0 +1,20 @@
+<h2 mat-dialog-title i18n="@@ux.user.selectUserDialog.title">Select User</h2>
+<mat-dialog-content *ngIf="users" class="container-spaced">
+
+  <mat-form-field>
+    <mat-label i18n="@@ux.user.selectUserDialog.field.user">User</mat-label>
+    <mat-select [(ngModel)]="data.username">
+      <mat-option *ngFor="let user of users" [value]="user.username">
+        {{user.username}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+</mat-dialog-content>
+<div class="container-spaced">
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close i18n="@@ux.user.selectUserDialog.action.cancel">Cancel</button>
+    <button [mat-dialog-close]="data" cdkFocusInitial mat-button i18n="@@ux.user.selectUserDialog.action.confirm">Confirm</button>
+  </mat-dialog-actions>
+</div>

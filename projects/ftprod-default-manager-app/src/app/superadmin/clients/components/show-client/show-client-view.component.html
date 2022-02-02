@@ -1,0 +1,101 @@
+<app-content-wrapper *ngIf="clientForm && clientId" [fullWidth]="true"
+                     [title]="'Edit platform: '+clientName" subTitle="Settings of your platform"
+                      withIcon="false">
+  <mat-tab-group #tabs  color="accent">
+    <mat-tab label="Informations" *ngIf="created">
+      <div class="main-container">
+        <form (ngSubmit)="onSubmitForm()" [formGroup]="clientForm">
+          <div class="main-form-container">
+            <mat-form-field  class="col app-bg-primary-color-100 col-lg-12">
+              <input #name formControlName="name" matInput placeholder="Name" required i18n-placeholder="@@ux.superadmin.client.field.name.placeholder">
+            </mat-form-field>
+            <mat-form-field  class="app-bg-primary-color-100 col-lg-12">
+              <input formControlName="description" matInput placeholder="Description" i18n-placeholder="@@ux.superadmin.client.field.description.placeholder">
+            </mat-form-field>
+            <mat-form-field  class="app-bg-primary-color-100 col-lg-12">
+              <input formControlName="domain" matInput
+                     placeholder="Domain/URL (must be set by an administrator, please call the admin)" i18n-placeholder="@@ux.superadmin.client.field.domainurl.placeholder">
+            </mat-form-field>
+            <mat-form-field  class="app-bg-primary-color-100 col-lg-12">
+              <input formControlName="defaultUrl" matInput
+                     placeholder="Default URL (where users are redirected by default after a login)" i18n-placeholder="@@ux.superadmin.client.field.defaultUrl.placeholder">
+            </mat-form-field>
+            <div>
+              <mat-checkbox formControlName="organizationEnabled" i18n="@@ux.superadmin.check.enableorganizations">Enable Organizations</mat-checkbox>
+            </div>
+            <div>
+              <mat-checkbox formControlName="groupEnabled" i18n="@@ux.superadmin.check.enablegroups">Enable Groups</mat-checkbox>
+            </div>
+            <div *ngIf="created && !processing" class="action-button">
+              <button (click)="back()" class="mat-stroked-button" mat-button type="button" i18n="@@ux.superadmin.button.cancel">Cancel</button>
+              <button color="accent" mat-raised-button type="submit" i18n="@@ux.superadmin.button.save">Save</button>
+            </div>
+            <div *ngIf="!created" class="action-button">
+              <!-- force client confirmation -->
+              <span i18n="@@ux.superadmin.clientcreation.notfullycreated">Your platform is not fully created. Please try again.
+                If the problem persist, you can force it by clicking this button (use with caution, and ensure the platform is really created).</span>
+              <div *ngIf="! processing" class="action-button">
+                <a (click)="forceConfirm()" color="accent" mat-button i18n="@@ux.superadmin.button.confirmManualCreation">Confirm manual creation</a>
+              </div>
+              <div *ngIf="processing" class="action-button">
+                <app-loading-zone></app-loading-zone>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </mat-tab>
+    <mat-tab *ngIf="created" label="Modules">
+      <div class="main-container container-spaced">
+      <app-module-edit [clientId]="clientId.name"></app-module-edit>
+      </div>
+    </mat-tab>
+    <mat-tab label="Customization" *ngIf="created">
+      <!-- // FIXME why not to use the other form -->
+      <div class="main-container container-spaced">
+      <form (ngSubmit)="onSubmitFormPersonalization()" [formGroup]="clientPersonalizationForm">
+        <div class="main-form-container">
+          <mat-form-field  class="col app-bg-primary-color-100">
+            <input formControlName="poweredByText" matInput placeholder="Powered By" required i18n-placeholder="@@ux.superadmin.client.field.poweredby.placeholder">
+          </mat-form-field>
+          <mat-form-field   class="col app-bg-primary-color-100 champ-f">
+            <mat-label i18n="@@ux.superadmin.client.field.color.label">Color:</mat-label>
+            <select formControlName="colorScheme" matNativeControl required>
+              <option value="theme-00">Dark blue</option>
+              <option value="theme-01">Blue</option>
+              <option value="theme-02">Soft yellow</option>
+              <option value="theme-03">Orange</option>
+              <option value="theme-ftprod">FTPROD</option>
+              <option value="theme-smart-brain">Smart Brain Colors</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field  class="col app-bg-primary-color-100">
+          <input formControlName="customCss" matInput placeholder="Custom CSS"  i18n-placeholder="@@ux.superadmin.client.field.customcss.placeholder">
+          </mat-form-field>
+          <div *ngIf="!processing" class="action-button">
+            <button (click)="back()" class="mat-stroked-button" mat-button type="button" i18n="@@ux.superadmin.client.action.cancel">Cancel</button>
+            <button color="accent" mat-raised-button type="submit" i18n="@@ux.superadmin.client.action.save">Save</button>
+          </div>
+          <div *ngIf="processing" class="action-button">
+            <app-loading-zone></app-loading-zone>
+          </div>
+        </div>
+      </form>
+      </div>
+    </mat-tab>
+    <mat-tab  label="Setup" *ngIf="!created" i18n-label="@@ux.superadmin.client.tab.setup">
+      <div class="main-container wrapper">
+        <h4 i18n="@@ux.superadmin.client.tab.databaseconfiguration">Database configuration</h4>
+        <app-set-client-database (onGoEncryption)="tabs.selectedIndex = tabs.selectedIndex+1"></app-set-client-database>
+      </div>
+    </mat-tab>
+    <mat-tab label="Encryption" i18n-label="@@ux.superadmin.client.tab.encryption">
+      <div class="wrapper">
+        <app-encryption-list [clientId]="clientId.name"></app-encryption-list>
+      </div>
+
+    </mat-tab>
+
+  </mat-tab-group>
+
+</app-content-wrapper>

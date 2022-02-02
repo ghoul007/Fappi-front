@@ -1,0 +1,48 @@
+<app-content-wrapper  [fullWidth]="false" withIcon="true"
+                      [title]="'Add a crypto configuration'" subTitle="Settings crypto parameters">
+  <mat-tab-group color="accent">
+    <mat-tab label="Informations">
+      <div class="main-container">
+        <form (ngSubmit)="onSubmitForm()" [formGroup]="encryptionConfigForm">
+          <div class="main-form-container">
+            <mat-form-field class="col app-primary-color-100">
+              <mat-label mat-lab>Id</mat-label>
+              <input #id formControlName="id" matInput placeholder="id of the config" required class="app-bg-primary-color-100">
+            </mat-form-field>
+
+            <mat-form-field class="col app-primary-color-100">
+              <mat-label>Algorithm</mat-label>
+              <select matNativeControl required formControlName="algorithm" class="app-bg-primary-color-100">
+                <option value="NO">NO ENCRYPTION</option>
+                <option value="AES256">AES 256</option>
+              </select>
+            </mat-form-field>
+
+            <mat-form-field class="col app-primary-color-100">
+              <mat-label mat-lab>EncryptKey</mat-label>
+              <input formControlName="encrypKey" matInput placeholder="Encryption key" class="app-bg-primary-color-100">
+            </mat-form-field>
+
+            <mat-form-field class="col app-primary-color-100">
+              <mat-label mat-lab>decrypSecretKey</mat-label>
+              <input formControlName="decrypSecretKey" matInput placeholder="Decryption key (only if the algorithm is asymetric)" class="app-bg-primary-color-100">
+            </mat-form-field>
+
+            <mat-form-field class="col app-primary-color-100">
+              <mat-label mat-lab>salt</mat-label>
+              <input formControlName="salt" matInput placeholder="Salt" class="app-bg-primary-color-100">
+            </mat-form-field>
+
+            <div *ngIf="!processing" class="action-button">
+              <button (click)="back()" class="mat-stroked-button" mat-button type="button">Cancel</button>
+              <button color="accent" mat-raised-button type="submit">Save</button>
+            </div>
+            <div *ngIf="processing" class="action-button">
+              <app-loading-zone></app-loading-zone>
+            </div>
+          </div>
+        </form>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</app-content-wrapper>

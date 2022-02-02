@@ -1,0 +1,131 @@
+<app-content-wrapper [fullWidth]="false"
+                     subTitle="Currently editing: {{name}}"
+                     title="{{name}}"
+                     iconUrl="assets/theme/scss/themes/img/avatar/img_avatar-orga01.jpg"
+                     withIcon="true"
+                     i18n-title="@@module.admin.organization.editorg.title"
+                     i18n-subTitle="@@module.admin.organization.editorg.subtitle"
+>
+  <mat-tab-group color="accent">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon color="accent">error</mat-icon>
+        <span i18n-title="@@module.admin.organization.tabtitle.informations">Informations</span>
+      </ng-template>
+<div class="wrapper">
+      <form (ngSubmit)="onSubmitForm()" [formGroup]="organizationForm">
+          <div>
+            <mat-form-field  style="width: 100%;"  class="col app-bg-primary-color-100">
+              <mat-label i18n="@@module.admin.organization.edit.language.label">Default language</mat-label>
+              <mat-select  formControlName="defaultLanguage">
+                <mat-option *ngFor="let lang of languages" [value]="lang.code">
+                  {{lang.label}}
+                </mat-option>
+              </mat-select>
+              <mat-hint i18n="@@module.admin.organization.edit.language.label.hint">The language selected will be the base language of your organization</mat-hint>
+            </mat-form-field>
+          </div>
+          <mat-form-field class="col app-bg-primary-color-100" >
+            <input   formControlName="description" matInput placeholder="Description" i18n-placeholder="@@module.admin.organization.edit.description">
+          </mat-form-field>
+          <mat-form-field class="col app-bg-primary-color-100">
+            <input    formControlName="email" matInput placeholder="Email" i18n-placeholder="@@module.admin.organization.edit.email">
+            <mat-error *ngIf="organizationForm.controls.email.errors" i18n="@@module.admin.organization.email.errorvalidemail">
+              Please enter a valid email
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field style="display: none"   class="col app-bg-primary-color-100">
+            <input formControlName="faxNumber" matInput placeholder="FaxNumber">
+          </mat-form-field>
+          <mat-form-field  class="col app-bg-primary-color-100">
+            <input   formControlName="phoneNumber" matInput placeholder="PhoneNumber" i18n-placeholder="@@module.admin.organization.edit.phone">
+          </mat-form-field>
+
+
+          <div *ngIf="!processing" class="action-button">
+            <button (click)="back()" class="mat-stroked-button" color="accent" mat-stroked-button type="button" i18n="@@module.admin.organization.edit.cancel">Cancel</button>
+            <button [disabled]="!organizationForm.valid" color="accent" mat-raised-button type="submit" i18n="@@module.admin.organization.edit.save">Save</button>
+          </div>
+          <div *ngIf="processing" class="action-button">
+            <app-loading-zone></app-loading-zone>
+          </div>
+      </form>
+</div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon color="accent">group</mat-icon>
+        <span i18n-title="@@module.admin.organization.tabtitle.users">Users</span>
+      </ng-template>
+      <div class="wrapper">
+        <app-list-users (onRowDelete)="removeMember($event)" [rowActions]="['delete']" [selectedOrganizationId]="id">
+          <div role="actions">
+            <button color="accent" (click)="addMember()"  mat-button i18n="@@module.admin.organization.edit.addmember">Add Member</button>
+          </div>
+        </app-list-users>
+      </div>
+    </mat-tab>
+    <mat-tab *ngIf="validationState == 'WAITING' && false">
+      <div class="content-wrapper">
+        <ng-template mat-tab-label>
+          Actions required
+          <mat-icon class="warning-tab-icon">report_problem</mat-icon>
+        </ng-template>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4 offset-md-4">
+              <div class="container-spaced">
+                <h4>Validate your organization</h4>
+                <p>
+                  Your organization is not validated. Please fill information about the organization and click the
+                  button:
+                </p>
+                <button (click)="askForValidation()" color="accent" mat-raised-button type="submit">Ask for
+                  validation
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab *ngIf="validationState == 'PENDING_VALIDATION'">
+      <div class="content-wrapper">
+        <ng-template mat-tab-label>
+          Status
+          <mat-icon class="info-tab-icon">info</mat-icon>
+        </ng-template>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4 offset-md-4">
+              <div class="container-spaced">
+                <h4>Your organization is in review</h4>
+                <p>
+                  We are reviewing your organization. You will receive an email when the validation process will finish.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab *fappiHasRole="['ROLE_ADMIN']">
+      <ng-template mat-tab-label>
+        <mat-icon color="accent">settings</mat-icon>
+        <span i18n-title="@@module.admin.user.tabtitle.otherTitle">Other</span>
+      </ng-template>
+      <div *ngIf="id" class="wrapper">
+        <div *ngIf="!deleted">
+          <mat-label i18n="@@module.admin.group.deleteActionLabel">Delete organization</mat-label>&nbsp;
+          <a mat-flat-button color="accent" *ngIf="!processing" i18n="@@module.admin.group.deleteGroupButton" (click)="delete()" >Delete</a>
+        </div><br/>
+        <div *ngIf="deleted">
+          <mat-label i18n="@@module.admin.group.confirmDeleteActionLabel">Delete organization</mat-label>&nbsp;
+          <a mat-flat-button color="accent" *ngIf="!processing" i18n="@@module.admin.group.confirmDeleteGroupButton" (click)="confirmDelete()" >Delete permanently</a>
+        </div><br/>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</app-content-wrapper>

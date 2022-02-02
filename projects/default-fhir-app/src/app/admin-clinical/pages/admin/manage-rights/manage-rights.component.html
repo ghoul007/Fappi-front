@@ -1,0 +1,6 @@
+<div class="content-wrapper">
+<ng-container *ngIf="orgId">
+<span i18n="@@ux.fappi-fhir.right.managementTitle">Right management</span>
+<app-edit-fhir-permission [path]="'/'" [selectedOrganizationId]="orgId"></app-edit-fhir-permission>
+</ng-container>
+</div>

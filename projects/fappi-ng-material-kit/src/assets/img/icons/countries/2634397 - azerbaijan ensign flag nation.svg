@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve"
+     xmlns="http://www.w3.org/2000/svg"><style type="text/css">
+	.st0 {
+    fill: #4490C3;
+  }
+
+  .st1 {
+    fill: #D61E42;
+  }
+
+  .st2 {
+    fill: #49AE68;
+  }
+
+  .st3 {
+    fill: #FFFFFF;
+  }
+</style>
+  <g id="XMLID_1_"><rect class="st0" height="298.7" id="XMLID_7_" width="512" y="106.7"/>
+    <rect class="st1" height="99.6" id="XMLID_6_" width="512" y="206.2"/>
+    <rect class="st2" height="99.6" id="XMLID_5_" width="512" y="305.8"/>
+    <path class="st3"
+          d="M266.1,290.9c-19.2,0-34.8-15.6-34.8-34.9c0-19.2,15.6-34.8,34.8-34.8c7,0,13.5,2.1,18.9,5.6   c-7.6-7.7-18.2-12.6-29.9-12.6c-23.1,0-41.8,18.7-41.8,41.8c0,23.1,18.7,41.8,41.8,41.8c11.7,0,22.3-4.8,29.9-12.6   C279.6,288.8,273.1,290.9,266.1,290.9"
+          id="XMLID_4_"/>
+    <polygon class="st3" id="XMLID_3_"
+             points="313.3,271.9 301.9,266.7 297.4,278.4 293,266.7 281.6,271.8 286.8,260.4 275.1,256    286.8,251.6 281.6,240.1 293.1,245.3 297.5,233.6 301.9,245.4 313.3,240.2 308.1,251.6 319.9,256 308.1,260.4  "/></g></svg>

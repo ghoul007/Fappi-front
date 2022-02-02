@@ -1,0 +1,53 @@
+<div class="toolbar">
+  <button [routerLink]="'add'" class="btn-add" color="primary" mat-raised-button>Ajouter</button>
+</div>
+<div *ngIf="dataSource" class="wrapper">
+
+
+  <table [dataSource]="dataSource" mat-table matSort>
+    <ng-container matColumnDef="slug">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Identifiant</th>
+      <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.id.elementId">{{element.id.elementId}}</a>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Nom</th>
+      <td *matCellDef="let element" mat-cell><a [routerLink]="'edit/'+element.id.elementId">{{element.name}}</a></td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastModified">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Date de dernière contribution</th>
+      <td *matCellDef="let element" mat-cell>
+        17/04/2020
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="contributors">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Contributeurs</th>
+      <td *matCellDef="let element" mat-cell>
+        Rédacteurs chap1
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="state">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> &Eacute;tat</th>
+      <td *matCellDef="let element" mat-cell>
+        En attente
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th *matHeaderCellDef class="table-action-col" i18n="@@ux.fappi-ng-cms.ux.action.title" mat-header-cell> Actions
+      </th>
+      <td *matCellDef="let element" mat-cell>
+        <div class="action-button-bar">
+          <div class="action-button-bar">
+            <a (click)="adminChapter(element)" color="primary" i18n="@@ux.fappi-ng-cms.ux.action.admin"
+               mat-flat-button>Admin</a>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+  <mat-paginator #paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+
+</div>

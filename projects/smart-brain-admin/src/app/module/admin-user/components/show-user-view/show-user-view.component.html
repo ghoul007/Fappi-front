@@ -1,0 +1,35 @@
+<app-content-wrapper [fullWidth]="false" [subTitle]="'Currently editing: '+username"
+                     i18n-subTitle="@@module.admin.user.edit-subtitle" i18n-title="@@module.admin.user.edit-title"
+                     iconUrl="assets/theme/scss/themes/img/avatar/img_avatar-user01.jpg" title="Edit user"
+                     withIcon="true">
+  <mat-tab-group  color="accent">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon color="accent">settings</mat-icon>
+        <span i18n-title="@@module.admin.user.tabtitle.informations">Informations</span>
+      </ng-template>
+      <div class=" wrapper ">
+        <app-edit-user [username]="username"></app-edit-user>
+      </div>
+    </mat-tab>
+    <mat-tab *fappiHasRole="['ROLE_ADMIN']">
+      <ng-template mat-tab-label>
+        <mat-icon color="accent">security</mat-icon>
+        <span i18n-title="@@module.admin.user.tabtitle.managementTitle">Right management</span>
+      </ng-template>
+      <div *ngIf="id" class="wrapper">
+        <app-edit-roles [refererId]="id"></app-edit-roles>
+      </div>
+    </mat-tab>
+    <mat-tab *fappiHasRole="['ROLE_ADMIN']">
+      <ng-template mat-tab-label>
+        <mat-icon color="accent">settings</mat-icon>
+        <span i18n-title="@@module.admin.user.tabtitle.otherTitle">Other</span>
+      </ng-template>
+      <div *ngIf="id">
+        <app-useraccount-actions [username]="username"></app-useraccount-actions>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</app-content-wrapper>

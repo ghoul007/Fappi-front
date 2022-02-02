@@ -1,0 +1,62 @@
+<div>
+  <mat-toolbar class="main-toolbar-small mat-elevation-z3" color="primary">
+    <ng-content select="[mobile-menu]"></ng-content>
+    <span>
+      <a class="logo col-2" href="/" tabindex="0">
+        <span class="part1">{{client?.name}}</span>
+      </a>
+    </span>
+  </mat-toolbar>
+  <mat-toolbar class="main-toolbar mat-elevation-z3" color="primary">
+    <mat-toolbar-row>
+      <a class="logo col-2" href="/" tabindex="0">
+        <img *ngIf="client?.personalization.logo.id" class="top-logo" src="{{client?.personalization.logo.url}}"/>
+        <span *ngIf="!client?.personalization.logo.id" class="part1">{{client?.name}}</span>
+      </a>
+      <div class="menu-mosaique" *ngIf="showAppSelector">
+        <div >
+          <fappi-app-selector [orgId]="selectedOrg?.id.id"></fappi-app-selector>
+        </div>
+
+        <div class="title-page">
+          {{shortAppName}}
+        </div>
+      </div>
+
+
+      <div class="top-menus">
+        <ng-content select="[main-menu]"></ng-content>
+      </div>
+      <div class="logged-part">
+      <span [matMenuTriggerFor]="loggedIn" class="logged-part-button">
+        <div class="zone-loggedas">
+          <span i18n="@@ux.right-menu.loggedin.log">Logged as</span>
+          <span class="username-placeholder">{{username}}</span>
+        </div>
+        <app-profil-badge *ngIf="username" [size]="'big'" [text]="username"></app-profil-badge>
+        <div class="zone-inorg">
+          <span *ngIf="selectedOrg" i18n="@@ux.right-menu.loggedin.in">in</span>
+          <span *ngIf="selectedOrg" class="org-placeholder">{{selectedOrg.name}}</span>
+        </div>
+      </span>
+        <mat-menu #loggedIn="matMenu" yPosition="below">
+          <span class="change-label"
+                i18n="@@ux.right-menu.changeorg.title">Change organization:</span>
+          <div class="list-orgs">
+            <a (click)="orgSelected(option?.id.id)" *ngFor="let option of organizations"
+               mat-menu-item> {{option.name}}</a>
+          </div>
+          <hr/>
+          <a (click)="profilSelected()" class="logoutbutton">
+            <mat-icon>account_box</mat-icon>
+            <span i18n="@@ux.right-menu.profil">My profil</span></a>
+          <hr/>
+          <a (click)="logout()" class="logoutbutton">
+            <mat-icon>exit_to_app</mat-icon>
+            <span i18n="@@ux.right-menu.logout">Logout</span></a>
+        </mat-menu>
+      </div>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

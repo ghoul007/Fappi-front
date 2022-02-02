@@ -1,0 +1,31 @@
+<div *ngIf="encounter" class=" {{condensed ? 'condensed':'row'}}">
+  <div *ngIf="!condensed" class="icon-wrapper col-1">
+    <mat-icon>local_hospital</mat-icon>
+  </div>
+  <div class="inner-text-item {{condensed ? '':'col-11'}}" style="display: inline-block">
+    <h3 (click)="onEpisodeClicked()"><span *ngFor="let type of encounter.type">
+            <app-fhir-codeable-concept [value]="type"></app-fhir-codeable-concept>
+           </span>
+      <span class="date-item">
+        <app-fhir-period [value]="encounter.period"></app-fhir-period>
+      </span>
+    </h3>
+    <p>
+      <span *ngIf="encounter.status && !condensed">Status: <span>{{encounter.status}}</span>,</span>
+      <span *ngIf="encounter.class">Class: <app-fhir-code [value]="encounter.class"></app-fhir-code></span>
+    </p>
+    <ng-container>
+      <ng-container *ngIf="!condensed">
+      <span *ngFor="let participant of encounter.participant">
+        <app-fhir-participant (paticipantDetailClicked)="onPaticipantDetailClicked($event)" [value]="participant"
+                              class="tag"></app-fhir-participant>
+      </span>
+      </ng-container>
+      <app-fhir-organization (organizationDetailClicked)="onOrganizationDetailClicked($event)" [condensed]="condensed"
+                             [value]="encounter.serviceProvider"
+                             class="tag"></app-fhir-organization>
+    </ng-container>
+  </div>
+
+
+</div>

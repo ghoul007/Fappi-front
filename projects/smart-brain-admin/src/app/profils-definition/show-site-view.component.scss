@@ -1,0 +1,35 @@
+.left-side-nav {
+  width: 38.5%;
+
+  & .mat-drawer-inner-container{overflow: hidden !important;}
+}
+
+
+.action-toogle {
+  cursor: pointer;
+  position: absolute;
+  right: 24px;
+  top: -47px;
+  z-index: 101;
+}
+
+
+
+table {
+  width: 100%;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container > * {
+  width: 100%;
+  max-width: 500px;
+  align-self: center;
+}
+
+.cancel-button {
+  margin-right: 20px;
+}

@@ -1,0 +1,253 @@
+<app-content-wrapper [fullWidth]="true" [title]="getDisplayName()"
+                     [withIcon]="true"
+                     fullWidth="true"
+                     i18n-subTitle="@@ux.fhir-broker.patient-detail.subtitle"
+                     i18n-title="@@ux.fhir-broker.patient-detail.title" subTitle="{{subtitleName}}, {{subtitleAge}} years">
+  <div *ngIf="patient" class="patient-wrapper">
+    <div class="">
+      <div class="row-blocs first-row mb-3 app-primary-color-100">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="inner-bloc">
+              <h2 i18n="@@ux.fhir-broker.patient-detail.title.latest-analyses">Latest analyse</h2>
+              <p *ngFor="let latestAnalyse of latestAnalyses">
+                <app-observation-detail [condensed]="true" [observation]="latestAnalyse"></app-observation-detail>
+              </p>
+            </div>
+          </div>
+        <!--  <div class="col-lg-4">
+            <div class="inner-bloc mr-2">
+              <h2 i18n="@@ux.fhir-broker.patient-detail.title.gender">Gender</h2>
+              <p *ngIf="patient.gender == 'male'" i18n="@@ux.fhir-broker.patient-detail.gender.male">Male</p>
+              <p *ngIf="patient.gender == 'female'" i18n="@@ux.fhir-broker.patient-detail.gender.female">Female</p>
+              <p *ngIf="patient.gender != 'female' && patient.gender != 'male'">{{patient.gender}}</p>
+            </div>
+          </div>-->
+          <div class="col-lg-3">
+            <div class="inner-bloc">
+              <h2 i18n="@@ux.fhir-broker.patient-detail.title.latest-visits">Last visit</h2>
+              <p *ngFor="let encounter of latestEncounters">
+                <app-episode-detail (episodeClicked)="goToEpisode($event)"
+                                    (organizationDetailClicked)="gotToOrganization($event)" [condensed]="true"
+                                    [encounter]="encounter"></app-episode-detail>
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="inner-bloc">
+              <h2 i18n="@@ux.fhir-broker.patient-detail.title.allergy">Allergy</h2>
+              <p *ngFor="let a of allergy">
+                <app-fhir-codeable-concept [value]="a.code"></app-fhir-codeable-concept>
+
+              </p>
+              <p *ngIf="allergy.length == 0">
+                <span i18n="@@ux.fhir-broker.patient-detail.allergy.na">N/A</span>
+              </p>
+              <h2 i18n="@@ux.fhir-broker.patient-detail.title.immunization">Immunization</h2>
+              <p *ngFor="let a of immunizations">
+                <app-fhir-codeable-concept [value]="a['vaccineCode']"></app-fhir-codeable-concept>
+                <span class="immunization-date">{{a['occurrenceDateTime'] | date:'short' }}</span>
+              </p>
+              <p *ngIf="immunizations.length == 0">
+                <span i18n="@@ux.fhir-broker.patient-detail.immunization.na">N/A</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="inner-bloc">
+              <h2 i18n="@@ux.fhir-broker.patient-detail.title.applications">Applications</h2>
+              <p *ngFor="let a of allergy">
+
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-blocs no-gutters app-primary-color-100 mb-4">
+            <div class="col-lg-6 pt-50 left-cnt">
+              <div class="row row-mb">
+                <div class="col-lg-3 text-center">
+                  <img alt="" class="img-fluid" src="/fhir-app/assets/img/homme.png"/>
+                </div>
+                <div class="col-lg-9">
+                  <div class="row  no-gutters">
+                    <div class="col-4">
+                      <app-mini-observation-stat title="IMC" allowRound="true" [organizationId]="orgId" [patientId]="'Patient/'+id" [observationToShow]="'http://loinc.org|39156-5'"></app-mini-observation-stat>
+                    </div>
+                    <div class="col-4">
+                      <app-mini-observation-stat title="Rythme Cardiaque" allowRound="true" [organizationId]="orgId" [patientId]="'Patient/'+id" [observationToShow]="'http://loinc.org|8867-4'"></app-mini-observation-stat>
+                    </div>
+                    <div class="col-4">
+                      <app-mini-observation-stat title="Rythme respiratoire" allowRound="true" [organizationId]="orgId" [patientId]="'Patient/'+id" [observationToShow]="'http://loinc.org|9279-1'"></app-mini-observation-stat>
+                    </div>
+                    <div class="col-12">
+                      <app-resporatory-rate-graph [showLegend]="false" [organizationId]="orgId" [patientId]="'Patient/'+id" [observationSeries]="['http://loinc.org|9279-1', 'http://loinc.org|85354-9']"></app-resporatory-rate-graph>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 right-cnt pr-0">
+
+              <app-episode-list (episodeClicked)="goToEpisode($event)" (organizationDetailClicked)="gotToOrganization($event)"
+                                (paticipantDetailClicked)="gotToParticipant($event)" [organizationId]="orgId"
+                                [patientId]="patient.id"
+                                class="inner-bloc-items"
+              ></app-episode-list>
+
+            </div>
+
+      </div>
+    </div>
+
+
+
+    <mat-tab-group color="accent">
+      <mat-tab class="" i18n-label="@@ux.fhir-broker.patient-detail.tab-title.contact" label="Contact">
+        <div class="row-blocs mb-3 app-primary-color-100 contact-zone">
+          <div class="row">
+            <div *ngIf="patient.identifier" class="col-lg-3  mb-3">
+              <div class="inner-bloc">
+                <h2 class="title-champ-p" i18n="@@ux.fhir-broker.patient-detail.title.identifiers">
+                  Identifiers:
+                </h2>
+                <p *ngFor="let identifier of patient.identifier">
+                  {{identifier?.type?.text}} :
+                  {{identifier.value}}
+                </p>
+              </div>
+            </div>
+            <ng-container *ngIf="patient.name">
+              <div class="col-lg-3 mb-3">
+                <div class="inner-bloc">
+                  <h2 i18n="@@ux.fhir-broker.patient-detail.title.names">Names</h2>
+                  <p>
+                    <span i18n="@@ux.fhir-broker.patient-detail.field.name">Name:</span>
+                    <span *ngFor="let name of patient.name"> {{name.family}} </span>
+                  </p>
+                  <p>
+                    <span i18n="@@ux.fhir-broker.patient-detail.field.given">Given:</span>
+                    <span *ngFor="let name of patient.name"> {{name.given}} </span>
+                  </p>
+                  <p>
+                    <span i18n="@@ux.fhir-broker.patient-detail.field.birth-date">Date de naissance :</span>
+                    {{patient.birthDate}}
+                  </p>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="patient.address">
+              <div *ngFor="let address of patient.address" class="col-lg-3 mb-3">
+                <div class="inner-bloc mr-2">
+                  <h2 class="title-champ-p" i18n="@@ux.fhir-broker.patient-detail.title.address">Adresse :</h2>
+                  <p>{{address.line}}</p>
+                  <p>{{address.city}}</p>
+                  <p>{{address.postalCode}}</p>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="patient.contact">
+              <div *ngFor="let contact of patient.contact" class="col-lg-3  mb-3">
+                <div class="inner-bloc mr-2">
+                  <h2 i18n="@@ux.fhir-broker.patient-detail.title.contact">Contact:</h2>
+                  <p>
+                    <span class="title-champ-p">Contact telecom:</span>
+                    {{contact[0].telecom}}
+                  </p>
+                  <p>
+                    <span class="title-champ-p">Contact relationship:</span>
+                    {{contact[0].relationship|json}}
+                  </p>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="patient.communication">
+              <div *ngFor="let communication of patient.communication" class="col-lg-3  mb-3">
+                <div class="inner-bloc">
+                  <h2 i18n="@@ux.fhir-broker.patient-detail.title.communication">Communication :</h2>
+                  <p>
+                    <span><mat-icon style="vertical-align: middle;">language</mat-icon> Languages: </span>
+                    <app-fhir-codeable-concept
+                      [value]="communication.language"></app-fhir-codeable-concept>
+                  </p>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="patient.maritalStatus">
+              <div class="col-lg-3">
+                <div class="inner-bloc mr-2">
+                  <h2 i18n="@@ux.fhir-broker.patient-detail.title.marital-status">MaritalStatus :</h2>
+                  <p>
+                    <app-fhir-codeable-concept [value]="patient.maritalStatus"></app-fhir-codeable-concept>
+                  </p>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="patient.gender">
+              <div class="col-lg-3">
+                <div class="inner-bloc mr-2">
+                  <h2 i18n="@@ux.fhir-broker.patient-detail.title.gender">Gender :</h2>
+                  <p>{{patient.gender}}</p>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="patient.telecom">
+              <div *ngFor="let telecom of patient.telecom" class="col-lg-3">
+                <div class="inner-bloc mr-2">
+                  <h2 i18n="@@ux.fhir-broker.patient-detail.title.patientTelecom">Patient telecom :</h2>
+                  <p>Value: {{telecom.value}}</p>
+                  <p>Type: {{telecom.system}}</p>
+                  <p>Use: {{telecom.use}}</p>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab i18n-label="@@ux.fhir-broker.patient-detail.tab-title.medication" label="Medications">
+        <ng-template matTabContent>
+          <app-medications></app-medications>
+        </ng-template>
+      </mat-tab>
+      <mat-tab i18n-label="@@ux.fhir-broker.patient-detail.tab-title.diagnosis" label="Diagnosis">
+        <ng-template matTabContent>
+          <app-diagnosis></app-diagnosis>
+        </ng-template>
+      </mat-tab>
+      <mat-tab i18n-label="@@ux.fhir-broker.patient-detail.tab-title.documents" label="Documents">Documents</mat-tab>
+      <mat-tab i18n-label="@@ux.fhir-broker.patient-detail.tab-title.family-history" label="Family history">Family
+        history
+      </mat-tab>
+      <mat-tab i18n-label="@@ux.fhir-broker.patient-detail.tab-title.notes" label="Note">
+        <div class="row-blocs mb-3 app-primary-color-100 contact-zone">
+          <div class="row no-gutters">
+            <div *ngIf="patient.identifier" class="col-lg-12">
+              <div class="inner-bloc mr-2 col-md-6 col-12">
+                <h2 class="title-champ-p" i18n="@@ux.fhir-broker.patient-detail.title.notes">
+                  Sample notes:
+                </h2>
+                <p>15/04/2018 08:03</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                  officia deserunt mollit anim id est laborum.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+  </div>
+</app-content-wrapper>

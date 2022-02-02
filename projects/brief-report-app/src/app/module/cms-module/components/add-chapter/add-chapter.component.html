@@ -1,0 +1,19 @@
+<h1 class="h1">Ajout d'un chapitre</h1>
+<form (ngSubmit)="onSubmitForm()" [formGroup]="createSiteForm">
+
+  <div class="main-container container-spaced">
+    <mat-form-field>
+      <input #name formControlName="name" matInput placeholder="Nom" required>
+    </mat-form-field>
+
+    <mat-form-field style="display: none">
+      <input [slugOf]="name" formControlName="slug" matInput placeholder="id" required>
+    </mat-form-field>
+    <div class="action-button">
+      <button (click)="back()" class="mat-stroked-button" mat-button>Annuler</button>
+      <button color="accent" mat-raised-button type="submit">Créer</button>
+    </div>
+
+  </div>
+</form>
+

@@ -1,0 +1,27 @@
+<section class="header-ch">
+  <div class="container">
+    <div class="top-header-ch">
+      <div class="row">
+        <div class="col-md-6 col-6">
+          <div class="onglet-h text-center">
+            <h2><span class="material-icons">
+                  menu_book
+                </span>Type de contenus</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <app-cms-edit-node-types (onNodeTypeSelected)="onNodeTypeSelected($event)" [selectedOrganizationId]="orgId"
+                               [selectedSiteId]="slug">
+        <div role="actions">
+          <button [routerLink]="'node-type/add'" class="mat-stroked-button" mat-raised-button>Ajouter</button>
+        </div>
+      </app-cms-edit-node-types>
+    </div>
+  </div>
+</div>

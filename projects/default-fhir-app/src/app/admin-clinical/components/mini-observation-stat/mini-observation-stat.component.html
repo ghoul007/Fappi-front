@@ -1,0 +1,17 @@
+<div class="inner1-graph" *ngIf="observation">
+  <span class="material-icons">accessibility</span>  <span class="title1-g d-block">
+    <ng-container *ngIf="!title">{{observation.code?.coding[0]?.display}}</ng-container>
+    <ng-container *ngIf="title">{{title}}</ng-container>
+  </span>
+  <div class="row-ch">
+    <span class="num-g" *ngIf="allowRound">{{observation.valueQuantity?.value|number:'0.0-0'}}</span>
+    <span class="num-g" *ngIf="!allowRound">{{observation.valueQuantity?.value}}</span>
+    <div class="chiffre">
+      <span class="material-icons">trending_up</span>
+      {{observation.valueQuantity?.unit}}
+    </div>
+  </div>
+</div>
+<div class="inner1-graph" *ngIf="observation">
+  <p>{{observation?.effectiveDateTime|date:'short'}}</p>
+</div>

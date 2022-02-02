@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Upload a file</h2>
+<mat-dialog-content *ngIf="orgId" class="container-spaced">
+  <div>
+    <div *ngIf="error">
+      error: {{ error }}
+    </div>
+    <div *ngIf="uploadResponse?.status === 'error'">
+      {{ uploadResponse.message }}
+    </div>
+    <div *ngIf="uploadResponse?.status === 'progress'">
+      <mat-progress-bar mode="determinate" value="+uploadResponse?.message"></mat-progress-bar>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+      <input (change)="onFileChange($event)" name="avatar" type="file"/>
+      <button type="submit">Upload</button>
+    </form>
+  </div>
+</mat-dialog-content>

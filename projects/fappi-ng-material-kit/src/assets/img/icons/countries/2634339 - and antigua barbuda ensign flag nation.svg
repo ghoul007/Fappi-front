@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve"
+     xmlns="http://www.w3.org/2000/svg"><style type="text/css">
+	.st0 {
+    fill: #FFFFFF;
+  }
+
+  .st1 {
+    fill: #406FB6;
+  }
+
+  .st2 {
+    fill: #010101;
+  }
+
+  .st3 {
+    fill: #BD1F34;
+  }
+
+  .st4 {
+    fill: #F4D130;
+  }
+</style>
+  <g id="XMLID_1_"><rect class="st0" height="298.7" id="XMLID_9_" width="512" y="106.7"/>
+    <rect class="st1" height="64.9" id="XMLID_8_" width="512" y="223.5"/>
+    <rect class="st2" height="116.8" id="XMLID_7_" width="512" y="106.7"/>
+    <polygon class="st3" id="XMLID_6_" points="512,106.7 256,405.3 0,106.7 0,405.3 512,405.3  "/>
+    <polygon class="st4" id="XMLID_5_"
+             points="304.7,213.8 346,186.3 297.3,195.9 324.9,154.7 283.6,182.2 293.3,133.5 265.7,174.8    256,126.1 246.3,174.8 218.7,133.5 228.4,182.2 187.1,154.7 214.7,195.9 166,186.3 207.3,213.8 158.6,223.5 353.4,223.5  "/></g></svg>
